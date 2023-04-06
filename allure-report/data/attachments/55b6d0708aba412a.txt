@@ -1,0 +1,1 @@
+{"timestamp":"2023-04-06T00:19:37.4860000+48:48","code":400,"exception":"BadRequestExceptionPIER","message":"Estágio do cartão não permite desbloqueio: Cartão não impresso","path":"/v2/api/cartoes/{id}/desbloquear"}

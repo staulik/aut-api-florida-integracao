@@ -1,0 +1,1 @@
+{"error":{"errorCode":"1001","message":"Erro na inclusão do Party","errors":["Cannot read properties of undefined (reading 'optinFl')"]}}
