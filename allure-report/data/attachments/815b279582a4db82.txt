@@ -1,0 +1,1 @@
+{"id":"1365","idProduto":0,"idOrigemComercial":0,"idPessoa":0,"idStatusConta":"2","diaVencimento":0,"melhorDiaCompra":0,"dataStatusConta":"2023-04-05T22:05:38.656-0300","dataCadastro":"","dataUltimaAlteracaoVencimento":"","valorRenda":0,"idProposta":0,"funcaoAtiva":"","possuiOverLimit":"","behaviorScore":0}
