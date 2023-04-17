@@ -1,0 +1,1 @@
+{"error":{"errorCode":"1200","message":"O domínio do campo não foi respeitado","errors":[{"errorCode":"1","message":"occupationCode informado não respeita o domínio ISCO-08"}]}}
