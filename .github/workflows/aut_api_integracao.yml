@@ -66,9 +66,9 @@ jobs:
         # Required mail subject:
          subject: Github Actions test job result
         # Required recipients' addresses:
-         to: reiload@gmail.com
+         to: silvio.aulik@gmail.com
         # Required sender full name (address can be skipped):
-         from: automation.reinaldo@gmail.com
+         from: staulik10@gmail.com
         # Optional plain body:
          html_body: <p>Build de Teste Realizado ;) Projeto https://github.com/${{github.repository}} </p><br>
               <p>Link do Reporte do Projeto <a href="https://staulik.github.io/aut-api-florida-integracao/allure-report/#">Link Report</a></p>
