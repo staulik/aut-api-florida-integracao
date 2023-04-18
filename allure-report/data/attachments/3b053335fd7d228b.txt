@@ -1,0 +1,1 @@
+{"idPessoa":23,"nomeMae":"Ana Souza","idEstadoCivil":2,"idNacionalidade":76,"email":"email@email.com","salario":1000,"naturalidadeCidade":"São Paulo","naturalidadeEstado":"SP","grauInstrucao":1,"nomePai":"João Souza","pessoaPoliticamenteExposta":true,"patrimonioTotal":0,"flagNomePaiNaoInformado":false}
