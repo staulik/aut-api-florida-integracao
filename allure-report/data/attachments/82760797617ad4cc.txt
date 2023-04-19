@@ -1,1 +1,0 @@
-{"error":{"errorCode":"1042","message":"Participante já é existente"}}
