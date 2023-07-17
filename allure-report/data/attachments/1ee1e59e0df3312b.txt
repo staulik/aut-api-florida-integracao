@@ -1,0 +1,1 @@
+{"content":[{"id":36,"nome":"Danilo Souza","tipo":"1","cpf":"34912196800","dataNascimento":"1995-02-03T00:00:00.000Z","sexo":"2","cnpj":"","simplesNacional":false}],"first":true,"firstPage":true,"hasContent":true,"hasNextPage":false,"hasPreviousPage":false,"last":true,"nextPage":0,"number":0,"numberOfElements":1,"previousPage":0,"size":1,"totalElements":1,"totalPages":1}
