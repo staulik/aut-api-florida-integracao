@@ -1,0 +1,1 @@
+{"error":{"errorCode":"2000","message":"O programa informado não está mais ativo","errors":[{"message":"programId inativo","code":"1"}]}}
