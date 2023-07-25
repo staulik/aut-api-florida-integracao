@@ -1,1 +1,0 @@
-{"error":{"errorCode":"0005","message":"A conta informada é inexistente","errors":[{"code":"1","message":"accountId inexistente"}]}}
