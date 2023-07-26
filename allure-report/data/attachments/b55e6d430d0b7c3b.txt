@@ -1,0 +1,1 @@
+{"errorCode":"INT-VAL003","errors":[{"schemaPath":"#/properties/conta/additionalProperties","params":{"additionalProperty":"limiteConsignado"},"message":"não são permitidas propriedades adicionais"},{"schemaPath":"#/properties/conta/properties/adicionais/minItems","params":{"limit":1},"message":"não deve ter menos que 1 elemento"}],"name":"ValidationError","httpStatusCode":400}

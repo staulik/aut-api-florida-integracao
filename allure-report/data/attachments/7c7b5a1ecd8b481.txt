@@ -1,0 +1,1 @@
+{"error":{"errorCode":"3190","message":"Não foi possível recuperar o cartão"}}
