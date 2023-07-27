@@ -1,1 +1,0 @@
-{"timestamp":"2023-07-26T06:26:31.4790000+47:47","code":404,"exception":"BadRequestExceptionPIER","message":"Não foi possível recuperar dados PCI do cartão","path":"/v2/api/cartoes/{id}/desbloquear"}

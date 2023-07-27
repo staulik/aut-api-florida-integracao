@@ -1,1 +1,0 @@
-{"error":{"errorCode":"3200","message":"Não foi possível recuperar dados PCI do cartão"}}
