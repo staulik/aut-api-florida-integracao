@@ -1,1 +1,0 @@
-{"error":{"errorCode":"1083","message":"A cidade não respeita o domínio ou não pertence ao estado informado","errors":[{"code":"1","message":"city informado não respeita o domínio ou não pertence ao state informado/cadastrado"}]}}
