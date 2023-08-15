@@ -1,3 +1,0 @@
-pm.test("Successful POST request", function () {
-    pm.response.to.have.status(200);
-});
