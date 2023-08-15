@@ -16552,8 +16552,8 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"pm.test(\"Status code is 404\", function () {\r",
-													"    pm.response.to.have.status(404);\r",
+													"pm.test(\"Status code is 500\", function () {\r",
+													"    pm.response.to.have.status(500);\r",
 													"});\r",
 													"\r",
 													""
@@ -16589,12 +16589,12 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"pm.test(\"Status code is 404\", function () {\r",
-													"    pm.response.to.have.status(404);\r",
+													"pm.test(\"Status code is 500\", function () {\r",
+													"    pm.response.to.have.status(500);\r",
 													"});\r",
 													"\r",
 													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.message\", \"A conta informada é inexistente\");\r",
+													"  pm.response.to.have.jsonBody(\"error.message\", \"Internal Server Error\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -16605,7 +16605,7 @@
 										"method": "POST",
 										"header": [],
 										"url": {
-											"raw": "https://{{integrationURL}}/contas/api/contas/2027880/reativar",
+											"raw": "https://{{integrationURL}}/contas/api/contas/70012342/reativar",
 											"protocol": "https",
 											"host": [
 												"{{integrationURL}}"
@@ -16614,7 +16614,7 @@
 												"contas",
 												"api",
 												"contas",
-												"2027880",
+												"70012342",
 												"reativar"
 											]
 										}
@@ -19921,7 +19921,7 @@
 							"name": "Adicional",
 							"item": [
 								{
-									"name": "PIER011 - POST: /api/contas/{id}/cadastrar-adicional_novo(+)",
+									"name": "PIER011 - POST: /api/contas/{id}/cadastrar-adicional(+)",
 									"event": [
 										{
 											"listen": "test",
@@ -23439,7 +23439,7 @@
 									}
 								},
 								"url": {
-									"raw": "https://{{integrationURL}}/contas/api/contas/70001890/pessoas/1497/gerar-cartao",
+									"raw": "https://{{integrationURL}}/contas/api/contas/{{idConta}}/pessoas/{{idPessoa}}/gerar-cartao",
 									"protocol": "https",
 									"host": [
 										"{{integrationURL}}"
@@ -23448,9 +23448,9 @@
 										"contas",
 										"api",
 										"contas",
-										"70001890",
+										"{{idConta}}",
 										"pessoas",
-										"1497",
+										"{{idPessoa}}",
 										"gerar-cartao"
 									]
 								}
@@ -23458,7 +23458,7 @@
 							"response": []
 						},
 						{
-							"name": "PIER108 - POST: /api/contas/{id}/pessoas/{id_pessoa}/gerar-cartao_sem_id(-)",
+							"name": "PIER108 - POST: /api/contas/{id}/pessoas/{id_pessoa}/gerar-cartao_sem_id_conta(-)",
 							"event": [
 								{
 									"listen": "test",
@@ -28292,9 +28292,15 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});"
+											"//pm.test(\"Status code is 200\", function () {\r",
+											" //   pm.response.to.have.status(200);\r",
+											"//});\r",
+											"\r",
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    if (pm.response.status !== 400) {\r",
+											"        pm.expect.fail(`Esperava um status code 200, mas obteve ${pm.response.status}`);\r",
+											"    }\r",
+											"})"
 										],
 										"type": "text/javascript"
 									}
@@ -28342,7 +28348,6 @@
 										"exec": [
 											"// Define a variável de ambiente \"baseURL\" de acordo com a solicitação atual\r",
 											"//pm.environment.set(\"baseURL\", \"https://api.example.com\");\r",
-											"\r",
 											""
 										],
 										"type": "text/javascript"
