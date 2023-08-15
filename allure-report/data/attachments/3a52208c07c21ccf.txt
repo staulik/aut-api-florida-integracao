@@ -1,0 +1,3 @@
+level: log, messages: CPF gerado: 07385995810
+level: log, messages: Request generated at: 2023-08-15T19:42:55.274Z
+level: log, messages: O cpf gerado: 07385995810 está associado ao idPessoa: 70004891 e a conta: 70006708

@@ -1,0 +1,1 @@
+{"errorCode":"INT-VAL003","errors":[{"schemaPath":"#/properties/enderecos/items/properties/cep/pattern","params":{"pattern":"^[0-9]{8}$"},"message":"deve corresponder ao padrão \"^[0-9]{8}$\""}],"name":"ValidationError","httpStatusCode":400}

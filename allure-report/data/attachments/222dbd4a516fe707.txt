@@ -1,0 +1,1 @@
+{"errorCode":"INT-VAL003","errors":[{"schemaPath":"#/properties/enderecos/items/properties/pais/maxLength","params":{"limit":20},"message":"não deve ser maior que 20 caracteres"}],"name":"ValidationError","httpStatusCode":400}
