@@ -1,0 +1,17 @@
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+
+// Realizar as validações desejadas utilizando pm.test()
+    pm.test("Validação produto Carmen Steffens x Data de Vencimento", function () {
+      const responseBody = pm.response.json();
+
+      pm.expect(responseBody.idProduto).to.eql(pm.variables.get("idProduto"));
+      pm.expect(responseBody.diaVencimento).to.eql(pm.variables.get("diaVencimento"));
+      
+      // Adicione outras validações necessárias aqui
+    });
+
+    
+  

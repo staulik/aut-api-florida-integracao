@@ -1,0 +1,13 @@
+pm.test("Status code is 200", function () {
+pm.response.to.have.status(200);
+});
+
+var currentDateTime = new Date();
+console.log("Request generated at: " + currentDateTime.toISOString());
+
+
+const responseJson = pm.response.json();
+const idConta = responseJson.idConta;
+const idPessoa = responseJson.idPessoa;
+const numeroReceitaFederal = responseJson.numeroReceitaFederal;
+console.log(`O cpf gerado: ${numeroReceitaFederal} está associado ao idPessoa: ${idPessoa} e a conta: ${idConta}`);

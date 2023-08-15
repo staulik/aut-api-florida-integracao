@@ -1,0 +1,17 @@
+
+
+pm.test("Status code is 422", function () {
+    pm.response.to.have.status(422);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+    pm.response.to.be.withBody;
+    pm.response.to.be.json;
+});
+
+
+pm.test("Validar mensagem de erro", function () {
+  pm.response.to.have.jsonBody("error.errors[0].message", "city informado não respeita o domínio ou não pertence ao state informado/cadastrado");
+});
+
+

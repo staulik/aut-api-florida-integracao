@@ -1,0 +1,70 @@
+pm.test("Status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+//schema
+const schema = {
+   
+    "type": "object",
+    "default": {},
+    "title": "Root Schema",
+    "required": [
+        "error"
+    ],
+    "properties": {
+        "error": {
+            "type": "object",
+            "default": {},
+            "title": "The error Schema",
+            "required": [
+                "errorCode",
+                "message"
+            ],
+            "properties": {
+                "errorCode": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The errorCode Schema",
+                    "examples": [
+                        "400"
+                    ]
+                },
+                "message": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The message Schema",
+                    "examples": [
+                        "[remainder of division is not zero (1.66667 / 1.0E-4), format attribute \"float\" not supported]"
+                    ]
+                }
+            },
+            "examples": [{
+                "errorCode": "400",
+                "message": "[remainder of division is not zero (1.66667 / 1.0E-4), format attribute \"float\" not supported]"
+            }]
+        }
+    },
+    "examples": [{
+        "error": {
+            "errorCode": "400",
+            "message": "[remainder of division is not zero (1.66667 / 1.0E-4), format attribute \"float\" not supported]"
+        }
+    }]
+}
+
+pm.test("Validar a estrutura do corpo", function () {
+    pm.response.to.have.jsonSchema(schema);
+});
+
+
+//corpo
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.badRequest
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+// msg
+pm.test("Validar mensagem de erro", function () {
+  pm.response.to.have.jsonBody("error.message", "[remainder of division is not zero (1.66667 / 1.0E-4), format attribute \"float\" not supported]");
+});

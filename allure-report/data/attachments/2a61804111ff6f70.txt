@@ -1,0 +1,57 @@
+pm.variables.set("schema",
+{
+
+  "title": "Generated schema for Root",
+  "type": "object",
+  "properties": {
+    "error": {
+      "type": "object",
+      "properties": {
+        "errorCode": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schemaPath": {
+                "type": "string"
+              },
+              "params": {
+                "type": "object",
+                "properties": {
+                  "limit": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "limit"
+                ]
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "schemaPath",
+              "params",
+              "message"
+            ]
+          }
+        }
+      },
+      "required": [
+        "errorCode",
+        "message",
+        "errors"
+      ]
+    }
+  },
+  "required": [
+    "error"
+  ]
+});

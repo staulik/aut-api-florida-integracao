@@ -1,0 +1,11 @@
+//https://viverebrasil.atlassian.net/browse/FLOR-7348 rejeitado pelo DEV
+
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+    
+    pm.response.to.be.withBody;
+    pm.response.to.be.json;
+});

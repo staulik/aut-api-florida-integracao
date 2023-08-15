@@ -1,0 +1,38 @@
+pm.test("Status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+pm.test("Status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+// Teste para verificar a resposta da requisição
+pm.test("Validar mensagem de erro", function () {
+    // Extrair o corpo da resposta em JSON
+    var responseBody = pm.response.json();
+
+    // Verificar se o campo "errors" existe na resposta
+    pm.expect(responseBody.errors).to.exist;
+
+    // Verificar o conteúdo do campo "errors"
+    pm.expect(responseBody.errors).to.be.an('array').that.is.not.empty;
+
+    // Verificar o campo "schemaPath"
+    pm.expect(responseBody.errors[0].schemaPath).to.equal("#/properties/cpf/minLength");
+
+    // Verificar o campo "params" com o valor correto
+    pm.expect(responseBody.errors[0].params.limit).to.equal(11);
+
+    // Verificar o campo "message"
+    pm.expect(responseBody.errors[0].message).to.equal("não deve ser mais curta que 11 caracteres");
+});

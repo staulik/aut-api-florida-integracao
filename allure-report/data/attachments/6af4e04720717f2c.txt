@@ -1,0 +1,9 @@
+//para gerar o cartão executar o endpoint:https://{{integrationURL}}/contas/api/contas?idPessoa=1298 e capturar o id gerado no request e passar como argumento neste endpoint. A var "idConta" esta armazendo o id gerado no endpoint acima.
+console.log("Valor da variável idProposta:", pm.environment.get("idProposta"));
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+var currentDateTime = new Date();
+console.log("Request generated at: " + currentDateTime.toISOString());
+

@@ -1,0 +1,21 @@
+pm.test("Status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.badRequest;
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+// Teste para verificar a resposta da requisição
+pm.test("Validar mensagem de erro", function () {
+    // Extrair o corpo da resposta em JSON
+    var responseBody = pm.response.json();
+
+       // Verificar o campo "schemaPath"
+    pm.expect(responseBody.errors[0].schemaPath).to.equal("#/properties/telefones/items/then/properties/telefone/pattern");
+
+        // Verificar o campo "message"
+    pm.expect(responseBody.errors[0].message).to.equal("deve corresponder ao padrão \"^[9]{1}[1-9]{1}[0-9]{3}[0-9]{4}$\"");
+});

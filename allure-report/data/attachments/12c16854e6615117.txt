@@ -1,0 +1,19 @@
+// Obter a resposta em formato JSON
+var responseJson = pm.response.json();
+
+pm.test("Status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.badRequest;
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+pm.test("Validar resposta da requisição", function () {
+    // Extrair o corpo da resposta em JSON
+    var responseBody = pm.response.json();
+    pm.expect(responseBody.codRetorno).to.equal(400);
+    pm.expect(responseBody.descricaoRetorno).to.equal("Não foi possível recuperar o programa");
+});

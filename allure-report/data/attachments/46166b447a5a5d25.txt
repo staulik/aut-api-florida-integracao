@@ -1,0 +1,2 @@
+var vramal = "AA";
+pm.globals.set("vramal", vramal);

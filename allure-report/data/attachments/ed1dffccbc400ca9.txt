@@ -1,0 +1,21 @@
+pm.test("Status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.badRequest;
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+// Validar as mensagens de erro
+pm.test("Validar mensagens de erro", function () {
+    var responseBody = pm.response.json();
+
+   // Verificar a descrição do retorno (descricaoRetorno)
+    pm.expect(responseBody.descricaoRetorno).to.equal("Programa não encontrado");
+
+    // Verificar a origem da resposta (source)
+    pm.expect(responseBody.source).to.equal("MIDDLEWARE");
+    
+});

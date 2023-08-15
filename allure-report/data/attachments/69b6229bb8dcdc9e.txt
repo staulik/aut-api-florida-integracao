@@ -1,0 +1,14 @@
+pm.test("Status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("Valida mensagem de erro", function () {
+    var responseBody = pm.response.json();
+    pm.expect(responseBody.error.message).to.equal("Faltando query string parameters.");
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+

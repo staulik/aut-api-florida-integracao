@@ -1,0 +1,18 @@
+pm.test("Status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.badRequest;
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+// Verifica o valor do campo "errorCode"
+pm.test("Verifica o valor do campo errorCode", function () {
+    pm.expect(pm.response.json().error.errorCode).to.eql("2001");
+    pm.expect(pm.response.json().error.message).to.eql("A data de vencimento informada é inválida");
+    pm.expect(pm.response.json().error.errors[0].message).to.eql("dueDateId não existe, não pertencente ao programa ou está inativo");
+    pm.expect(pm.response.json().error.errors[0].code).to.eql("1");
+});
+

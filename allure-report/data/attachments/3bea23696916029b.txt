@@ -1,0 +1,15 @@
+pm.test("Status code is 422", function () {
+    pm.response.to.have.status(422);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+pm.test("Valida mensagem de erro", function () {
+    var responseBody = pm.response.json();
+    pm.expect(responseBody.error.message).to.equal("O telefone informado é inexistente.");
+});
+
+

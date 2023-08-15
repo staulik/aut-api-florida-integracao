@@ -1,0 +1,20 @@
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+})
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.ok;
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+
+var jsonData = pm.response.json();
+var idResponse = jsonData.id;
+var idConta = pm.globals.get("idConta");
+
+pm.test("Valida se o N. da conta listada é o mesmo da conta criada", function() {
+    pm.expect(idResponse).to.eql(idConta);
+});
+
+

@@ -1,0 +1,26 @@
+pm.test("Status code is 500", function () {
+    pm.response.to.have.status(500);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.serverError
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+
+// Faz a análise do JSON de resposta
+const responseJson = pm.response.json();
+
+// Verifica se o código de erro é 9999
+pm.test("Código de erro é 9999", function() {
+    pm.expect(responseJson.error.errorCode).to.equal("9999");
+});
+
+
+
+
+// Verifica se a mensagem de erro está correta
+pm.test("Mensagem de erro está correta", function() {
+    pm.expect(responseJson.error.message).to.equal("Internal Server Error");
+});

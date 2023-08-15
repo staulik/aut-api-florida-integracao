@@ -1,0 +1,24 @@
+pm.globals.set("idProdutos", [11]);
+pm.globals.set("diasVencimento", [1,5,13,17,21,25]);
+
+// Loop for para iterar sobre os valores dos campos idProduto e diaVencimento
+for (let i = 0; i < pm.globals.get("idProdutos").length; i++) {
+  // Pré-script para atualizar os valores no corpo da requisição antes de cada teste
+  pm.variables.set("idProduto", pm.globals.get("idProdutos")[i]);
+
+  for (let j = 0; j < pm.globals.get("diasVencimento").length; j++) {
+    // Atualizar o valor do campo diaVencimento
+    pm.variables.set("diaVencimento", pm.globals.get("diasVencimento")[j]);
+
+    // Exibir mensagem no console
+    console.log(`Produto ${pm.variables.get("idProduto")}, data de vencimento ${pm.variables.get("diaVencimento")}`);
+
+  
+   
+  }
+}
+
+
+
+
+

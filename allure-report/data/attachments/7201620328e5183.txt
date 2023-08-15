@@ -1,0 +1,2 @@
+var ddd_tel = "00";
+pm.globals.set("ddd_tel", ddd_tel);

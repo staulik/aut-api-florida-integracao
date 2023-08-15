@@ -1,0 +1,3 @@
+pm.test("Validar status 200 ou 400", function () {
+    pm.expect(pm.response.code).to.be.oneOf([200, 400]);
+});

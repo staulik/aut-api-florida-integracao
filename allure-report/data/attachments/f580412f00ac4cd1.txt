@@ -1,0 +1,11 @@
+// Obter a resposta em formato JSON
+var responseJson = pm.response.json();
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+// Verificar se a mensagem está correta
+pm.test("Validar mensagem do campo descricaoRetorno", function () {
+    var descricaoRetorno = responseJson.descricaoRetorno; 
+    pm.expect(descricaoRetorno).to.equal("Solicitação cadastrada com sucesso");
+});

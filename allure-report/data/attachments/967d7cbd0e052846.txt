@@ -1,0 +1,221 @@
+// Extrai o valor do campo id da resposta
+const idEnderecoValue = pm.response.json().id;
+// Salva o valor em uma variável de ambiente chamada "idEndereco"
+pm.environment.set("idEndereco", idEnderecoValue.toString());
+console.log("Valor da variável idEndereco:", pm.environment.get("idEndereco"));
+
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+const schema = {
+    "type": "object",
+    "default": {},
+    "title": "Root Schema",
+    "required": [
+        "id",
+        "idPessoa",
+        "idTipoEndereco",
+        "cep",
+        "logradouro",
+        "numero",
+        "cidade",
+        "uf",
+        "pais",
+        "dataInclusao",
+        "dataUltimaAtualizacao",
+        "flagCorrespondencia",
+        "complemento",
+        "pontoReferencia",
+        "bairro",
+        "tempoResidenciaAnos",
+        "tempoResidenciaMeses"
+    ],
+    "properties": {
+        "id": {
+            "type": "integer",
+            "default": 0,
+            "title": "The id Schema",
+            "examples": [
+                2830
+            ]
+        },
+        "idPessoa": {
+            "type": "integer",
+            "default": 0,
+            "title": "The idPessoa Schema",
+            "examples": [
+                264
+            ]
+        },
+        "idTipoEndereco": {
+            "type": "integer",
+            "default": 0,
+            "title": "The idTipoEndereco Schema",
+            "examples": [
+                4
+            ]
+        },
+        "cep": {
+            "type": "string",
+            "default": "",
+            "title": "The cep Schema",
+            "examples": [
+                "01500005"
+            ]
+        },
+        "logradouro": {
+            "type": "string",
+            "default": "",
+            "title": "The logradouro Schema",
+            "examples": [
+                "Avenida Paulista"
+            ]
+        },
+        "numero": {
+            "type": "integer",
+            "default": 0,
+            "title": "The numero Schema",
+            "examples": [
+                1501
+            ]
+        },
+        "cidade": {
+            "type": "string",
+            "default": "",
+            "title": "The cidade Schema",
+            "examples": [
+                "São Paulo"
+            ]
+        },
+        "uf": {
+            "type": "string",
+            "default": "",
+            "title": "The uf Schema",
+            "examples": [
+                "SP"
+            ]
+        },
+        "pais": {
+            "type": "string",
+            "default": "",
+            "title": "The pais Schema",
+            "examples": [
+                "Brasil"
+            ]
+        },
+        "dataInclusao": {
+            "type": "string",
+            "default": "",
+            "title": "The dataInclusao Schema",
+            "examples": [
+                "2023-05-15T13:33:42.757-03:00"
+            ]
+        },
+        "dataUltimaAtualizacao": {
+            "type": "string",
+            "default": "",
+            "title": "The dataUltimaAtualizacao Schema",
+            "examples": [
+                "2023-05-15T13:33:42.757-03:00"
+            ]
+        },
+        "flagCorrespondencia": {
+            "type": "boolean",
+            "default": false,
+            "title": "The flagCorrespondencia Schema",
+            "examples": [
+                true
+            ]
+        },
+        "complemento": {
+            "type": "string",
+            "default": "",
+            "title": "The complemento Schema",
+            "examples": [
+                "Apto 100"
+            ]
+        },
+        "pontoReferencia": {
+            "type": "string",
+            "default": "",
+            "title": "The pontoReferencia Schema",
+            "examples": [
+                "Em frente ao posto de gasolina"
+            ]
+        },
+        "bairro": {
+            "type": "string",
+            "default": "",
+            "title": "The bairro Schema",
+            "examples": [
+                "Bela Vista"
+            ]
+        },
+        "tempoResidenciaAnos": {
+            "type": "integer",
+            "default": 0,
+            "title": "The tempoResidenciaAnos Schema",
+            "examples": [
+                2
+            ]
+        },
+        "tempoResidenciaMeses": {
+            "type": "integer",
+            "default": 0,
+            "title": "The tempoResidenciaMeses Schema",
+            "examples": [
+                8
+            ]
+        }
+    },
+    "examples": [{
+        "id": 2830,
+        "idPessoa": 264,
+        "idTipoEndereco": 4,
+        "cep": "01500005",
+        "logradouro": "Avenida Paulista",
+        "numero": 1501,
+        "cidade": "São Paulo",
+        "uf": "SP",
+        "pais": "Brasil",
+        "dataInclusao": "2023-05-15T13:33:42.757-03:00",
+        "dataUltimaAtualizacao": "2023-05-15T13:33:42.757-03:00",
+        "flagCorrespondencia": true,
+        "complemento": "Apto 100",
+        "pontoReferencia": "Em frente ao posto de gasolina",
+        "bairro": "Bela Vista",
+        "tempoResidenciaAnos": 2,
+        "tempoResidenciaMeses": 8
+    }]
+}
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.ok
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+pm.test("Validar a estrutura do corpo", function () {
+    pm.response.to.have.jsonSchema(schema);
+});
+
+// Extrair o valor do campo "idPessoa" do response
+var responseJson = pm.response.json();
+var idPessoaResponse = responseJson.idPessoa;
+
+// Extrair o valor do campo "idPessoa" do request
+var queryParams = pm.request.url.query.all();
+var idPessoaRequest = null;
+
+for (var i = 0; i < queryParams.length; i++) {
+    if (queryParams[i].key === 'idPessoa') {
+        idPessoaRequest = parseInt(queryParams[i].value);
+        break;
+    }
+}
+
+// Comparar os valores
+pm.test("Validar o valor do campo idPessoa no response", function () {
+    pm.expect(idPessoaResponse).to.eql(idPessoaRequest);
+});

@@ -1,0 +1,96 @@
+pm.variables.set("schema",
+{  "title": "Generated schema for Root",
+  "type": "object",
+  "properties": {
+    "content": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "tipo": {
+            "type": "string"
+          },
+          "cpf": {
+            "type": "string"
+          },
+          "dataNascimento": {
+            "type": "string"
+          },
+          "sexo": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "nome",
+          "tipo",
+          "cpf",
+          "dataNascimento",
+          "sexo"
+        ]
+      }
+    },
+    "first": {
+      "type": "boolean"
+    },
+    "firstPage": {
+      "type": "boolean"
+    },
+    "hasContent": {
+      "type": "boolean"
+    },
+    "hasNextPage": {
+      "type": "boolean"
+    },
+    "hasPreviousPage": {
+      "type": "boolean"
+    },
+    "last": {
+      "type": "boolean"
+    },
+    "nextPage": {
+      "type": "number"
+    },
+    "number": {
+      "type": "number"
+    },
+    "numberOfElements": {
+      "type": "number"
+    },
+    "previousPage": {
+      "type": "number"
+    },
+    "size": {
+      "type": "number"
+    },
+    "totalElements": {
+      "type": "number"
+    },
+    "totalPages": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "content",
+    "first",
+    "firstPage",
+    "hasContent",
+    "hasNextPage",
+    "hasPreviousPage",
+    "last",
+    "nextPage",
+    "number",
+    "numberOfElements",
+    "previousPage",
+    "size",
+    "totalElements",
+    "totalPages"
+  ]
+}
+);

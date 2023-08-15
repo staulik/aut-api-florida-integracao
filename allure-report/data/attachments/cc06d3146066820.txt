@@ -1,0 +1,14 @@
+// Extrai o valor do campo "id" do response
+const idValue = pm.response.json().content[0].id;
+// Salva o valor em uma variável de ambiente chamada "idPessoa"
+pm.environment.set("idPessoa", idValue.toString());
+// Exibe o valor da variável no console do Postman
+console.log("Capturado idPessoa:", pm.environment.get("idPessoa"));
+
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+var currentDateTime = new Date();
+console.log("Request generated at: " + currentDateTime.toISOString());
+

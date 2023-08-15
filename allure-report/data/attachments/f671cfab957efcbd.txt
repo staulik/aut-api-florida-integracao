@@ -1,0 +1,2 @@
+var tpfone = "A";
+pm.globals.set("tpfone", tpfone);

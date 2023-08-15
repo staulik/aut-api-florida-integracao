@@ -1,0 +1,14 @@
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+const responseJson = pm.response.json();
+pm.test("Check o dominio 'idTipoEndereco' 1..5", function() {
+    pm.expect(responseJson.idTipoEndereco).to.be.oneOf([1, 2, 3, 4, 5]);
+});
+

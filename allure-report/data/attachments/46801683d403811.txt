@@ -1,0 +1,16 @@
+const delayInSeconds = 60;
+
+setTimeout(function () {
+    // Substitua as variáveis na URL e execute a solicitação
+    const url = `https://${pm.environment.get('integrationURL')}/pessoas/api/pessoas?cpf=${pm.environment.get('generatedCPF')}`;
+    
+    pm.sendRequest({
+        url: url,
+        method: 'GET'
+    }, function (err, response) {
+        // Adicione o código de tratamento da resposta aqui
+    });
+}, delayInSeconds * 1000);
+
+var currentDateTime = new Date();
+pm.environment.set("requestDateTime", currentDateTime.toISOString());

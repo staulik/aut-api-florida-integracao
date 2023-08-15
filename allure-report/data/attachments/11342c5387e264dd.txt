@@ -1,0 +1,12 @@
+pm.test("Status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+pm.test("Validar mensagem de erro", function () {
+  pm.response.to.have.jsonBody("error.message", "[instance value (6) not found in enum (possible values: [1,2,3,4,5])]");
+});

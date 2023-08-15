@@ -1,0 +1,74 @@
+//pm.variables.set("schema",
+//{
+//  "title": "Generated schema for Root",
+//  "type": "object",
+ // "properties": {
+  //  "idPessoa": {
+  //    "type": "number"
+  //  },
+  //  "nomeMae": {
+  //    "type": "string"
+  //  },
+  //  "idEstadoCivil": {
+  //    "type": "number"
+  //  },
+  //  "idNacionalidade": {
+  //    "type": "number"
+  //  },
+   // "email": {
+   //   "type": "string"
+   // },
+  //  "salario": {
+   //   "type": "number"
+  //  },
+  //  "impedidoFinanciamento": {
+  //    "type": "boolean"
+  //  },
+  //  "naturalidadeCidade": {
+  //    "type": "string"
+  //  },
+  //  "naturalidadeEstado": {
+ //     "type": "string"
+  //  },
+  //  "grauInstrucao": {
+  //    "type": "number"
+  //  },
+  //  "numeroDependentes": {
+  //    "type": "number"
+  //  },
+  //  "nomePai": {
+  //    "type": "string"
+  //  },
+  //  "pessoaPoliticamenteExposta": {
+ //     "type": "boolean"
+ //   },
+  //  "patrimonioTotal": {
+  //    "type": "number"
+ //   },
+ //   "flagNomePaiNaoInformado": {
+ //     "type": "boolean"
+ //   },
+ //   "flagSemEnderecoComercialFixo": {
+ //     "type": "boolean"
+ //   }
+ // },
+ // "required": [
+//    "idPessoa",
+//    "nomeMae",
+ //   "idEstadoCivil",
+ //   "idNacionalidade",
+ //   "email",
+  //  "salario",
+ // "impedidoFinanciamento",
+ //   "naturalidadeCidade",
+//    "naturalidadeEstado",
+ //   "grauInstrucao",
+ //   "numeroDependentes",
+ //   "nomePai",
+ //   "pessoaPoliticamenteExposta",
+ //   "patrimonioTotal",
+ //   "flagNomePaiNaoInformado",
+ //   "flagSemEnderecoComercialFixo"
+ // ]
+//}
+//);

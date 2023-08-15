@@ -1,0 +1,24 @@
+//https://viverebrasil.atlassian.net/browse/FLOR-7361 em analise pelo DEV
+
+pm.test("Status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+    pm.response.to.be.badRequest;
+    pm.response.to.be.withBody;
+    pm.response.to.be.json;
+});
+
+// Faz a análise do JSON de resposta
+const responseJson = pm.response.json();
+
+// Verifica se a mensagem de erro principal está correta
+pm.test("Mensagem de erro principal está correta", function() {
+    pm.expect(responseJson.error.message).to.equal("Dados de entrada inválidos.");
+});
+
+// Verifica se a mensagem de erro individual está correta
+pm.test("Mensagem de erro individual está correta", function() {
+    pm.expect(responseJson.error.errors[0].message).to.equal("O campo dataEmissaoCnh informado é inválido.");
+});

@@ -1,0 +1,22 @@
+
+pm.test("Status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("Validar a estrutura do corpo", function () {
+    const schema = pm.variables.get("schema");
+    pm.response.to.have.jsonSchema(schema);
+});
+
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+    pm.response.to.be.withBody;
+    pm.response.to.be.json;
+});
+
+pm.test("Validar as mensagem apresentadas no response", function () {
+    var jsonData = pm.response.json();
+   
+    pm.expect(jsonData.error.errors[0].message).be.equal("deve ser um número");
+
+});

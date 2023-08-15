@@ -1,0 +1,68 @@
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.ok;
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+// Extrai o valor do campo idPessoa do response
+const idPessoaResponse = pm.response.json().idPessoa;
+// Obtém o valor da variável de ambiente "idProposta"
+const idProposta = pm.environment.get("idPessoa");
+// Converte idProposta para número para fins de comparação
+const idPropostaNumber = parseInt(idProposta);
+// Converte idPessoaResponse para número para fins de comparação
+const idPessoaResponseNumber = parseInt(idPessoaResponse);
+// Compara os valores
+pm.test("Valida idPessoa Response X idProposta Request", function () {
+    pm.expect(idPessoaResponseNumber).to.equal(idPropostaNumber);
+});
+
+
+pm.test("idTipoTelefone não pode devolver nullo", function () {
+    const responseBody = pm.response.json();
+    const nomeCampo = responseBody.idTipoTelefone; 
+    pm.expect(nomeCampo).to.not.equal(null);
+});
+
+pm.test("idPessoa não pode devolver nullo", function () {
+    const responseBody = pm.response.json();
+    const nomeCampo = responseBody.idPessoa; 
+    pm.expect(nomeCampo).to.not.equal(null);
+});
+
+pm.test("ddd não pode devolver nullo", function () {
+    const responseBody = pm.response.json();
+    const nomeCampo = responseBody.ddd; 
+    pm.expect(nomeCampo).to.not.equal(null);
+});
+
+pm.test("telefone não pode devolver nullo", function () {
+    const responseBody = pm.response.json();
+    const nomeCampo = responseBody.telefone; 
+    pm.expect(nomeCampo).to.not.equal(null);
+});
+
+pm.test("ramal não pode devolver nullo", function () {
+    const responseBody = pm.response.json();
+    const nomeCampo = responseBody.ramal; 
+    pm.expect(nomeCampo).to.not.equal(null);
+});
+
+pm.test("status pode devolver nullo", function () {
+    const responseBody = pm.response.json();
+    const nomeCampo = responseBody.status; 
+    pm.expect(nomeCampo).to.not.equal(null);
+});
+
+pm.test("Validar campo telefone como numérico", function () {
+    var jsonData = pm.response.json();
+    var telefone = jsonData.telefone;
+    pm.expect(/^\d+$/.test(telefone)).to.be.true;
+});
+
+
+

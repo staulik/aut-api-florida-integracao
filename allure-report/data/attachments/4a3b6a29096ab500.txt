@@ -1,0 +1,36 @@
+// Função para gerar um número aleatório entre dois valores
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Função para gerar um CPF válido
+function generateCPF() {
+    var n1 = getRandomNumber(0, 9);
+    var n2 = getRandomNumber(0, 9);
+    var n3 = getRandomNumber(0, 9);
+    var n4 = getRandomNumber(0, 9);
+    var n5 = getRandomNumber(0, 9);
+    var n6 = getRandomNumber(0, 9);
+    var n7 = getRandomNumber(0, 9);
+    var n8 = getRandomNumber(0, 9);
+    var n9 = getRandomNumber(0, 9);
+    var d1 = n9 * 2 + n8 * 3 + n7 * 4 + n6 * 5 + n5 * 6 + n4 * 7 + n3 * 8 + n2 * 9 + n1 * 10;
+    d1 = 11 - (d1 % 11);
+    if (d1 >= 10) {
+        d1 = 0;
+    }
+    var d2 = d1 * 2 + n9 * 3 + n8 * 4 + n7 * 5 + n6 * 6 + n5 * 7 + n4 * 8 + n3 * 9 + n2 * 10 + n1 * 11;
+    d2 = 11 - (d2 % 11);
+    if (d2 >= 10) {
+        d2 = 0;
+    }
+    return '' + n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9 + d1 + d2;
+}
+
+// Gerar CPF aleatório
+var randomCPF = generateCPF();
+
+// Definir CPF gerado como variável global convertida em string
+pm.globals.set("generatedCPF", randomCPF.toString());
+
+console.log("CPF gerado: " + randomCPF);

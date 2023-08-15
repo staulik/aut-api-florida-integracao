@@ -1,0 +1,2 @@
+var tpfone = "3248604";
+pm.globals.set("tpfone", tpfone);

@@ -1,0 +1,38 @@
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.ok;
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+// Verificar se o campo "content" não está vazio
+pm.test("Validar se conteudo não está vazio", function () {
+    pm.expect(pm.response.json().content.length).to.be.greaterThan(0);
+});
+
+const responseCorpo = pm.response.json().content;
+
+pm.test("Validar os campos em cada item da resposta", function () {
+    pm.expect(responseCorpo).to.be.an('array').and.to.not.be.empty;
+
+    responseCorpo.forEach(function (item) {
+        pm.expect(item).to.have.property("id");
+        pm.expect(item).to.have.property("idTipoEndereco");
+        pm.expect(item).to.have.property("cep");
+        pm.expect(item).to.have.property("logradouro");
+        pm.expect(item).to.have.property("numero");
+        pm.expect(item).to.have.property("cidade");
+        pm.expect(item).to.have.property("uf");
+        pm.expect(item).to.have.property("pais");
+        pm.expect(item).to.have.property("dataInclusao");
+        pm.expect(item).to.have.property("dataUltimaAtualizacao");
+        pm.expect(item).to.have.property("flagCorrespondencia");
+        pm.expect(item).to.have.property("idPessoa");
+        pm.expect(item).to.have.property("complemento");
+        pm.expect(item).to.have.property("pontoReferencia");
+        pm.expect(item).to.have.property("bairro");
+    });
+});

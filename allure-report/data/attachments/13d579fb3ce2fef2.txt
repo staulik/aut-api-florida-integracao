@@ -1,0 +1,264 @@
+// Obter a resposta em formato JSON
+var responseJson = pm.response.json();
+
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+//setTimeout(function () {
+   // pm.sendRequest("A resposta é valida e deve ter um corpo");
+//}, 5000);
+
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.ok;
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+const schema = {
+    "type": "object",
+    "default": {},
+    "title": "Root Schema",
+    "required": [
+        "codRetorno",
+        "descricaoRetorno",
+        "solicitacao",
+        "canal"
+    ],
+    "properties": {
+        "codRetorno": {
+            "type": "integer",
+            "default": 0,
+            "title": "The codRetorno Schema",
+            "examples": [
+                200
+            ]
+        },
+        "descricaoRetorno": {
+            "type": "string",
+            "default": "",
+            "title": "The descricaoRetorno Schema",
+            "examples": [
+                "Solicitação cadastrada com sucesso"
+            ]
+        },
+        "solicitacao": {
+            "type": "object",
+            "default": {},
+            "title": "The solicitacao Schema",
+            "required": [
+                "id",
+                "dataSolicitacao",
+                "nome",
+                "cpf",
+                "email",
+                "ddd",
+                "telefone",
+                "dataNascimento",
+                "dataAtualizacao",
+                "dataValidade",
+                "idProduto",
+                "statusSolicitacao"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "The id Schema",
+                    "examples": [
+                        0
+                    ]
+                },
+                "dataSolicitacao": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The dataSolicitacao Schema",
+                    "examples": [
+                        "2023-05-15 12:59:00.933"
+                    ]
+                },
+                "nome": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The nome Schema",
+                    "examples": [
+                        "Julia Teste"
+                    ]
+                },
+                "cpf": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The cpf Schema",
+                    "examples": [
+                        "33048021930"
+                    ]
+                },
+                "email": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The email Schema",
+                    "examples": [
+                        "email@email.com"
+                    ]
+                },
+                "ddd": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "The ddd Schema",
+                    "examples": [
+                        21
+                    ]
+                },
+                "telefone": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The telefone Schema",
+                    "examples": [
+                        "991882566"
+                    ]
+                },
+                "dataNascimento": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The dataNascimento Schema",
+                    "examples": [
+                        "1995-05-01"
+                    ]
+                },
+                "dataAtualizacao": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The dataAtualizacao Schema",
+                    "examples": [
+                        "2023-05-15 12:59:00.933"
+                    ]
+                },
+                "dataValidade": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The dataValidade Schema",
+                    "examples": [
+                        "2023-05-15"
+                    ]
+                },
+                "idProduto": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "The idProduto Schema",
+                    "examples": [
+                        1
+                    ]
+                },
+                "statusSolicitacao": {
+                    "type": "object",
+                    "default": {},
+                    "title": "The statusSolicitacao Schema",
+                    "required": [
+                        "id",
+                        "descricao",
+                        "fimSolicitacao"
+                    ],
+                    "properties": {
+                        "id": {
+                            "type": "integer",
+                            "default": 0,
+                            "title": "The id Schema",
+                            "examples": [
+                                0
+                            ]
+                        },
+                        "descricao": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The descricao Schema",
+                            "examples": [
+                                "Aprovado Neurotech"
+                            ]
+                        },
+                        "fimSolicitacao": {
+                            "type": "boolean",
+                            "default": false,
+                            "title": "The fimSolicitacao Schema",
+                            "examples": [
+                                false
+                            ]
+                        }
+                    },
+                    "examples": [{
+                        "id": 0,
+                        "descricao": "Aprovado Neurotech",
+                        "fimSolicitacao": false
+                    }]
+                }
+            },
+            "examples": [{
+                "id": 0,
+                "dataSolicitacao": "2023-05-15 12:59:00.933",
+                "nome": "Julia Teste",
+                "cpf": "33048021930",
+                "email": "email@email.com",
+                "ddd": 21,
+                "telefone": "991882566",
+                "dataNascimento": "1995-05-01",
+                "dataAtualizacao": "2023-05-15 12:59:00.933",
+                "dataValidade": "2023-05-15",
+                "idProduto": 1,
+                "statusSolicitacao": {
+                    "id": 0,
+                    "descricao": "Aprovado Neurotech",
+                    "fimSolicitacao": false
+                }
+            }]
+        },
+        "canal": {
+            "type": "string",
+            "default": "",
+            "title": "The canal Schema",
+            "examples": [
+                "CDT_TABLET"
+            ]
+        }
+    },
+    "examples": [{
+        "codRetorno": 200,
+        "descricaoRetorno": "Solicitação cadastrada com sucesso",
+        "solicitacao": {
+            "id": 0,
+            "dataSolicitacao": "2023-05-15 12:59:00.933",
+            "nome": "Julia Teste",
+            "cpf": "33048021930",
+            "email": "email@email.com",
+            "ddd": 21,
+            "telefone": "991882566",
+            "dataNascimento": "1995-05-01",
+            "dataAtualizacao": "2023-05-15 12:59:00.933",
+            "dataValidade": "2023-05-15",
+            "idProduto": 1,
+            "statusSolicitacao": {
+                "id": 0,
+                "descricao": "Aprovado Neurotech",
+                "fimSolicitacao": false
+            }
+        },
+        "canal": "CDT_TABLET"
+    }]
+};
+
+pm.test("Validar a estrutura do corpo", function () {
+    pm.response.to.have.jsonSchema(schema);
+});
+
+pm.test("Validar se CPF gerado = response", function () {
+    var responseJson = pm.response.json();
+    var cpfNoResponse = responseJson.solicitacao.cpf;
+    var cpfGlobal = pm.globals.get("generatedCPF");
+    pm.expect(cpfNoResponse).to.eql(cpfGlobal);
+});
+
+// Verificar se a mensagem está correta
+pm.test("Validar mensagem do campo descricaoRetorno", function () {
+    var descricaoRetorno = responseJson.descricaoRetorno; 
+    pm.expect(descricaoRetorno).to.equal("Solicitação cadastrada com sucesso");
+});
+

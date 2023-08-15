@@ -1,0 +1,24 @@
+level: log, messages: Produto 12, data de vencimento 1
+level: log, messages: Request Body:,[object Object]
+level: log, messages: Produto 12, data de vencimento 5
+level: log, messages: Request Body:,[object Object]
+level: log, messages: Produto 12, data de vencimento 11
+level: log, messages: Request Body:,[object Object]
+level: log, messages: Produto 12, data de vencimento 15
+level: log, messages: Request Body:,[object Object]
+level: log, messages: Produto 12, data de vencimento 21
+level: log, messages: Request Body:,[object Object]
+level: log, messages: Produto 12, data de vencimento 25
+level: log, messages: Request Body:,[object Object]
+level: log, messages: Produto 13, data de vencimento 1
+level: log, messages: Request Body:,[object Object]
+level: log, messages: Produto 13, data de vencimento 5
+level: log, messages: Request Body:,[object Object]
+level: log, messages: Produto 13, data de vencimento 11
+level: log, messages: Request Body:,[object Object]
+level: log, messages: Produto 13, data de vencimento 15
+level: log, messages: Request Body:,[object Object]
+level: log, messages: Produto 13, data de vencimento 21
+level: log, messages: Request Body:,[object Object]
+level: log, messages: Produto 13, data de vencimento 25
+level: log, messages: Request Body:,[object Object]

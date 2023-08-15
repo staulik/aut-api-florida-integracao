@@ -1,0 +1,22 @@
+var jsonData = pm.response.json();
+pm.globals.set("idConta", jsonData.id);
+//console.log(pm.globals.get("idConta"));
+
+const responseJson = pm.response.json();
+const idConta = responseJson.id;
+const idPessoa = responseJson.idPessoa;
+
+console.log(`idConta gerado: ${idConta} está associado ao idPessoa: ${idPessoa}`);
+
+
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.ok;
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+

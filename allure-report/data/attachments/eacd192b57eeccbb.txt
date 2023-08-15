@@ -1,0 +1,27 @@
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.ok;
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+pm.test("Buscar por ID existente e valida se o id da resposta é mesmo informado na busca", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.id).to.eql(2879);
+});
+
+// Verifica se o campo "idTipoTelefone" contém um valor válido
+pm.test("Verifica o campo idTipoTelefone", function () {
+    const idTipoTelefone = pm.response.json().idTipoTelefone;
+    pm.expect([1, 2, 3]).to.include(idTipoTelefone);
+});
+
+
+
+
+
+
+

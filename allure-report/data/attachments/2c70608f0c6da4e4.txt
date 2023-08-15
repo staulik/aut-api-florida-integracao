@@ -1,0 +1,2 @@
+var currentDateTime = new Date();
+pm.environment.set("requestDateTime", currentDateTime.toISOString());

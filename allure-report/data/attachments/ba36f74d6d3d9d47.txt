@@ -1,0 +1,16 @@
+// esta condição não sera implementada ou seja:
+//o orgãoexpeditor esta aceitando valore numerico
+//não sera validado pela camada de serviços
+
+pm.test("Status code is 500", function () {
+    pm.response.to.have.status(500);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+pm.test("Validar mensagem de erro", function () {
+  pm.response.to.have.jsonBody("error.message", "Internal Server Error");
+});
