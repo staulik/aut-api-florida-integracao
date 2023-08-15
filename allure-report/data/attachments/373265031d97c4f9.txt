@@ -1,7 +1,0 @@
-pm.test("Status code is 404", function () {
-    pm.response.to.have.status(404);
-});
-
-pm.test("Validar mensagem de erro", function () {
-  pm.response.to.have.jsonBody("error.message", "A conta informada é inexistente");
-});
