@@ -1,1 +1,0 @@
-{"errorCode":"INT-VAL003","errors":[{"schemaPath":"#/properties/enderecos/items/properties/numero/type","params":{"type":"number"},"message":"deve ser um número"}],"name":"ValidationError","httpStatusCode":400}

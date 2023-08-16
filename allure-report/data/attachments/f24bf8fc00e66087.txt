@@ -1,1 +1,0 @@
-{"error":{"errorCode":"INT-VAL002","message":"Faltando query string parameters."}}

@@ -1,1 +1,0 @@
-{"codRetorno":400,"descricaoRetorno":"erro - transação em andamento."}

@@ -1,1 +1,0 @@
-{"originalAccount":174,"destinationAccount":175,"amount":10,"transactionDate":"2023-08-15T19:31:15.889Z","transactionCode":"96fa23a3-97f2-4743-bf27-5824c3db05aa-20230815","transactionDetails":"Detalhes Vania","description":"Descrição Vania","transactionUUID":"96fa23a3-97f2-4743-bf27-5824c3db05aa"}
