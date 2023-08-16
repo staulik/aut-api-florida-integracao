@@ -1,0 +1,1 @@
+{"error":{"errorCode":"0009","message":"O participante informado é inexistente.","errors":[{"code":"4","message":"partyId não encontrado"}]}}

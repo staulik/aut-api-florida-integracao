@@ -1,0 +1,1 @@
+{"error":{"errorCode":"2004","message":"O limite informado está acima do permitido","errors":[{"code":"1","message":"creditLimit acima do grantedLimit"}]}}

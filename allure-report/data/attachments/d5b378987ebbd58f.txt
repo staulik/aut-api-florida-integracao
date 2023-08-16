@@ -1,0 +1,1 @@
+{"errorCode":"INT-VAL003","errors":[{"schemaPath":"#/properties/telefones/items/then/properties/telefone/pattern","params":{"pattern":"^[9]{1}[1-9]{1}[0-9]{3}[0-9]{4}$"},"message":"deve corresponder ao padrão \"^[9]{1}[1-9]{1}[0-9]{3}[0-9]{4}$\""}],"name":"ValidationError","httpStatusCode":400}
