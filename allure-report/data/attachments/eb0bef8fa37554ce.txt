@@ -1,1 +1,0 @@
-{"timestamp":1692280330624,"error":"An internal error has occurred. Exception: com.digibee.pipelineengine.exception.PipelineEngineRuntimeException: Erro ao verificar detalhe de algum cartão","code":500}
