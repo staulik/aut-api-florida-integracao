@@ -1,0 +1,1 @@
+{"errorCode":"INT-VAL003","errors":[{"schemaPath":"#/properties/telefones/items/properties/ddd/maximum","params":{"comparison":"<=","limit":99},"message":"deve ser <= 99"}],"name":"ValidationError","httpStatusCode":400}

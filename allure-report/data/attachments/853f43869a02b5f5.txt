@@ -1,0 +1,1 @@
+{"error":"java.net.ConnectException: Failed to connect to test.pef-plat-nprd.payments.onefinancial.com.br/10.158.4.21:1001","code":500}

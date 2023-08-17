@@ -1,0 +1,1 @@
+{"errorCode":"INT-VAL003","errors":[{"schemaPath":"#/properties/dataNascimento/format","params":{"format":"date"},"message":"deve corresponder ao formato \"date\""}],"name":"ValidationError","httpStatusCode":400}

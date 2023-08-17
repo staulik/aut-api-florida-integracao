@@ -1,0 +1,1 @@
+{"errorCode":"INT-VAL003","errors":[{"schemaPath":"#/properties/cpf/maxLength","params":{"limit":11},"message":"não deve ser maior que 11 caracteres"}],"name":"ValidationError","httpStatusCode":400}

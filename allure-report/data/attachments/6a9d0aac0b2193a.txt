@@ -1,0 +1,1 @@
+{"error":{"errorCode":"3014","message":"Já existe um cartão fisico ativo para este portador"}}

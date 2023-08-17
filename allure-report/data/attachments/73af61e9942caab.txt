@@ -1,0 +1,1 @@
+{"error":{"errorCode":"1101","message":"Telefone informado inválido","errors":[{"message":"phone, areaCode ou countryCode informado não estão de acordo com o padrão","code":"1"}]}}

@@ -1,0 +1,1 @@
+{"error":{"errorCode":"3101","message":"O status atual do cartão não permite mudar para o status informado"}}
