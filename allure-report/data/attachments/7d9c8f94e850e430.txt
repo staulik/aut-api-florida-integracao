@@ -1,1 +1,0 @@
-{"errorCode":"INT-VAL003","errors":[{"schemaPath":"#/properties/conta/properties/diaVencimento/minimum","params":{"comparison":">=","limit":1},"message":"deve ser >= 1"}],"name":"ValidationError","httpStatusCode":400}

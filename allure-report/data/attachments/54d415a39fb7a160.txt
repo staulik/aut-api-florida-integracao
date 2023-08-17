@@ -1,1 +1,0 @@
-{"errorCode":"INT-VAL003","errors":[{"schemaPath":"#/properties/sexo/enum","params":{"allowedValues":["M","F","O","N"]},"message":"deve ser igual a um dos valores permitidos"}],"name":"ValidationError","httpStatusCode":400}

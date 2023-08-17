@@ -1,1 +1,0 @@
-{"errorCode":"INT-VAL003","errors":[{"schemaPath":"#/properties/nome/pattern","params":{"pattern":"[^a-zA-Zs]"},"message":"deve corresponder ao padrão \"[^a-zA-Zs]\""}],"name":"ValidationError","httpStatusCode":400}

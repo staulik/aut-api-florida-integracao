@@ -1,1 +1,0 @@
-{"error":{"errorCode":"0049","message":"O telefone informado é inexistente.","errors":[{"code":"1","message":"phoneId inválido"}]}}

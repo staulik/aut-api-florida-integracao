@@ -1,1 +1,0 @@
-{"error":{"errorCode":"400","message":"[remainder of division is not zero (1.66667 / 1.0E-4), format attribute \"float\" not supported]"}}
