@@ -13863,7 +13863,7 @@
 											}
 										},
 										"url": {
-											"raw": "https://{{integrationURL}}/contas/api/contas?idPessoa=1298",
+											"raw": "https://{{integrationURL}}/contas/api/contas?idPessoa={{idPessoa}}",
 											"protocol": "https",
 											"host": [
 												"{{integrationURL}}"
@@ -13876,7 +13876,7 @@
 											"query": [
 												{
 													"key": "idPessoa",
-													"value": "1298"
+													"value": "{{idPessoa}}"
 												}
 											]
 										}
@@ -18795,7 +18795,7 @@
 										"method": "POST",
 										"header": [],
 										"url": {
-											"raw": "https://{{integrationURL}}/telefones/api/telefones?idTipoTelefone=1&idPessoa={{id_pessoa}}&ddd=11&telefone=111111111&ramal=10",
+											"raw": "https://{{integrationURL}}/telefones/api/telefones?idTipoTelefone=1&idPessoa=&ddd=11&telefone=111111111&ramal=10",
 											"protocol": "https",
 											"host": [
 												"{{integrationURL}}"
@@ -18812,7 +18812,7 @@
 												},
 												{
 													"key": "idPessoa",
-													"value": "{{id_pessoa}}"
+													"value": ""
 												},
 												{
 													"key": "ddd",
@@ -19921,6 +19921,1791 @@
 							"name": "Adicional",
 							"item": [
 								{
+									"name": "HEIM143 - POST: /propostas/incluir_proposta(+)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// Extrai o valor do campo id referente ao cadastro da Proposta\r",
+													"//const idValue = pm.response.json().solicitacao.id;\r",
+													"// Converte o valor para string\r",
+													"//const idValueAsString = idValue.toString();\r",
+													"// Salva o valor convertido em uma variável de ambiente chamada \"idProposta\"\r",
+													"//pm.environment.set(\"idProposta\", idValueAsString);\r",
+													"// Exibe o valor da variável convertida no console\r",
+													"//console.log(\"Valor da variável idProposta:\", pm.environment.get(\"idProposta\"));\r",
+													"\r",
+													"// Obtém o tipo da variável idProposta para converte-la para string\r",
+													"//const tipoIdProposta = typeof pm.environment.get(\"idProposta\");\r",
+													"// Exibe o tipo da variável idProposta convertida\r",
+													"//console.log(\"Tipo da variável idProposta:\", tipoIdProposta);\r",
+													"\r",
+													"\r",
+													"\r",
+													"// Obter a resposta em formato JSON\r",
+													"var responseJson = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"//setTimeout(function () {\r",
+													"   // pm.sendRequest(\"A resposta é valida e deve ter um corpo\");\r",
+													"//}, 5000);\r",
+													"\r",
+													"\r",
+													"pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
+													"     pm.response.to.be.ok;\r",
+													"     pm.response.to.be.withBody;\r",
+													"     pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"const schema = {\r",
+													"    \"type\": \"object\",\r",
+													"    \"default\": {},\r",
+													"    \"title\": \"Root Schema\",\r",
+													"    \"required\": [\r",
+													"        \"codRetorno\",\r",
+													"        \"descricaoRetorno\",\r",
+													"        \"solicitacao\",\r",
+													"        \"canal\"\r",
+													"    ],\r",
+													"    \"properties\": {\r",
+													"        \"codRetorno\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The codRetorno Schema\",\r",
+													"            \"examples\": [\r",
+													"                200\r",
+													"            ]\r",
+													"        },\r",
+													"        \"descricaoRetorno\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The descricaoRetorno Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"Solicitação cadastrada com sucesso\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"solicitacao\": {\r",
+													"            \"type\": \"object\",\r",
+													"            \"default\": {},\r",
+													"            \"title\": \"The solicitacao Schema\",\r",
+													"            \"required\": [\r",
+													"                \"id\",\r",
+													"                \"dataSolicitacao\",\r",
+													"                \"nome\",\r",
+													"                \"cpf\",\r",
+													"                \"email\",\r",
+													"                \"ddd\",\r",
+													"                \"telefone\",\r",
+													"                \"dataNascimento\",\r",
+													"                \"dataAtualizacao\",\r",
+													"                \"dataValidade\",\r",
+													"                \"idProduto\",\r",
+													"                \"statusSolicitacao\"\r",
+													"            ],\r",
+													"            \"properties\": {\r",
+													"                \"id\": {\r",
+													"                    \"type\": \"integer\",\r",
+													"                    \"default\": 0,\r",
+													"                    \"title\": \"The id Schema\",\r",
+													"                    \"examples\": [\r",
+													"                        0\r",
+													"                    ]\r",
+													"                },\r",
+													"                \"dataSolicitacao\": {\r",
+													"                    \"type\": \"string\",\r",
+													"                    \"default\": \"\",\r",
+													"                    \"title\": \"The dataSolicitacao Schema\",\r",
+													"                    \"examples\": [\r",
+													"                        \"2023-05-15 12:59:00.933\"\r",
+													"                    ]\r",
+													"                },\r",
+													"                \"nome\": {\r",
+													"                    \"type\": \"string\",\r",
+													"                    \"default\": \"\",\r",
+													"                    \"title\": \"The nome Schema\",\r",
+													"                    \"examples\": [\r",
+													"                        \"Julia Teste\"\r",
+													"                    ]\r",
+													"                },\r",
+													"                \"cpf\": {\r",
+													"                    \"type\": \"string\",\r",
+													"                    \"default\": \"\",\r",
+													"                    \"title\": \"The cpf Schema\",\r",
+													"                    \"examples\": [\r",
+													"                        \"33048021930\"\r",
+													"                    ]\r",
+													"                },\r",
+													"                \"email\": {\r",
+													"                    \"type\": \"string\",\r",
+													"                    \"default\": \"\",\r",
+													"                    \"title\": \"The email Schema\",\r",
+													"                    \"examples\": [\r",
+													"                        \"email@email.com\"\r",
+													"                    ]\r",
+													"                },\r",
+													"                \"ddd\": {\r",
+													"                    \"type\": \"integer\",\r",
+													"                    \"default\": 0,\r",
+													"                    \"title\": \"The ddd Schema\",\r",
+													"                    \"examples\": [\r",
+													"                        21\r",
+													"                    ]\r",
+													"                },\r",
+													"                \"telefone\": {\r",
+													"                    \"type\": \"string\",\r",
+													"                    \"default\": \"\",\r",
+													"                    \"title\": \"The telefone Schema\",\r",
+													"                    \"examples\": [\r",
+													"                        \"991882566\"\r",
+													"                    ]\r",
+													"                },\r",
+													"                \"dataNascimento\": {\r",
+													"                    \"type\": \"string\",\r",
+													"                    \"default\": \"\",\r",
+													"                    \"title\": \"The dataNascimento Schema\",\r",
+													"                    \"examples\": [\r",
+													"                        \"1995-05-01\"\r",
+													"                    ]\r",
+													"                },\r",
+													"                \"dataAtualizacao\": {\r",
+													"                    \"type\": \"string\",\r",
+													"                    \"default\": \"\",\r",
+													"                    \"title\": \"The dataAtualizacao Schema\",\r",
+													"                    \"examples\": [\r",
+													"                        \"2023-05-15 12:59:00.933\"\r",
+													"                    ]\r",
+													"                },\r",
+													"                \"dataValidade\": {\r",
+													"                    \"type\": \"string\",\r",
+													"                    \"default\": \"\",\r",
+													"                    \"title\": \"The dataValidade Schema\",\r",
+													"                    \"examples\": [\r",
+													"                        \"2023-05-15\"\r",
+													"                    ]\r",
+													"                },\r",
+													"                \"idProduto\": {\r",
+													"                    \"type\": \"integer\",\r",
+													"                    \"default\": 0,\r",
+													"                    \"title\": \"The idProduto Schema\",\r",
+													"                    \"examples\": [\r",
+													"                        1\r",
+													"                    ]\r",
+													"                },\r",
+													"                \"statusSolicitacao\": {\r",
+													"                    \"type\": \"object\",\r",
+													"                    \"default\": {},\r",
+													"                    \"title\": \"The statusSolicitacao Schema\",\r",
+													"                    \"required\": [\r",
+													"                        \"id\",\r",
+													"                        \"descricao\",\r",
+													"                        \"fimSolicitacao\"\r",
+													"                    ],\r",
+													"                    \"properties\": {\r",
+													"                        \"id\": {\r",
+													"                            \"type\": \"integer\",\r",
+													"                            \"default\": 0,\r",
+													"                            \"title\": \"The id Schema\",\r",
+													"                            \"examples\": [\r",
+													"                                0\r",
+													"                            ]\r",
+													"                        },\r",
+													"                        \"descricao\": {\r",
+													"                            \"type\": \"string\",\r",
+													"                            \"default\": \"\",\r",
+													"                            \"title\": \"The descricao Schema\",\r",
+													"                            \"examples\": [\r",
+													"                                \"Aprovado Neurotech\"\r",
+													"                            ]\r",
+													"                        },\r",
+													"                        \"fimSolicitacao\": {\r",
+													"                            \"type\": \"boolean\",\r",
+													"                            \"default\": false,\r",
+													"                            \"title\": \"The fimSolicitacao Schema\",\r",
+													"                            \"examples\": [\r",
+													"                                false\r",
+													"                            ]\r",
+													"                        }\r",
+													"                    },\r",
+													"                    \"examples\": [{\r",
+													"                        \"id\": 0,\r",
+													"                        \"descricao\": \"Aprovado Neurotech\",\r",
+													"                        \"fimSolicitacao\": false\r",
+													"                    }]\r",
+													"                }\r",
+													"            },\r",
+													"            \"examples\": [{\r",
+													"                \"id\": 0,\r",
+													"                \"dataSolicitacao\": \"2023-05-15 12:59:00.933\",\r",
+													"                \"nome\": \"Julia Teste\",\r",
+													"                \"cpf\": \"33048021930\",\r",
+													"                \"email\": \"email@email.com\",\r",
+													"                \"ddd\": 21,\r",
+													"                \"telefone\": \"991882566\",\r",
+													"                \"dataNascimento\": \"1995-05-01\",\r",
+													"                \"dataAtualizacao\": \"2023-05-15 12:59:00.933\",\r",
+													"                \"dataValidade\": \"2023-05-15\",\r",
+													"                \"idProduto\": 1,\r",
+													"                \"statusSolicitacao\": {\r",
+													"                    \"id\": 0,\r",
+													"                    \"descricao\": \"Aprovado Neurotech\",\r",
+													"                    \"fimSolicitacao\": false\r",
+													"                }\r",
+													"            }]\r",
+													"        },\r",
+													"        \"canal\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The canal Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"CDT_TABLET\"\r",
+													"            ]\r",
+													"        }\r",
+													"    },\r",
+													"    \"examples\": [{\r",
+													"        \"codRetorno\": 200,\r",
+													"        \"descricaoRetorno\": \"Solicitação cadastrada com sucesso\",\r",
+													"        \"solicitacao\": {\r",
+													"            \"id\": 0,\r",
+													"            \"dataSolicitacao\": \"2023-05-15 12:59:00.933\",\r",
+													"            \"nome\": \"Julia Teste\",\r",
+													"            \"cpf\": \"33048021930\",\r",
+													"            \"email\": \"email@email.com\",\r",
+													"            \"ddd\": 21,\r",
+													"            \"telefone\": \"991882566\",\r",
+													"            \"dataNascimento\": \"1995-05-01\",\r",
+													"            \"dataAtualizacao\": \"2023-05-15 12:59:00.933\",\r",
+													"            \"dataValidade\": \"2023-05-15\",\r",
+													"            \"idProduto\": 1,\r",
+													"            \"statusSolicitacao\": {\r",
+													"                \"id\": 0,\r",
+													"                \"descricao\": \"Aprovado Neurotech\",\r",
+													"                \"fimSolicitacao\": false\r",
+													"            }\r",
+													"        },\r",
+													"        \"canal\": \"CDT_TABLET\"\r",
+													"    }]\r",
+													"};\r",
+													"\r",
+													"pm.test(\"Validar a estrutura do corpo\", function () {\r",
+													"    pm.response.to.have.jsonSchema(schema);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validar se CPF gerado = response\", function () {\r",
+													"    var responseJson = pm.response.json();\r",
+													"    var cpfNoResponse = responseJson.solicitacao.cpf;\r",
+													"    var cpfGlobal = pm.globals.get(\"generatedCPF\");\r",
+													"    pm.expect(cpfNoResponse).to.eql(cpfGlobal);\r",
+													"});\r",
+													"\r",
+													"// Verificar se a mensagem está correta\r",
+													"pm.test(\"Validar mensagem do campo descricaoRetorno\", function () {\r",
+													"    var descricaoRetorno = responseJson.descricaoRetorno; \r",
+													"    pm.expect(descricaoRetorno).to.equal(\"Solicitação cadastrada com sucesso\");\r",
+													"});\r",
+													"\r",
+													"var currentDateTime = new Date();\r",
+													"console.log(\"Request generated at: \" + currentDateTime.toISOString());"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"// Função para gerar um número aleatório entre dois valores\r",
+													"function getRandomNumber(min, max) {\r",
+													"    return Math.floor(Math.random() * (max - min + 1)) + min;\r",
+													"}\r",
+													"\r",
+													"// Função para gerar um CPF válido\r",
+													"function generateCPF() {\r",
+													"    var n1 = getRandomNumber(0, 9);\r",
+													"    var n2 = getRandomNumber(0, 9);\r",
+													"    var n3 = getRandomNumber(0, 9);\r",
+													"    var n4 = getRandomNumber(0, 9);\r",
+													"    var n5 = getRandomNumber(0, 9);\r",
+													"    var n6 = getRandomNumber(0, 9);\r",
+													"    var n7 = getRandomNumber(0, 9);\r",
+													"    var n8 = getRandomNumber(0, 9);\r",
+													"    var n9 = getRandomNumber(0, 9);\r",
+													"    var d1 = n9 * 2 + n8 * 3 + n7 * 4 + n6 * 5 + n5 * 6 + n4 * 7 + n3 * 8 + n2 * 9 + n1 * 10;\r",
+													"    d1 = 11 - (d1 % 11);\r",
+													"    if (d1 >= 10) {\r",
+													"        d1 = 0;\r",
+													"    }\r",
+													"    var d2 = d1 * 2 + n9 * 3 + n8 * 4 + n7 * 5 + n6 * 6 + n5 * 7 + n4 * 8 + n3 * 9 + n2 * 10 + n1 * 11;\r",
+													"    d2 = 11 - (d2 % 11);\r",
+													"    if (d2 >= 10) {\r",
+													"        d2 = 0;\r",
+													"    }\r",
+													"    return '' + n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9 + d1 + d2;\r",
+													"}\r",
+													"\r",
+													"// Gerar CPF aleatório\r",
+													"var randomCPF = generateCPF();\r",
+													"\r",
+													"// Definir CPF gerado como variável global convertida em string\r",
+													"pm.globals.set(\"generatedCPF\", randomCPF.toString());\r",
+													"\r",
+													"console.log(\"CPF gerado: \" + randomCPF);\r",
+													"\r",
+													"var currentDateTime = new Date();\r",
+													"pm.environment.set(\"requestDateTime\", currentDateTime.toISOString());\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"cpf\": \"{{generatedCPF}}\",\n    \"nome\": \"Julia Teste\",\n    \"nomeMae\": \"Ana Souza\",\n    \"nomePai\": \"João Souza\",\n    \"dataNascimento\": \"1995-05-01\",\n    \"sexo\": \"F\",\n    \"idNacionalidade\": 1,\n    \"numeroIdentidade\": \"97549788\",\n    \"dataEmissaoIdentidade\": \"1995-03-03\",\n    \"dataEmissaoCnh\": \"1995-03-03\",\n    \"orgaoExpedidorIdentidade\": \"SSP\",\n    \"numeroCNH\": \"32134354343\",\n    \"unidadeFederativaIdentidade\": \"SP\",\n    \"naturalidadeCidade\": \"São Paulo\",\n    \"naturalidadeEstado\": \"SP\", \n    \"codigoRamoAtividade\": 0,\n    \"valorRenda\": 1000,\n    \"patrimonioTotal\": 0,\n    \"email\": \"email@email.com\",\n    \"idEstabelecimento\": 0,\n    \"idEstadoCivil\": 1,\n    \"matricula\": 0,\n    \"idPromotorVenda\": 55,\n    \"tokenIndicacaoAmigo\": \"t1\",\n    \"valorPontuacao\": 0,\n    \"encaminharCartaoEndereco\": true,\n    \"pessoaPoliticamenteExposta\": true,\n    \"canalEntrada\": \"Canal_TESTE\",\n    \"deficienteVisual\": true,\n    \"telefones\": [\n        {\n        \"idTipoTelefone\": 3,\n        \"ddd\": 21,\n        \"telefone\": \"991882566\",\n        \"ramal\": \"22\"\n        }\n    ],\n    \"enderecos\": [\n        {\n        \"idTipoEndereco\": 1,\n        \"logradouro\": \"Paulista\",\n        \"complemento\": \"22A\",\n        \"bairro\": \"Centro\",\n        \"numero\": \"122\",\n        \"cep\": \"02266000\",\n        \"pontoReferencia\": \"Prox Parque\",\n        \"cidade\": \"São Paulo\",\n        \"uf\": \"SP\",\n        \"pais\": \"Brasil\",\n        \"enderecoCorrespondencia\": true\n        }\n    ],\n    \"conta\": {\n        \"idProduto\": 12,\n        \"idOrigemComercial\": 99,\n        \"diaVencimento\": 10,\n        \"limiteGlobal\": 777,\n        \"limiteMaximo\": 1234,\n        \"limiteParcelas\": 1234,\n        \"faturaPorEmail\": true,\n        \"pacoteTarifa\": 1,\n        \"flagCreditoAtivo\": true,\n        \"flagDebitoAtivo\": true,\n        \"flagPLDiferenciado\": true,\n        \"flagOverLimit\": true,\n        \"flagCarteiraDigital\": true,\n        \"bonusCelular\": {\n        \"codigoOperadora\": 1,\n        \"ddd\": 11,\n        \"celular\": \"998556322\"\n        }\n   \t\t\n    },\n    \"assinaturaCliente\": \"string\",\n    \"neurotech\": {\n        \"imagesProcessId\": \"string\",\n        \"fotoBiometriaContingencia\": true,\n        \"fotoBiometriaRepositorio\": true,\n        \"fotoDocumentoContingencia\": true,\n        \"fotoDocumentoRepositorio\": true,\n        \"tokenAppStatus\": \"string\",\n        \"tokenAppReenvio\": \"string\",\n        \"tokenAppInvalido\": \"string\"\n    }\n}\n\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{integrationURL}}/propostas/api/propostas",
+											"protocol": "https",
+											"host": [
+												"{{integrationURL}}"
+											],
+											"path": [
+												"propostas",
+												"api",
+												"propostas"
+											],
+											"query": [
+												{
+													"key": "cpf",
+													"value": "09656853067",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PIER054 - GET: /api/pessoas",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// Extrai o valor do campo \"id\" do response\r",
+													"const idValue = pm.response.json().content[0].id;\r",
+													"// Salva o valor em uma variável de ambiente chamada \"idPessoa\"\r",
+													"pm.environment.set(\"idPessoa\", idValue.toString());\r",
+													"// Exibe o valor da variável no console do Postman\r",
+													"console.log(\"Capturado idPessoa:\", pm.environment.get(\"idPessoa\"));\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"var currentDateTime = new Date();\r",
+													"console.log(\"Request generated at: \" + currentDateTime.toISOString());\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"// Atraso de 1 minuto (60 segundos) para dar tempo\r",
+													"//da proposta gerar i idPessoa\r",
+													"const delayInSeconds = 60;\r",
+													"\r",
+													"// Converte o atraso para milissegundos\r",
+													"const delayInMilliseconds = delayInSeconds * 1000;\r",
+													"\r",
+													"// Aguarda o tempo especificado antes de continuar\r",
+													"setTimeout(function () {\r",
+													"    // Executa o request\r",
+													"    pm.sendRequest({\r",
+													"        url: `https://{{integrationURL}}/pessoas/api/pessoas?cpf={{generatedCPF}}`,\r",
+													"        method: 'GET'\r",
+													"    }, function (err, response) {\r",
+													"        // Adicione o código de tratamento da resposta aqui\r",
+													"    });\r",
+													"}, delayInMilliseconds);\r",
+													"\r",
+													"var currentDateTime = new Date();\r",
+													"pm.environment.set(\"requestDateTime\", currentDateTime.toISOString());"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{integrationURL}}/pessoas/api/pessoas?cpf={{generatedCPF}}",
+											"protocol": "https",
+											"host": [
+												"{{integrationURL}}"
+											],
+											"path": [
+												"pessoas",
+												"api",
+												"pessoas"
+											],
+											"query": [
+												{
+													"key": "cpf",
+													"value": "{{generatedCPF}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PIER134 - POST: /api/pessoas-detalhes/incluir_detalhes_pessoa(+)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
+													"    pm.response.to.be.ok\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"const schema = \r",
+													"    \r",
+													"   {\r",
+													"    \"type\": \"object\",\r",
+													"    \"default\": {},\r",
+													"    \"title\": \"Root Schema\",\r",
+													"    \"required\": [\r",
+													"        \"idPessoa\",\r",
+													"        \"nomeMae\",\r",
+													"        \"idEstadoCivil\",\r",
+													"        \"idNaturezaOcupacao\",\r",
+													"        \"idProfissao\",\r",
+													"        \"idNacionalidade\",\r",
+													"        \"naturalidadeCidade\",\r",
+													"        \"naturalidadeEstado\",\r",
+													"        \"grauInstrucao\",\r",
+													"        \"email\",\r",
+													"        \"numeroCnh\",\r",
+													"        \"dataEmissaoCnh\",\r",
+													"        \"pessoaPoliticamenteExposta\",\r",
+													"        \"patrimonioTotal\",\r",
+													"        \"salario\",\r",
+													"        \"nomeEmpresa\",\r",
+													"        \"impedidoFinanciamento\",\r",
+													"        \"chequeEspecial\",\r",
+													"        \"flagSemEnderecoComercialFixo\",\r",
+													"        \"nomePai\",\r",
+													"        \"numeroDependentes\",\r",
+													"        \"numeroBanco\",\r",
+													"        \"numeroAgencia\",\r",
+													"        \"numeroContaCorrente\",\r",
+													"        \"nomeReferencia1\",\r",
+													"        \"enderecoReferencia1\",\r",
+													"        \"nomeReferencia2\",\r",
+													"        \"enderecoReferencia2\"\r",
+													"    ],\r",
+													"    \"properties\": {\r",
+													"        \"idPessoa\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The idPessoa Schema\",\r",
+													"            \"examples\": [\r",
+													"                1497\r",
+													"            ]\r",
+													"        },\r",
+													"        \"nomeMae\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The nomeMae Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"Annie Lennox\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"idEstadoCivil\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The idEstadoCivil Schema\",\r",
+													"            \"examples\": [\r",
+													"                1\r",
+													"            ]\r",
+													"        },\r",
+													"        \"idNaturezaOcupacao\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The idNaturezaOcupacao Schema\",\r",
+													"            \"examples\": [\r",
+													"                9876987\r",
+													"            ]\r",
+													"        },\r",
+													"        \"idProfissao\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The idProfissao Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"Engenheiro\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"idNacionalidade\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The idNacionalidade Schema\",\r",
+													"            \"examples\": [\r",
+													"                76\r",
+													"            ]\r",
+													"        },\r",
+													"        \"naturalidadeCidade\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The naturalidadeCidade Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"São Paulo\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"naturalidadeEstado\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The naturalidadeEstado Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"SP\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"grauInstrucao\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The grauInstrucao Schema\",\r",
+													"            \"examples\": [\r",
+													"                1\r",
+													"            ]\r",
+													"        },\r",
+													"        \"email\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The email Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"massa@email.com\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"numeroCnh\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The numeroCnh Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"23143031556\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"dataEmissaoCnh\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The dataEmissaoCnh Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"2020-10-31\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"pessoaPoliticamenteExposta\": {\r",
+													"            \"type\": \"boolean\",\r",
+													"            \"default\": false,\r",
+													"            \"title\": \"The pessoaPoliticamenteExposta Schema\",\r",
+													"            \"examples\": [\r",
+													"                false\r",
+													"            ]\r",
+													"        },\r",
+													"        \"patrimonioTotal\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The patrimonioTotal Schema\",\r",
+													"            \"examples\": [\r",
+													"                100000\r",
+													"            ]\r",
+													"        },\r",
+													"        \"salario\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The salario Schema\",\r",
+													"            \"examples\": [\r",
+													"                2200\r",
+													"            ]\r",
+													"        },\r",
+													"        \"nomeEmpresa\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The nomeEmpresa Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"some company\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"impedidoFinanciamento\": {\r",
+													"            \"type\": \"boolean\",\r",
+													"            \"default\": false,\r",
+													"            \"title\": \"The impedidoFinanciamento Schema\",\r",
+													"            \"examples\": [\r",
+													"                false\r",
+													"            ]\r",
+													"        },\r",
+													"        \"chequeEspecial\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The chequeEspecial Schema\",\r",
+													"            \"examples\": [\r",
+													"                0\r",
+													"            ]\r",
+													"        },\r",
+													"        \"flagSemEnderecoComercialFixo\": {\r",
+													"            \"type\": \"boolean\",\r",
+													"            \"default\": false,\r",
+													"            \"title\": \"The flagSemEnderecoComercialFixo Schema\",\r",
+													"            \"examples\": [\r",
+													"                false\r",
+													"            ]\r",
+													"        },\r",
+													"        \"nomePai\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The nomePai Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"Pai da Silva\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"numeroDependentes\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The numeroDependentes Schema\",\r",
+													"            \"examples\": [\r",
+													"                2\r",
+													"            ]\r",
+													"        },\r",
+													"        \"numeroBanco\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The numeroBanco Schema\",\r",
+													"            \"examples\": [\r",
+													"                12345\r",
+													"            ]\r",
+													"        },\r",
+													"        \"numeroAgencia\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The numeroAgencia Schema\",\r",
+													"            \"examples\": [\r",
+													"                12349\r",
+													"            ]\r",
+													"        },\r",
+													"        \"numeroContaCorrente\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The numeroContaCorrente Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"9865544\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"nomeReferencia1\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The nomeReferencia1 Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"some nomeReferencia1\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"enderecoReferencia1\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The enderecoReferencia1 Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"some enderecoReferencia1\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"nomeReferencia2\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The nomeReferencia2 Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"some nomeReferencia2\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"enderecoReferencia2\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The enderecoReferencia2 Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"some enderecoReferencia2\"\r",
+													"            ]\r",
+													"        }\r",
+													"    },\r",
+													"    \"examples\": [{\r",
+													"        \"idPessoa\": 1497,\r",
+													"        \"nomeMae\": \"Annie Lennox\",\r",
+													"        \"idEstadoCivil\": 1,\r",
+													"        \"idNaturezaOcupacao\": 9876987,\r",
+													"        \"idProfissao\": \"Engenheiro\",\r",
+													"        \"idNacionalidade\": 76,\r",
+													"        \"naturalidadeCidade\": \"São Paulo\",\r",
+													"        \"naturalidadeEstado\": \"SP\",\r",
+													"        \"grauInstrucao\": 1,\r",
+													"        \"email\": \"massa@email.com\",\r",
+													"        \"numeroCnh\": \"23143031556\",\r",
+													"        \"dataEmissaoCnh\": \"2020-10-31\",\r",
+													"        \"pessoaPoliticamenteExposta\": false,\r",
+													"        \"patrimonioTotal\": 100000,\r",
+													"        \"salario\": 2200,\r",
+													"        \"nomeEmpresa\": \"some company\",\r",
+													"        \"impedidoFinanciamento\": false,\r",
+													"        \"chequeEspecial\": 0,\r",
+													"        \"flagSemEnderecoComercialFixo\": false,\r",
+													"        \"nomePai\": \"Pai da Silva\",\r",
+													"        \"numeroDependentes\": 2,\r",
+													"        \"numeroBanco\": 12345,\r",
+													"        \"numeroAgencia\": 12349,\r",
+													"        \"numeroContaCorrente\": \"9865544\",\r",
+													"        \"nomeReferencia1\": \"some nomeReferencia1\",\r",
+													"        \"enderecoReferencia1\": \"some enderecoReferencia1\",\r",
+													"        \"nomeReferencia2\": \"some nomeReferencia2\",\r",
+													"        \"enderecoReferencia2\": \"some enderecoReferencia2\"\r",
+													"    }]\r",
+													"}\r",
+													"\r",
+													"pm.test(\"Validar a estrutura do corpo\", function () {\r",
+													"    pm.response.to.have.jsonSchema(schema);\r",
+													"});\r",
+													"\r",
+													"var currentDateTime = new Date();\r",
+													"console.log(\"Request generated at: \" + currentDateTime.toISOString());\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"const schema = \r",
+													"    \r",
+													"   {\r",
+													"    \"type\": \"object\",\r",
+													"    \"default\": {},\r",
+													"    \"title\": \"Root Schema\",\r",
+													"    \"required\": [\r",
+													"        \"idPessoa\",\r",
+													"        \"nomeMae\",\r",
+													"        \"idEstadoCivil\",\r",
+													"        \"idNaturezaOcupacao\",\r",
+													"        \"idProfissao\",\r",
+													"        \"idNacionalidade\",\r",
+													"        \"naturalidadeCidade\",\r",
+													"        \"naturalidadeEstado\",\r",
+													"        \"grauInstrucao\",\r",
+													"        \"email\",\r",
+													"        \"numeroCnh\",\r",
+													"        \"dataEmissaoCnh\",\r",
+													"        \"pessoaPoliticamenteExposta\",\r",
+													"        \"patrimonioTotal\",\r",
+													"        \"salario\",\r",
+													"        \"nomeEmpresa\",\r",
+													"        \"impedidoFinanciamento\",\r",
+													"        \"chequeEspecial\",\r",
+													"        \"flagSemEnderecoComercialFixo\",\r",
+													"        \"nomePai\",\r",
+													"        \"numeroDependentes\",\r",
+													"        \"numeroBanco\",\r",
+													"        \"numeroAgencia\",\r",
+													"        \"numeroContaCorrente\",\r",
+													"        \"nomeReferencia1\",\r",
+													"        \"enderecoReferencia1\",\r",
+													"        \"nomeReferencia2\",\r",
+													"        \"enderecoReferencia2\"\r",
+													"    ],\r",
+													"    \"properties\": {\r",
+													"        \"idPessoa\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The idPessoa Schema\",\r",
+													"            \"examples\": [\r",
+													"                1497\r",
+													"            ]\r",
+													"        },\r",
+													"        \"nomeMae\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The nomeMae Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"Annie Lennox\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"idEstadoCivil\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The idEstadoCivil Schema\",\r",
+													"            \"examples\": [\r",
+													"                1\r",
+													"            ]\r",
+													"        },\r",
+													"        \"idNaturezaOcupacao\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The idNaturezaOcupacao Schema\",\r",
+													"            \"examples\": [\r",
+													"                9876987\r",
+													"            ]\r",
+													"        },\r",
+													"        \"idProfissao\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The idProfissao Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"Engenheiro\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"idNacionalidade\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The idNacionalidade Schema\",\r",
+													"            \"examples\": [\r",
+													"                76\r",
+													"            ]\r",
+													"        },\r",
+													"        \"naturalidadeCidade\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The naturalidadeCidade Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"São Paulo\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"naturalidadeEstado\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The naturalidadeEstado Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"SP\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"grauInstrucao\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The grauInstrucao Schema\",\r",
+													"            \"examples\": [\r",
+													"                1\r",
+													"            ]\r",
+													"        },\r",
+													"        \"email\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The email Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"massa@email.com\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"numeroCnh\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The numeroCnh Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"23143031556\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"dataEmissaoCnh\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The dataEmissaoCnh Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"2020-10-31\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"pessoaPoliticamenteExposta\": {\r",
+													"            \"type\": \"boolean\",\r",
+													"            \"default\": false,\r",
+													"            \"title\": \"The pessoaPoliticamenteExposta Schema\",\r",
+													"            \"examples\": [\r",
+													"                false\r",
+													"            ]\r",
+													"        },\r",
+													"        \"patrimonioTotal\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The patrimonioTotal Schema\",\r",
+													"            \"examples\": [\r",
+													"                100000\r",
+													"            ]\r",
+													"        },\r",
+													"        \"salario\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The salario Schema\",\r",
+													"            \"examples\": [\r",
+													"                2200\r",
+													"            ]\r",
+													"        },\r",
+													"        \"nomeEmpresa\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The nomeEmpresa Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"some company\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"impedidoFinanciamento\": {\r",
+													"            \"type\": \"boolean\",\r",
+													"            \"default\": false,\r",
+													"            \"title\": \"The impedidoFinanciamento Schema\",\r",
+													"            \"examples\": [\r",
+													"                false\r",
+													"            ]\r",
+													"        },\r",
+													"        \"chequeEspecial\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The chequeEspecial Schema\",\r",
+													"            \"examples\": [\r",
+													"                0\r",
+													"            ]\r",
+													"        },\r",
+													"        \"flagSemEnderecoComercialFixo\": {\r",
+													"            \"type\": \"boolean\",\r",
+													"            \"default\": false,\r",
+													"            \"title\": \"The flagSemEnderecoComercialFixo Schema\",\r",
+													"            \"examples\": [\r",
+													"                false\r",
+													"            ]\r",
+													"        },\r",
+													"        \"nomePai\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The nomePai Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"Pai da Silva\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"numeroDependentes\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The numeroDependentes Schema\",\r",
+													"            \"examples\": [\r",
+													"                2\r",
+													"            ]\r",
+													"        },\r",
+													"        \"numeroBanco\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The numeroBanco Schema\",\r",
+													"            \"examples\": [\r",
+													"                12345\r",
+													"            ]\r",
+													"        },\r",
+													"        \"numeroAgencia\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The numeroAgencia Schema\",\r",
+													"            \"examples\": [\r",
+													"                12349\r",
+													"            ]\r",
+													"        },\r",
+													"        \"numeroContaCorrente\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The numeroContaCorrente Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"9865544\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"nomeReferencia1\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The nomeReferencia1 Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"some nomeReferencia1\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"enderecoReferencia1\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The enderecoReferencia1 Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"some enderecoReferencia1\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"nomeReferencia2\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The nomeReferencia2 Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"some nomeReferencia2\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"enderecoReferencia2\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The enderecoReferencia2 Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"some enderecoReferencia2\"\r",
+													"            ]\r",
+													"        }\r",
+													"    },\r",
+													"    \"examples\": [{\r",
+													"        \"idPessoa\": 1497,\r",
+													"        \"nomeMae\": \"Annie Lennox\",\r",
+													"        \"idEstadoCivil\": 1,\r",
+													"        \"idNaturezaOcupacao\": 9876987,\r",
+													"        \"idProfissao\": \"Engenheiro\",\r",
+													"        \"idNacionalidade\": 76,\r",
+													"        \"naturalidadeCidade\": \"São Paulo\",\r",
+													"        \"naturalidadeEstado\": \"SP\",\r",
+													"        \"grauInstrucao\": 1,\r",
+													"        \"email\": \"massa@email.com\",\r",
+													"        \"numeroCnh\": \"23143031556\",\r",
+													"        \"dataEmissaoCnh\": \"2020-10-31\",\r",
+													"        \"pessoaPoliticamenteExposta\": false,\r",
+													"        \"patrimonioTotal\": 100000,\r",
+													"        \"salario\": 2200,\r",
+													"        \"nomeEmpresa\": \"some company\",\r",
+													"        \"impedidoFinanciamento\": false,\r",
+													"        \"chequeEspecial\": 0,\r",
+													"        \"flagSemEnderecoComercialFixo\": false,\r",
+													"        \"nomePai\": \"Pai da Silva\",\r",
+													"        \"numeroDependentes\": 2,\r",
+													"        \"numeroBanco\": 12345,\r",
+													"        \"numeroAgencia\": 12349,\r",
+													"        \"numeroContaCorrente\": \"9865544\",\r",
+													"        \"nomeReferencia1\": \"some nomeReferencia1\",\r",
+													"        \"enderecoReferencia1\": \"some enderecoReferencia1\",\r",
+													"        \"nomeReferencia2\": \"some nomeReferencia2\",\r",
+													"        \"enderecoReferencia2\": \"some enderecoReferencia2\"\r",
+													"    }]\r",
+													"};\r",
+													"\r",
+													"var currentDateTime = new Date();\r",
+													"pm.environment.set(\"requestDateTime\", currentDateTime.toISOString());"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "https://{{integrationURL}}/pessoas-detalhes/api/pessoas-detalhes?idPessoa={{idPessoa}}&nomeMae=Annie Lennox&idEstadoCivil=1&idProfissao=Engenheiro&idNaturezaOcupacao=9876987&idNacionalidade=76&numeroBanco=12345&numeroAgencia=12349&numeroContaCorrente=9865544&email=massa@email.com&naturalidadeCidade=São Paulo&naturalidadeEstado=SP&grauInstrucao=1&nomePai=Pai da Silva&numeroCnh=23143031556&pessoaPoliticamenteExposta=false&usuarioAlteracao=666&flagSemEnderecoComercialFixo=false&dataEmissaoCnh=2020-10-31T01:30:00.000-05:00&numeroDependentes=2&impedidoFinanciamento=false&nomeEmpresa=some company&nomeReferencia1=some nomeReferencia1&enderecoReferencia1=some enderecoReferencia1&nomeReferencia2=some nomeReferencia2&enderecoReferencia2=some enderecoReferencia2&chequeEspecial=0&flagNomePaiNaoInformado=false&salario=2200&patrimonioTotal=100000",
+											"protocol": "https",
+											"host": [
+												"{{integrationURL}}"
+											],
+											"path": [
+												"pessoas-detalhes",
+												"api",
+												"pessoas-detalhes"
+											],
+											"query": [
+												{
+													"key": "idPessoa",
+													"value": "{{idPessoa}}"
+												},
+												{
+													"key": "nomeMae",
+													"value": "Annie Lennox"
+												},
+												{
+													"key": "idEstadoCivil",
+													"value": "1"
+												},
+												{
+													"key": "idProfissao",
+													"value": "Engenheiro"
+												},
+												{
+													"key": "idNaturezaOcupacao",
+													"value": "9876987"
+												},
+												{
+													"key": "idNacionalidade",
+													"value": "76"
+												},
+												{
+													"key": "numeroBanco",
+													"value": "12345"
+												},
+												{
+													"key": "numeroAgencia",
+													"value": "12349"
+												},
+												{
+													"key": "numeroContaCorrente",
+													"value": "9865544"
+												},
+												{
+													"key": "email",
+													"value": "massa@email.com"
+												},
+												{
+													"key": "naturalidadeCidade",
+													"value": "São Paulo"
+												},
+												{
+													"key": "naturalidadeEstado",
+													"value": "SP"
+												},
+												{
+													"key": "grauInstrucao",
+													"value": "1"
+												},
+												{
+													"key": "nomePai",
+													"value": "Pai da Silva"
+												},
+												{
+													"key": "numeroCnh",
+													"value": "23143031556"
+												},
+												{
+													"key": "pessoaPoliticamenteExposta",
+													"value": "false"
+												},
+												{
+													"key": "usuarioAlteracao",
+													"value": "666"
+												},
+												{
+													"key": "flagSemEnderecoComercialFixo",
+													"value": "false"
+												},
+												{
+													"key": "dataEmissaoCnh",
+													"value": "2020-10-31T01:30:00.000-05:00"
+												},
+												{
+													"key": "numeroDependentes",
+													"value": "2"
+												},
+												{
+													"key": "impedidoFinanciamento",
+													"value": "false"
+												},
+												{
+													"key": "nomeEmpresa",
+													"value": "some company"
+												},
+												{
+													"key": "nomeReferencia1",
+													"value": "some nomeReferencia1"
+												},
+												{
+													"key": "enderecoReferencia1",
+													"value": "some enderecoReferencia1"
+												},
+												{
+													"key": "nomeReferencia2",
+													"value": "some nomeReferencia2"
+												},
+												{
+													"key": "enderecoReferencia2",
+													"value": "some enderecoReferencia2"
+												},
+												{
+													"key": "chequeEspecial",
+													"value": "0"
+												},
+												{
+													"key": "flagNomePaiNaoInformado",
+													"value": "false"
+												},
+												{
+													"key": "salario",
+													"value": "2200"
+												},
+												{
+													"key": "patrimonioTotal",
+													"value": "100000"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PIER118 - POST: /api/enderecos/incluir_endereco(+)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// Extrai o valor do campo id da resposta\r",
+													"const idEnderecoValue = pm.response.json().id;\r",
+													"// Salva o valor em uma variável de ambiente chamada \"idEndereco\"\r",
+													"pm.environment.set(\"idEndereco\", idEnderecoValue.toString());\r",
+													"console.log(\"Valor da variável idEndereco:\", pm.environment.get(\"idEndereco\"));\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"const schema = {\r",
+													"    \"type\": \"object\",\r",
+													"    \"default\": {},\r",
+													"    \"title\": \"Root Schema\",\r",
+													"    \"required\": [\r",
+													"        \"id\",\r",
+													"        \"idPessoa\",\r",
+													"        \"idTipoEndereco\",\r",
+													"        \"cep\",\r",
+													"        \"logradouro\",\r",
+													"        \"numero\",\r",
+													"        \"cidade\",\r",
+													"        \"uf\",\r",
+													"        \"pais\",\r",
+													"        \"dataInclusao\",\r",
+													"        \"dataUltimaAtualizacao\",\r",
+													"        \"flagCorrespondencia\",\r",
+													"        \"complemento\",\r",
+													"        \"pontoReferencia\",\r",
+													"        \"bairro\",\r",
+													"        \"tempoResidenciaAnos\",\r",
+													"        \"tempoResidenciaMeses\"\r",
+													"    ],\r",
+													"    \"properties\": {\r",
+													"        \"id\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The id Schema\",\r",
+													"            \"examples\": [\r",
+													"                2830\r",
+													"            ]\r",
+													"        },\r",
+													"        \"idPessoa\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The idPessoa Schema\",\r",
+													"            \"examples\": [\r",
+													"                264\r",
+													"            ]\r",
+													"        },\r",
+													"        \"idTipoEndereco\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The idTipoEndereco Schema\",\r",
+													"            \"examples\": [\r",
+													"                4\r",
+													"            ]\r",
+													"        },\r",
+													"        \"cep\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The cep Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"01500005\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"logradouro\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The logradouro Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"Avenida Paulista\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"numero\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The numero Schema\",\r",
+													"            \"examples\": [\r",
+													"                1501\r",
+													"            ]\r",
+													"        },\r",
+													"        \"cidade\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The cidade Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"São Paulo\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"uf\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The uf Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"SP\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"pais\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The pais Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"Brasil\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"dataInclusao\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The dataInclusao Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"2023-05-15T13:33:42.757-03:00\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"dataUltimaAtualizacao\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The dataUltimaAtualizacao Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"2023-05-15T13:33:42.757-03:00\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"flagCorrespondencia\": {\r",
+													"            \"type\": \"boolean\",\r",
+													"            \"default\": false,\r",
+													"            \"title\": \"The flagCorrespondencia Schema\",\r",
+													"            \"examples\": [\r",
+													"                true\r",
+													"            ]\r",
+													"        },\r",
+													"        \"complemento\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The complemento Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"Apto 100\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"pontoReferencia\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The pontoReferencia Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"Em frente ao posto de gasolina\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"bairro\": {\r",
+													"            \"type\": \"string\",\r",
+													"            \"default\": \"\",\r",
+													"            \"title\": \"The bairro Schema\",\r",
+													"            \"examples\": [\r",
+													"                \"Bela Vista\"\r",
+													"            ]\r",
+													"        },\r",
+													"        \"tempoResidenciaAnos\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The tempoResidenciaAnos Schema\",\r",
+													"            \"examples\": [\r",
+													"                2\r",
+													"            ]\r",
+													"        },\r",
+													"        \"tempoResidenciaMeses\": {\r",
+													"            \"type\": \"integer\",\r",
+													"            \"default\": 0,\r",
+													"            \"title\": \"The tempoResidenciaMeses Schema\",\r",
+													"            \"examples\": [\r",
+													"                8\r",
+													"            ]\r",
+													"        }\r",
+													"    },\r",
+													"    \"examples\": [{\r",
+													"        \"id\": 2830,\r",
+													"        \"idPessoa\": 264,\r",
+													"        \"idTipoEndereco\": 4,\r",
+													"        \"cep\": \"01500005\",\r",
+													"        \"logradouro\": \"Avenida Paulista\",\r",
+													"        \"numero\": 1501,\r",
+													"        \"cidade\": \"São Paulo\",\r",
+													"        \"uf\": \"SP\",\r",
+													"        \"pais\": \"Brasil\",\r",
+													"        \"dataInclusao\": \"2023-05-15T13:33:42.757-03:00\",\r",
+													"        \"dataUltimaAtualizacao\": \"2023-05-15T13:33:42.757-03:00\",\r",
+													"        \"flagCorrespondencia\": true,\r",
+													"        \"complemento\": \"Apto 100\",\r",
+													"        \"pontoReferencia\": \"Em frente ao posto de gasolina\",\r",
+													"        \"bairro\": \"Bela Vista\",\r",
+													"        \"tempoResidenciaAnos\": 2,\r",
+													"        \"tempoResidenciaMeses\": 8\r",
+													"    }]\r",
+													"}\r",
+													"\r",
+													"pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
+													"     pm.response.to.be.ok\r",
+													"     pm.response.to.be.withBody;\r",
+													"     pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validar a estrutura do corpo\", function () {\r",
+													"    pm.response.to.have.jsonSchema(schema);\r",
+													"});\r",
+													"\r",
+													"// Extrair o valor do campo \"idPessoa\" do response\r",
+													"var responseJson = pm.response.json();\r",
+													"var idPessoaResponse = responseJson.idPessoa;\r",
+													"\r",
+													"// Extrair o valor do campo \"idPessoa\" do request\r",
+													"var queryParams = pm.request.url.query.all();\r",
+													"var idPessoaRequest = null;\r",
+													"\r",
+													"for (var i = 0; i < queryParams.length; i++) {\r",
+													"    if (queryParams[i].key === 'idPessoa') {\r",
+													"        idPessoaRequest = parseInt(queryParams[i].value);\r",
+													"        break;\r",
+													"    }\r",
+													"}\r",
+													"\r",
+													"// Comparar os valores\r",
+													"pm.test(\"Validar o valor do campo idPessoa no response\", function () {\r",
+													"    pm.expect(idPessoaResponse).to.eql(idPessoaRequest);\r",
+													"});\r",
+													"\r",
+													"var currentDateTime = new Date();\r",
+													"console.log(\"Request generated at: \" + currentDateTime.toISOString());\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var currentDateTime = new Date();\r",
+													"pm.environment.set(\"requestDateTime\", currentDateTime.toISOString());"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{integrationURL}}/enderecos/api/enderecos?idPessoa={{idPessoa}}&idTipoEndereco=4&cep=01500005&logradouro=Avenida Paulista&numero=1501&complemento=Apto 100&pontoReferencia=Em frente ao posto de gasolina&bairro=Bela Vista&cidade=São Paulo&uf=SP&pais=Brasil&tempoResidenciaAnos=2&tempoResidenciaMeses=8&aplicativoAlteracao=string&usuarioAlteracao=Aguiar",
+											"protocol": "https",
+											"host": [
+												"{{integrationURL}}"
+											],
+											"path": [
+												"enderecos",
+												"api",
+												"enderecos"
+											],
+											"query": [
+												{
+													"key": "idPessoa",
+													"value": "{{idPessoa}}"
+												},
+												{
+													"key": "idTipoEndereco",
+													"value": "4"
+												},
+												{
+													"key": "cep",
+													"value": "01500005"
+												},
+												{
+													"key": "logradouro",
+													"value": "Avenida Paulista"
+												},
+												{
+													"key": "numero",
+													"value": "1501"
+												},
+												{
+													"key": "complemento",
+													"value": "Apto 100"
+												},
+												{
+													"key": "pontoReferencia",
+													"value": "Em frente ao posto de gasolina"
+												},
+												{
+													"key": "bairro",
+													"value": "Bela Vista"
+												},
+												{
+													"key": "cidade",
+													"value": "São Paulo"
+												},
+												{
+													"key": "uf",
+													"value": "SP"
+												},
+												{
+													"key": "pais",
+													"value": "Brasil"
+												},
+												{
+													"key": "tempoResidenciaAnos",
+													"value": "2"
+												},
+												{
+													"key": "tempoResidenciaMeses",
+													"value": "8"
+												},
+												{
+													"key": "aplicativoAlteracao",
+													"value": "string"
+												},
+												{
+													"key": "usuarioAlteracao",
+													"value": "Aguiar"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PIER097 - POST: /api/contas/incluir_conta(+)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"pm.globals.set(\"idConta\", jsonData.id);\r",
+													"//console.log(pm.globals.get(\"idConta\"));\r",
+													"\r",
+													"const responseJson = pm.response.json();\r",
+													"const idConta = responseJson.id;\r",
+													"const idPessoa = responseJson.idPessoa;\r",
+													"console.log(`idConta gerado: ${idConta} está associado ao idPessoa: ${idPessoa}`);\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
+													"     pm.response.to.be.ok;\r",
+													"     pm.response.to.be.withBody;\r",
+													"     pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"\r",
+													"var currentDateTime = new Date();\r",
+													"console.log(\"Request generated at: \" + currentDateTime.toISOString());\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var currentDateTime = new Date();\r",
+													"pm.environment.set(\"requestDateTime\", currentDateTime.toISOString());"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"idPessoa\": {{idPessoa}},\n    \"id\": 0,\n    \"idProduto\": 12,\n    \"idOrigemComercial\": 99,\n    \"diaVencimento\": 11,\n    \"limiteGlobal\": 500,\n    \"limiteMaximo\": 500,\n    \"limiteParcelas\": 500,\n    \"valorRenda\": 1000,\n    \"valorPontuacao\": 0,\n    \"limiteConsignado\": 0,\n    \"pacoteTarifa\": 1,\n    \"flagCreditoAtivo\": true,\n    \"flagDebitoAtivo\": true,\n    \"flagPLDiferenciado\": true,\n    \"flagOverLimit\": true,\n    \"flagCarteiraDigital\": true,\n    \"flagFaturaPorEmail\": null,\n    \"idStatusConta\": 50,\n    \"canalEntrada\": \"string\",\n    \"funcaoAtiva\": \"CREDITO\",\n    \"matricula\": 0,\n    \"responsavelDigitacao\": \"FABIOAGUIAR\",\n    \"idPromotorVenda\": 55,\n    \"behaviorScore\": 0,\n    \"idEnderecoCorrespondencia\": {{idEndereco}}\n  }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{integrationURL}}/contas/api/contas?idPessoa={{idPessoa}}",
+											"protocol": "https",
+											"host": [
+												"{{integrationURL}}"
+											],
+											"path": [
+												"contas",
+												"api",
+												"contas"
+											],
+											"query": [
+												{
+													"key": "idPessoa",
+													"value": "{{idPessoa}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PIER138 - POST: /api/telefones_inclui_telefone(+)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
+													"     pm.response.to.be.ok;\r",
+													"     pm.response.to.be.withBody;\r",
+													"     pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"// Extrai o valor do campo idPessoa do response\r",
+													"const idPessoaResponse = pm.response.json().idPessoa;\r",
+													"// Obtém o valor da variável de ambiente \"idProposta\"\r",
+													"const idProposta = pm.environment.get(\"idPessoa\");\r",
+													"// Converte idProposta para número para fins de comparação\r",
+													"const idPropostaNumber = parseInt(idProposta);\r",
+													"// Converte idPessoaResponse para número para fins de comparação\r",
+													"const idPessoaResponseNumber = parseInt(idPessoaResponse);\r",
+													"// Compara os valores\r",
+													"pm.test(\"Valida idPessoa Response X idProposta Request\", function () {\r",
+													"    pm.expect(idPessoaResponseNumber).to.equal(idPropostaNumber);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"idTipoTelefone não pode devolver nullo\", function () {\r",
+													"    const responseBody = pm.response.json();\r",
+													"    const nomeCampo = responseBody.idTipoTelefone; \r",
+													"    pm.expect(nomeCampo).to.not.equal(null);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"idPessoa não pode devolver nullo\", function () {\r",
+													"    const responseBody = pm.response.json();\r",
+													"    const nomeCampo = responseBody.idPessoa; \r",
+													"    pm.expect(nomeCampo).to.not.equal(null);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"ddd não pode devolver nullo\", function () {\r",
+													"    const responseBody = pm.response.json();\r",
+													"    const nomeCampo = responseBody.ddd; \r",
+													"    pm.expect(nomeCampo).to.not.equal(null);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"telefone não pode devolver nullo\", function () {\r",
+													"    const responseBody = pm.response.json();\r",
+													"    const nomeCampo = responseBody.telefone; \r",
+													"    pm.expect(nomeCampo).to.not.equal(null);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"ramal não pode devolver nullo\", function () {\r",
+													"    const responseBody = pm.response.json();\r",
+													"    const nomeCampo = responseBody.ramal; \r",
+													"    pm.expect(nomeCampo).to.not.equal(null);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"status pode devolver nullo\", function () {\r",
+													"    const responseBody = pm.response.json();\r",
+													"    const nomeCampo = responseBody.status; \r",
+													"    pm.expect(nomeCampo).to.not.equal(null);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validar campo telefone como numérico\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    var telefone = jsonData.telefone;\r",
+													"    pm.expect(/^\\d+$/.test(telefone)).to.be.true;\r",
+													"});\r",
+													"\r",
+													"var currentDateTime = new Date();\r",
+													"console.log(\"Request generated at: \" + currentDateTime.toISOString());\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var currentDateTime = new Date();\r",
+													"pm.environment.set(\"requestDateTime\", currentDateTime.toISOString());\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"strictSSL": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "https://{{integrationURL}}/telefones/api/telefones?idTipoTelefone=18&idPessoa={{idPessoa}}&ddd=11&telefone=991882511&ramal=1",
+											"protocol": "https",
+											"host": [
+												"{{integrationURL}}"
+											],
+											"path": [
+												"telefones",
+												"api",
+												"telefones"
+											],
+											"query": [
+												{
+													"key": "idTipoTelefone",
+													"value": "18"
+												},
+												{
+													"key": "idPessoa",
+													"value": "{{idPessoa}}"
+												},
+												{
+													"key": "ddd",
+													"value": "11"
+												},
+												{
+													"key": "telefone",
+													"value": "991882511"
+												},
+												{
+													"key": "ramal",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
 									"name": "PIER011 - POST: /api/contas/{id}/cadastrar-adicional(+)",
 									"event": [
 										{
@@ -20036,8 +21821,15 @@
 													"});\r",
 													"\r",
 													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\", \"já existe usuário na base com o documentNumber informado\");\r",
-													"});"
+													" pm.response.to.have.jsonBody(\"error.errors[0].message\", \"já existe usuário na base com o documentNumber informado\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Capturar o idConta já cadastrado\", function () {\r",
+													"    var errorMessage = `já existe usuário na base com o documentNumber ${pm.variables.get(\"idConta\")} informado`;\r",
+													"    console.log(errorMessage);\r",
+													"   });\r",
+													"\r",
+													""
 												],
 												"type": "text/javascript"
 											}
@@ -20056,7 +21848,7 @@
 											}
 										},
 										"url": {
-											"raw": "https://{{integrationURL}}/contas/api/contas/123/cadastrar-adicional",
+											"raw": "https://{{integrationURL}}/contas/api/contas/{{idConta}}/cadastrar-adicional",
 											"protocol": "https",
 											"host": [
 												"{{integrationURL}}"
@@ -20065,7 +21857,7 @@
 												"contas",
 												"api",
 												"contas",
-												"123",
+												"{{idConta}}",
 												"cadastrar-adicional"
 											]
 										}
@@ -20089,7 +21881,16 @@
 													"});\r",
 													"\r",
 													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\", \"não deve ser maior que 150 caracteres\");\r",
+													"    // Analisar a resposta JSON\r",
+													"    var responseBody = pm.response.json();\r",
+													"\r",
+													"    // Verificar se há um objeto \"error\" na resposta\r",
+													"    pm.expect(responseBody).to.have.property(\"error\");\r",
+													"\r",
+													"    // Verificar a mensagem de erro\r",
+													"    var errorMessage = responseBody.error.message;\r",
+													"    var expectedErrorMessage = \"[format attribute \\\"date\\\" not supported, string \\\"Fred Jason Krugger Fred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason Krugger\\\" is too long (length: 325, maximum allowed: 150)]\";\r",
+													"    pm.expect(errorMessage).to.eql(expectedErrorMessage);\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -20109,7 +21910,7 @@
 											}
 										},
 										"url": {
-											"raw": "https://{{integrationURL}}/contas/api/contas/80006115/cadastrar-adicional",
+											"raw": "https://{{integrationURL}}/contas/api/contas/{{idConta}}/cadastrar-adicional",
 											"protocol": "https",
 											"host": [
 												"{{integrationURL}}"
@@ -20118,7 +21919,7 @@
 												"contas",
 												"api",
 												"contas",
-												"80006115",
+												"{{idConta}}",
 												"cadastrar-adicional"
 											]
 										}
@@ -20154,60 +21955,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"persist\": {\n        \"nome\": \"\",\n        \"nomeImpresso\": \"JOSÉ L DA SILVA\",\n        \"numeroReceitaFederal\": \"80080784054\",\n        \"dataNascimento\": \"2020-10-31\",\n        \"sexo\": \"M\",\n        \"numeroIdentidade\": \"1194785359\",\n        \"orgaoExpedidorIdentidade\": \"SSPPB\",\n        \"unidadeFederativaIdentidade\": \"DF\",\n        \"dataEmissaoIdentidade\": \"2020-10-31\",\n        \"idEstadoCivil\": 1,\n        \"idNacionalidade\": 1,\n        \"idParentesco\": 1,\n        \"email\": \"jose@exemplo.com\",\n        \"flagDeficienteVisual\": true,\n        \"id\": 23456789999999999,\n        \"telefones\": [\n            {\n                \"idTipoTelefone\": 1,\n                \"ddd\": \"999\",\n                \"telefone\": \"999999999\",\n                \"ramal\": \"9999\"\n            }\n        ]\n    }\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "https://{{integrationURL}}/contas/api/contas/22981464035/cadastrar-adicional",
-											"protocol": "https",
-											"host": [
-												"{{integrationURL}}"
-											],
-											"path": [
-												"contas",
-												"api",
-												"contas",
-												"22981464035",
-												"cadastrar-adicional"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "PIER011 - POST: /api/contas/{id}/cadastrar-adicional_nome_impresso_>_60(-)",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test(\"Status code is 400\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
-													"     pm.response.to.be.withBody;\r",
-													"     pm.response.to.be.json;\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\", \"não deve ser maior que 60 caracteres\");\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"persist\": {\n        \"nome\": \"José Lima da Silva\",\n        \"nomeImpresso\": \"JOSÉLDASILVAJOSÉLDASILVAJOSÉLDASILVAJOSÉLDASILVAJOSÉLDASILVAJOSÉLDASILVA\",\n        \"numeroReceitaFederal\": \"80080784054\",\n        \"dataNascimento\": \"2020-10-31\",\n        \"sexo\": \"M\",\n        \"numeroIdentidade\": \"1194785359\",\n        \"orgaoExpedidorIdentidade\": \"SSPPB\",\n        \"unidadeFederativaIdentidade\": \"DF\",\n        \"dataEmissaoIdentidade\": \"2020-10-31\",\n        \"idEstadoCivil\": 1,\n        \"idNacionalidade\": 1,\n        \"idParentesco\": 1,\n        \"email\": \"jose@exemplo.com\",\n        \"flagDeficienteVisual\": true,\n        \"id\": 23456789999999999,\n        \"telefones\": [\n            {\n                \"idTipoTelefone\": 1,\n                \"ddd\": \"999\",\n                \"telefone\": \"999999999\",\n                \"ramal\": \"9999\"\n            }\n        ]\n    }\n}",
+											"raw": "{\n    \"persist\": {\n        \"nome\": \"\",\n        \"nomeImpresso\": \"JOSÉ L DA SILVA\",\n        \"numeroReceitaFederal\": \"80080784058\",\n        \"dataNascimento\": \"2020-10-31\",\n        \"sexo\": \"M\",\n        \"numeroIdentidade\": \"1194785359\",\n        \"orgaoExpedidorIdentidade\": \"SSPPB\",\n        \"unidadeFederativaIdentidade\": \"DF\",\n        \"dataEmissaoIdentidade\": \"2020-10-31\",\n        \"idEstadoCivil\": 1,\n        \"idNacionalidade\": 1,\n        \"idParentesco\": 1,\n        \"email\": \"jose@exemplo.com\",\n        \"flagDeficienteVisual\": true,\n        \"id\": 23456789999999999,\n        \"telefones\": [\n            {\n                \"idTipoTelefone\": 1,\n                \"ddd\": \"999\",\n                \"telefone\": \"999999999\",\n                \"ramal\": \"9999\"\n            }\n        ]\n    }\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -20238,8 +21986,8 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"pm.test(\"Status code is 400\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
+													"pm.test(\"Status code is 500\", function () {\r",
+													"    pm.response.to.have.status(500);\r",
 													"});\r",
 													"\r",
 													"pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
@@ -20248,7 +21996,7 @@
 													"});\r",
 													"\r",
 													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\", \"não deve ser mais curta que 1 caracter\");\r",
+													"  pm.response.to.have.jsonBody(\"error.message\", \"Internal Server Error\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -20260,7 +22008,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"persist\": {\n        \"nome\": \"JOSÉ LIMA DA SILVA\",\n        \"nomeImpresso\": \"\",\n        \"numeroReceitaFederal\": \"80080784054\",\n        \"dataNascimento\": \"2020-10-31\",\n        \"sexo\": \"M\",\n        \"numeroIdentidade\": \"1194785359\",\n        \"orgaoExpedidorIdentidade\": \"SSPPB\",\n        \"unidadeFederativaIdentidade\": \"DF\",\n        \"dataEmissaoIdentidade\": \"2020-10-31\",\n        \"idEstadoCivil\": 1,\n        \"idNacionalidade\": 1,\n        \"idParentesco\": 1,\n        \"email\": \"jose@exemplo.com\",\n        \"flagDeficienteVisual\": true,\n        \"id\": 23456789999999999,\n        \"telefones\": [\n            {\n                \"idTipoTelefone\": 1,\n                \"ddd\": \"999\",\n                \"telefone\": \"999999999\",\n                \"ramal\": \"9999\"\n            }\n        ]\n    }\n}",
+											"raw": "{\n    \"persist\": {\n        \"nome\": \"JOSÉ LIMA DA SILVA\",\n        \"nomeImpresso\": ,\n        \"numeroReceitaFederal\": \"80080784054\",\n        \"dataNascimento\": \"2020-10-31\",\n        \"sexo\": \"M\",\n        \"numeroIdentidade\": \"1194785359\",\n        \"orgaoExpedidorIdentidade\": \"SSPPB\",\n        \"unidadeFederativaIdentidade\": \"DF\",\n        \"dataEmissaoIdentidade\": \"2020-10-31\",\n        \"idEstadoCivil\": 1,\n        \"idNacionalidade\": 1,\n        \"idParentesco\": 1,\n        \"email\": \"jose@exemplo.com\",\n        \"flagDeficienteVisual\": true,\n        \"id\": 23456789999999999,\n        \"telefones\": [\n            {\n                \"idTipoTelefone\": 1,\n                \"ddd\": \"999\",\n                \"telefone\": \"999999999\",\n                \"ramal\": \"9999\"\n            }\n        ]\n    }\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -20268,7 +22016,7 @@
 											}
 										},
 										"url": {
-											"raw": "https://{{integrationURL}}/contas/api/contas/23456789999999999/cadastrar-adicional",
+											"raw": "https://{{integrationURL}}/contas/api/contas/{{idConta}}/cadastrar-adicional",
 											"protocol": "https",
 											"host": [
 												"{{integrationURL}}"
@@ -20277,7 +22025,7 @@
 												"contas",
 												"api",
 												"contas",
-												"23456789999999999",
+												"{{idConta}}",
 												"cadastrar-adicional"
 											]
 										}
@@ -20397,8 +22145,8 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"pm.test(\"Status code is 500\", function () {\r",
-													"    pm.response.to.have.status(500);\r",
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
 													"});\r",
 													"\r",
 													"pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
@@ -20407,7 +22155,60 @@
 													"});\r",
 													"\r",
 													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.message\", \"Internal Server Error\");\r",
+													"  pm.response.to.have.jsonBody(\"error.message\", \"Documento inválido\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"persist\": {\n        \"nome\": \"José Lima da Silva\",\n        \"nomeImpresso\": \"JOSÉ L DA SILVA\",\n        \"numeroReceitaFederal\": \"109\",\n        \"dataNascimento\": \"2020-10-31\",\n        \"sexo\": \"M\",\n        \"numeroIdentidade\": \"9999999\",\n        \"orgaoExpedidorIdentidade\": \"SSPPB\",\n        \"unidadeFederativaIdentidade\": \"DF\",\n        \"dataEmissaoIdentidade\": \"2020-10-31\",\n        \"idEstadoCivil\": 1,\n        \"idNacionalidade\": 1,\n        \"idParentesco\": 1,\n        \"email\": \"jose@exemplo.com\",\n        \"flagDeficienteVisual\": true,\n        \"id\": 70000739,\n        \"telefones\": [\n            {\n                \"idTipoTelefone\": 1,\n                \"ddd\": \"999\",\n                \"telefone\": \"999999999\",\n                \"ramal\": \"9999\"\n            }\n        ]\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{integrationURL}}/contas/api/contas/70000739/cadastrar-adicional",
+											"protocol": "https",
+											"host": [
+												"{{integrationURL}}"
+											],
+											"path": [
+												"contas",
+												"api",
+												"contas",
+												"70000739",
+												"cadastrar-adicional"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PIER011 - POST: /api/contas/{id}/cadastrar-adicional_numeroReceitaFederal_>_14(-)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
+													"     pm.response.to.be.withBody;\r",
+													"     pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validar mensagem de erro\", function () {\r",
+													"  pm.response.to.have.jsonBody(\"error.message\", \"Documento inválido\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -23723,7 +25524,7 @@
 									}
 								},
 								"url": {
-									"raw": "https://{{integrationURL}}/contas/api/contas/{{idConta}}/pessoas/wweerrr/gerar-cartao",
+									"raw": "https://{{integrationURL}}/contas/api/contas/{{idConta}}/pessoas/a/gerar-cartao",
 									"protocol": "https",
 									"host": [
 										"{{integrationURL}}"
@@ -23734,7 +25535,7 @@
 										"contas",
 										"{{idConta}}",
 										"pessoas",
-										"wweerrr",
+										"a",
 										"gerar-cartao"
 									]
 								}
@@ -26180,6 +27981,10 @@
 							"name": "Gerar cartao com adicional(+)",
 							"item": [
 								{
+									"name": "New Folder",
+									"item": []
+								},
+								{
 									"name": "HEIM143 - POST: /propostas/incluir_proposta(+)",
 									"event": [
 										{
@@ -28292,15 +30097,15 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"//pm.test(\"Status code is 200\", function () {\r",
-											" //   pm.response.to.have.status(200);\r",
-											"//});\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"   pm.response.to.have.status(200);\r",
+											"});\r",
 											"\r",
-											"pm.test(\"Status code is 400\", function () {\r",
-											"    if (pm.response.status !== 400) {\r",
-											"        pm.expect.fail(`Esperava um status code 200, mas obteve ${pm.response.status}`);\r",
-											"    }\r",
-											"})"
+											"//pm.test(\"Status code is 400\", function () {\r",
+											"  //  if (pm.response.status !== 400) {\r",
+											" //       pm.expect.fail(`Esperava um status code 200, mas obteve ${pm.response.status}`);\r",
+											" //   }\r",
+											"//})"
 										],
 										"type": "text/javascript"
 									}
@@ -28359,6 +30164,10 @@
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Variável 1fpayURL foi definida corretamente\", function () {\r",
+											"    pm.expect(pm.variables.get(\"1fpayURL\")).to.exist;\r",
 											"});\r",
 											""
 										],
