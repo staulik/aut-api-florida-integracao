@@ -1,9 +1,0 @@
-//pm.test("Status code is 200", function () {
- //   pm.response.to.have.status(200);
-//});
-
-pm.test("Status code is 400", function () {
-    if (pm.response.status !== 400) {
-        pm.expect.fail(`Esperava um status code 200, mas obteve ${pm.response.status}`);
-    }
-})

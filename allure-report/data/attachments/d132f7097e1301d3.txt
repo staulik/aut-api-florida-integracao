@@ -1,0 +1,296 @@
+const schema = 
+    
+   {
+    "type": "object",
+    "default": {},
+    "title": "Root Schema",
+    "required": [
+        "idPessoa",
+        "nomeMae",
+        "idEstadoCivil",
+        "idNaturezaOcupacao",
+        "idProfissao",
+        "idNacionalidade",
+        "naturalidadeCidade",
+        "naturalidadeEstado",
+        "grauInstrucao",
+        "email",
+        "numeroCnh",
+        "dataEmissaoCnh",
+        "pessoaPoliticamenteExposta",
+        "patrimonioTotal",
+        "salario",
+        "nomeEmpresa",
+        "impedidoFinanciamento",
+        "chequeEspecial",
+        "flagSemEnderecoComercialFixo",
+        "nomePai",
+        "numeroDependentes",
+        "numeroBanco",
+        "numeroAgencia",
+        "numeroContaCorrente",
+        "nomeReferencia1",
+        "enderecoReferencia1",
+        "nomeReferencia2",
+        "enderecoReferencia2"
+    ],
+    "properties": {
+        "idPessoa": {
+            "type": "integer",
+            "default": 0,
+            "title": "The idPessoa Schema",
+            "examples": [
+                1497
+            ]
+        },
+        "nomeMae": {
+            "type": "string",
+            "default": "",
+            "title": "The nomeMae Schema",
+            "examples": [
+                "Annie Lennox"
+            ]
+        },
+        "idEstadoCivil": {
+            "type": "integer",
+            "default": 0,
+            "title": "The idEstadoCivil Schema",
+            "examples": [
+                1
+            ]
+        },
+        "idNaturezaOcupacao": {
+            "type": "integer",
+            "default": 0,
+            "title": "The idNaturezaOcupacao Schema",
+            "examples": [
+                9876987
+            ]
+        },
+        "idProfissao": {
+            "type": "string",
+            "default": "",
+            "title": "The idProfissao Schema",
+            "examples": [
+                "Engenheiro"
+            ]
+        },
+        "idNacionalidade": {
+            "type": "integer",
+            "default": 0,
+            "title": "The idNacionalidade Schema",
+            "examples": [
+                76
+            ]
+        },
+        "naturalidadeCidade": {
+            "type": "string",
+            "default": "",
+            "title": "The naturalidadeCidade Schema",
+            "examples": [
+                "São Paulo"
+            ]
+        },
+        "naturalidadeEstado": {
+            "type": "string",
+            "default": "",
+            "title": "The naturalidadeEstado Schema",
+            "examples": [
+                "SP"
+            ]
+        },
+        "grauInstrucao": {
+            "type": "integer",
+            "default": 0,
+            "title": "The grauInstrucao Schema",
+            "examples": [
+                1
+            ]
+        },
+        "email": {
+            "type": "string",
+            "default": "",
+            "title": "The email Schema",
+            "examples": [
+                "massa@email.com"
+            ]
+        },
+        "numeroCnh": {
+            "type": "string",
+            "default": "",
+            "title": "The numeroCnh Schema",
+            "examples": [
+                "23143031556"
+            ]
+        },
+        "dataEmissaoCnh": {
+            "type": "string",
+            "default": "",
+            "title": "The dataEmissaoCnh Schema",
+            "examples": [
+                "2020-10-31"
+            ]
+        },
+        "pessoaPoliticamenteExposta": {
+            "type": "boolean",
+            "default": false,
+            "title": "The pessoaPoliticamenteExposta Schema",
+            "examples": [
+                false
+            ]
+        },
+        "patrimonioTotal": {
+            "type": "integer",
+            "default": 0,
+            "title": "The patrimonioTotal Schema",
+            "examples": [
+                100000
+            ]
+        },
+        "salario": {
+            "type": "integer",
+            "default": 0,
+            "title": "The salario Schema",
+            "examples": [
+                2200
+            ]
+        },
+        "nomeEmpresa": {
+            "type": "string",
+            "default": "",
+            "title": "The nomeEmpresa Schema",
+            "examples": [
+                "some company"
+            ]
+        },
+        "impedidoFinanciamento": {
+            "type": "boolean",
+            "default": false,
+            "title": "The impedidoFinanciamento Schema",
+            "examples": [
+                false
+            ]
+        },
+        "chequeEspecial": {
+            "type": "integer",
+            "default": 0,
+            "title": "The chequeEspecial Schema",
+            "examples": [
+                0
+            ]
+        },
+        "flagSemEnderecoComercialFixo": {
+            "type": "boolean",
+            "default": false,
+            "title": "The flagSemEnderecoComercialFixo Schema",
+            "examples": [
+                false
+            ]
+        },
+        "nomePai": {
+            "type": "string",
+            "default": "",
+            "title": "The nomePai Schema",
+            "examples": [
+                "Pai da Silva"
+            ]
+        },
+        "numeroDependentes": {
+            "type": "integer",
+            "default": 0,
+            "title": "The numeroDependentes Schema",
+            "examples": [
+                2
+            ]
+        },
+        "numeroBanco": {
+            "type": "integer",
+            "default": 0,
+            "title": "The numeroBanco Schema",
+            "examples": [
+                12345
+            ]
+        },
+        "numeroAgencia": {
+            "type": "integer",
+            "default": 0,
+            "title": "The numeroAgencia Schema",
+            "examples": [
+                12349
+            ]
+        },
+        "numeroContaCorrente": {
+            "type": "string",
+            "default": "",
+            "title": "The numeroContaCorrente Schema",
+            "examples": [
+                "9865544"
+            ]
+        },
+        "nomeReferencia1": {
+            "type": "string",
+            "default": "",
+            "title": "The nomeReferencia1 Schema",
+            "examples": [
+                "some nomeReferencia1"
+            ]
+        },
+        "enderecoReferencia1": {
+            "type": "string",
+            "default": "",
+            "title": "The enderecoReferencia1 Schema",
+            "examples": [
+                "some enderecoReferencia1"
+            ]
+        },
+        "nomeReferencia2": {
+            "type": "string",
+            "default": "",
+            "title": "The nomeReferencia2 Schema",
+            "examples": [
+                "some nomeReferencia2"
+            ]
+        },
+        "enderecoReferencia2": {
+            "type": "string",
+            "default": "",
+            "title": "The enderecoReferencia2 Schema",
+            "examples": [
+                "some enderecoReferencia2"
+            ]
+        }
+    },
+    "examples": [{
+        "idPessoa": 1497,
+        "nomeMae": "Annie Lennox",
+        "idEstadoCivil": 1,
+        "idNaturezaOcupacao": 9876987,
+        "idProfissao": "Engenheiro",
+        "idNacionalidade": 76,
+        "naturalidadeCidade": "São Paulo",
+        "naturalidadeEstado": "SP",
+        "grauInstrucao": 1,
+        "email": "massa@email.com",
+        "numeroCnh": "23143031556",
+        "dataEmissaoCnh": "2020-10-31",
+        "pessoaPoliticamenteExposta": false,
+        "patrimonioTotal": 100000,
+        "salario": 2200,
+        "nomeEmpresa": "some company",
+        "impedidoFinanciamento": false,
+        "chequeEspecial": 0,
+        "flagSemEnderecoComercialFixo": false,
+        "nomePai": "Pai da Silva",
+        "numeroDependentes": 2,
+        "numeroBanco": 12345,
+        "numeroAgencia": 12349,
+        "numeroContaCorrente": "9865544",
+        "nomeReferencia1": "some nomeReferencia1",
+        "enderecoReferencia1": "some enderecoReferencia1",
+        "nomeReferencia2": "some nomeReferencia2",
+        "enderecoReferencia2": "some enderecoReferencia2"
+    }]
+};
+
+var currentDateTime = new Date();
+pm.environment.set("requestDateTime", currentDateTime.toISOString());

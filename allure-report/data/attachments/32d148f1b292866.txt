@@ -1,0 +1,7 @@
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Variável 1fpayURL foi definida corretamente", function () {
+    pm.expect(pm.variables.get("1fpayURL")).to.exist;
+});

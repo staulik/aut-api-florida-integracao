@@ -1,0 +1,21 @@
+pm.test("Status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+pm.test("Validar mensagem de erro", function () {
+    // Analisar a resposta JSON
+    var responseBody = pm.response.json();
+
+    // Verificar se há um objeto "error" na resposta
+    pm.expect(responseBody).to.have.property("error");
+
+    // Verificar a mensagem de erro
+    var errorMessage = responseBody.error.message;
+    var expectedErrorMessage = "[format attribute \"date\" not supported, string \"Fred Jason Krugger Fred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason Krugger\" is too long (length: 325, maximum allowed: 150)]";
+    pm.expect(errorMessage).to.eql(expectedErrorMessage);
+});

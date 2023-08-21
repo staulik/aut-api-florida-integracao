@@ -1,0 +1,2 @@
+level: log, messages: idConta gerado: undefined está associado ao idPessoa: undefined
+level: log, messages: Request generated at: 2023-08-21T19:14:37.578Z
