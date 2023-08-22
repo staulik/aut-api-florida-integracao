@@ -1,2 +1,0 @@
-level: log, messages: Valor da variável idPessoa:,70005443
-level: log, messages: valor,88787493705

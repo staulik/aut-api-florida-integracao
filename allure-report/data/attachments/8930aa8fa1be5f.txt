@@ -1,1 +1,0 @@
-{"error":{"errorCode":"0022","message":"A fatura informada é inexistente","errors":[{"code":"3","message":"statementId não encontrado"}]}}
