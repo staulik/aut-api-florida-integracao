@@ -1,0 +1,20 @@
+// Atraso de 1 minuto (60 segundos) para dar tempo
+//da proposta gerar i idPessoa
+const delayInSeconds = 60;
+
+// Converte o atraso para milissegundos
+const delayInMilliseconds = delayInSeconds * 1000;
+
+// Aguarda o tempo especificado antes de continuar
+setTimeout(function () {
+    // Executa o request
+    pm.sendRequest({
+        url: `https://{{integrationURL}}/pessoas/api/pessoas?cpf={{generatedCPF}}`,
+        method: 'GET'
+    }, function (err, response) {
+        // Adicione o código de tratamento da resposta aqui
+    });
+}, delayInMilliseconds);
+
+var currentDateTime = new Date();
+pm.environment.set("requestDateTime", currentDateTime.toISOString());

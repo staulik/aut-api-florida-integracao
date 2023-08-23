@@ -1,0 +1,18 @@
+
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+// Extrair o valor do campo "idCartao" do response
+const responseJson = pm.response.json();
+const idCartao = responseJson.idCartao;
+
+// Armazenar o valor na variável global do ambiente
+pm.environment.set("idCartao", idCartao);
+
+// Exibir o valor no console
+console.log(`Valor do idCartao: ${idCartao}`);
+
+var currentDateTime = new Date();
+console.log("Request generated at: " + currentDateTime.toISOString());
+

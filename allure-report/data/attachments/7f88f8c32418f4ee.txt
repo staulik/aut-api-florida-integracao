@@ -1,1 +1,0 @@
-level: log, messages: idConta gerado: 70007810 está associado ao idPessoa: 70005658
