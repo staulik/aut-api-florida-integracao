@@ -25190,7 +25190,7 @@
 									}
 								},
 								"url": {
-									"raw": "https://{{integrationURL}}/contas/api/contas/{{idConta}}/pessoas/{{idPessoa}}/gerar-cartao",
+									"raw": "https://{{integrationURL}}/contas/api/contas/{{idConta}}/pessoas/70005697/gerar-cartao",
 									"protocol": "https",
 									"host": [
 										"{{integrationURL}}"
@@ -25201,7 +25201,7 @@
 										"contas",
 										"{{idConta}}",
 										"pessoas",
-										"{{idPessoa}}",
+										"70005697",
 										"gerar-cartao"
 									]
 								}
@@ -26082,7 +26082,7 @@
 					"name": "Negocio",
 					"item": [
 						{
-							"name": "Gerar cartao sem adicional nao transacional(+)",
+							"name": "RFN01-Cartao sem adicional nao transacional(+)",
 							"item": [
 								{
 									"name": "HEIM143 - POST: /propostas/incluir_proposta(+)",
@@ -28005,7 +28005,7 @@
 							]
 						},
 						{
-							"name": "Gerar  cartao sem adicional transacional(+)",
+							"name": "RFN02-Cartao sem adicional transacional(+)",
 							"item": [
 								{
 									"name": "HEIM143 - POST: /propostas/incluir_proposta(+)",
@@ -29849,38 +29849,6 @@
 									"response": []
 								},
 								{
-									"name": "PIER075 - /api/cartoes/{id}/bloquear",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"url": {
-											"raw": "https://{{integrationURL}}/cartoes-manutencao/api/cartoes/70001027/bloquear?id_status=2&observacao=\"testing\"",
-											"protocol": "https",
-											"host": [
-												"{{integrationURL}}"
-											],
-											"path": [
-												"cartoes-manutencao",
-												"api",
-												"cartoes",
-												"70001027",
-												"bloquear"
-											],
-											"query": [
-												{
-													"key": "id_status",
-													"value": "2"
-												},
-												{
-													"key": "observacao",
-													"value": "\"testing\""
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
 									"name": "cards/v1/cards/activate",
 									"request": {
 										"method": "PUT",
@@ -29982,7 +29950,7 @@
 							]
 						},
 						{
-							"name": "Gerar cartao com adicional nao transacional(+)",
+							"name": "RFN03-Cartao com adicional nao transacional(+)",
 							"item": [
 								{
 									"name": "HEIM143 - POST: /propostas/incluir_proposta(+)",
@@ -31926,6 +31894,67 @@
 												"pessoas",
 												"{{idPessoa}}",
 												"gerar-cartao"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PIER073 - GET:/api/cartoes/{id}",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"// Extrair o valor do campo \"idCartao\" do response\r",
+													"const responseJson = pm.response.json();\r",
+													"const idCartao = responseJson.id;\r",
+													"const idPessoa = responseJson.idPessoa;\r",
+													"const idConta = responseJson.idConta;\r",
+													"const idStatus = responseJson.idStatus;\r",
+													"\r",
+													"// Exibir informações no console\r",
+													"console.log(`As informações do cartão\r",
+													"  ID Cartão: ${idCartao}\r",
+													"  relacionado ao idPessoa: ${idPessoa}\r",
+													"  IdConta: ${idConta}\r",
+													"  foram gravadas com o status: ${idStatus}.\r",
+													"  Executar o script: https://{{1fpayURL}}/cards/v1/cards/idCartao/activate para mudar o status para 2\r",
+													"  a fim de que o cartão seja transacionado.`);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-trace-id",
+												"value": "70bf9eb7-1153-41a1-83a4-353ea878dc06",
+												"type": "text"
+											},
+											{
+												"key": "x-correlation-id",
+												"value": "9c6cea8d-0e5e-46ac-adfd-56c6cc848c71",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{integrationURL}}/cartoes/api/cartoes/{{idCartao}}",
+											"protocol": "https",
+											"host": [
+												"{{integrationURL}}"
+											],
+											"path": [
+												"cartoes",
+												"api",
+												"cartoes",
+												"{{idCartao}}"
 											]
 										}
 									},
@@ -31934,7 +31963,7 @@
 							]
 						},
 						{
-							"name": "Gerar cartao com adicional transacional(+)",
+							"name": "RFN04-Gerar cartao com adicional transacional(+)",
 							"item": [
 								{
 									"name": "HEIM143 - POST: /propostas/incluir_proposta(+)",
@@ -33878,6 +33907,105 @@
 												"pessoas",
 												"{{idPessoa}}",
 												"gerar-cartao"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "cards/v1/cards/activate",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "xpto"
+											},
+											{
+												"key": "Cookie",
+												"value": "incap_ses_786_2842574=sCPKDStSAnGet+uv2m/oCjzV42QAAAAAlsc8OnaGUMPI7z7iW4rJ1A==; nlbi_2842574=MvCTdjADeX1AtA55S6/BOQAAAABWnwLl21u+L30NF4HDDmON; visid_incap_2842574=3T4BTuOwQO+mRzEp5zn9GGr9mmQAAAAAQUIPAAAAAAAyuWMLcx3LGoR9A1H/hZVe"
+											}
+										],
+										"url": {
+											"raw": "https://{{1fpayURL}}/cards/v1/cards/{{idCartao}}/activate",
+											"protocol": "https",
+											"host": [
+												"{{1fpayURL}}"
+											],
+											"path": [
+												"cards",
+												"v1",
+												"cards",
+												"{{idCartao}}",
+												"activate"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PIER073 - GET:/api/cartoes/{id}",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"// Extrair o valor do campo \"idCartao\" do response\r",
+													"const responseJson = pm.response.json();\r",
+													"const idCartao = responseJson.id;\r",
+													"const idPessoa = responseJson.idPessoa;\r",
+													"const idConta = responseJson.idConta;\r",
+													"const idStatus = responseJson.idStatus;\r",
+													"\r",
+													"// Exibir informações no console\r",
+													"console.log(`As informações do cartão\r",
+													"  ID Cartão: ${idCartao}\r",
+													"  relacionado ao idPessoa: ${idPessoa}\r",
+													"  IdConta: ${idConta}\r",
+													"  foram gravadas com o status: ${idStatus}.\r",
+													"  O cartão esta preparado para ser transacionado.`);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-trace-id",
+												"value": "70bf9eb7-1153-41a1-83a4-353ea878dc06",
+												"type": "text"
+											},
+											{
+												"key": "x-correlation-id",
+												"value": "9c6cea8d-0e5e-46ac-adfd-56c6cc848c71",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{integrationURL}}/cartoes/api/cartoes/{{idCartao}}",
+											"protocol": "https",
+											"host": [
+												"{{integrationURL}}"
+											],
+											"path": [
+												"cartoes",
+												"api",
+												"cartoes",
+												"{{idCartao}}"
 											]
 										}
 									},
