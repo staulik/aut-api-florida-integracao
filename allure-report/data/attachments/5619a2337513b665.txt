@@ -1,0 +1,1 @@
+level: log, messages: O cpf gerado: 12805144341 está associado ao idPessoa: 70005715 e a conta: 70007892

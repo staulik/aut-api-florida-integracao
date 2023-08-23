@@ -1,0 +1,2 @@
+level: log, messages: O idTelefone 19784 pertence ao idPessoa 70005716
+level: log, messages: Request generated at: 2023-08-23T14:52:15.192Z

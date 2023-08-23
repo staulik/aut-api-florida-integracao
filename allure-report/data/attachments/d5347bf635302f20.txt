@@ -1,0 +1,19 @@
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+// Extrair o valor do campo "idCartao" do response
+const responseJson = pm.response.json();
+const idCartao = responseJson.id;
+const idPessoa = responseJson.idPessoa;
+const idConta = responseJson.idConta;
+const idStatus = responseJson.idStatus;
+
+// Exibir informações no console
+console.log(`As informações do cartão
+  ID Cartão: ${idCartao}
+  relacionado ao idPessoa: ${idPessoa}
+  IdConta: ${idConta}
+  foram gravadas com o status: ${idStatus}.
+  Executar o script: https://{{1fpayURL}}/cards/v1/cards/idCartao/activate para mudar o status para 2
+  a fim de que o cartão seja transacionado.`);
