@@ -21942,8 +21942,9 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\", \"não deve ser mais curta que 1 caracter\");\r",
+													"// Verifica se a mensagem de erro está presente na resposta\r",
+													"pm.test(\"Verificar mensagem de erro\", () => {\r",
+													"    pm.expect(pm.response.text()).to.include(\"documentNumber inválido\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -22092,8 +22093,8 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"pm.test(\"Status code is 500\", function () {\r",
-													"    pm.response.to.have.status(500);\r",
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
 													"});\r",
 													"\r",
 													"pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
@@ -22101,8 +22102,9 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.message\", \"Internal Server Error\");\r",
+													"// Verifica se a mensagem de erro está presente na resposta\r",
+													"pm.test(\"Verificar mensagem de erro\", () => {\r",
+													"    pm.expect(pm.response.text()).to.include(\"documentNumber inválido\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -22220,7 +22222,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"persist\": {\n        \"nome\": \"José Lima da Silva\",\n        \"nomeImpresso\": \"JOSÉ L DA SILVA\",\n        \"numeroReceitaFederal\": \"109\",\n        \"dataNascimento\": \"2020-10-31\",\n        \"sexo\": \"M\",\n        \"numeroIdentidade\": \"9999999\",\n        \"orgaoExpedidorIdentidade\": \"SSPPB\",\n        \"unidadeFederativaIdentidade\": \"DF\",\n        \"dataEmissaoIdentidade\": \"2020-10-31\",\n        \"idEstadoCivil\": 1,\n        \"idNacionalidade\": 1,\n        \"idParentesco\": 1,\n        \"email\": \"jose@exemplo.com\",\n        \"flagDeficienteVisual\": true,\n        \"id\": 70000739,\n        \"telefones\": [\n            {\n                \"idTipoTelefone\": 1,\n                \"ddd\": \"999\",\n                \"telefone\": \"999999999\",\n                \"ramal\": \"9999\"\n            }\n        ]\n    }\n}",
+											"raw": "{\n    \"persist\": {\n        \"nome\": \"José Lima da Silva\",\n        \"nomeImpresso\": \"JOSÉ L DA SILVA\",\n        \"numeroReceitaFederal\": \"1111111111111111\",\n        \"dataNascimento\": \"2020-10-31\",\n        \"sexo\": \"M\",\n        \"numeroIdentidade\": \"9999999\",\n        \"orgaoExpedidorIdentidade\": \"SSPPB\",\n        \"unidadeFederativaIdentidade\": \"DF\",\n        \"dataEmissaoIdentidade\": \"2020-10-31\",\n        \"idEstadoCivil\": 1,\n        \"idNacionalidade\": 1,\n        \"idParentesco\": 1,\n        \"email\": \"jose@exemplo.com\",\n        \"flagDeficienteVisual\": true,\n        \"id\": 70000739,\n        \"telefones\": [\n            {\n                \"idTipoTelefone\": 1,\n                \"ddd\": \"999\",\n                \"telefone\": \"999999999\",\n                \"ramal\": \"9999\"\n            }\n        ]\n    }\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -22260,9 +22262,12 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\", \"deve corresponder ao padrão \\\"\\\\d\\\\d\\\\d\\\\d-\\\\d\\\\d-\\\\d\\\\d\\\"\");\r",
-													"});"
+													"\r",
+													"// Validar a mensagem de erro\r",
+													"pm.test(\"Validar mensagem de erro\", () => {\r",
+													"    pm.expect(pm.response.json().error.message).to.eql(\"[ECMA 262 regex \\\"^(\\\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$\\\" does not match input string \\\"31-10-2020\\\", format attribute \\\"date\\\" not supported]\");\r",
+													"});\r",
+													""
 												],
 												"type": "text/javascript"
 											}
@@ -22313,9 +22318,11 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\", \"deve corresponder ao padrão \\\"\\\\d\\\\d\\\\d\\\\d-\\\\d\\\\d-\\\\d\\\\d\\\"\");\r",
-													"});"
+													"// Validar a mensagem de erro\r",
+													"pm.test(\"Validar mensagem de erro\", () => {\r",
+													"    pm.expect(pm.response.json().error.message).to.eql(\"[format attribute \\\"date\\\" not supported, ECMA 262 regex \\\"^(\\\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$\\\" does not match input string \\\"AAAAAAA\\\"]\");\r",
+													"});\r",
+													""
 												],
 												"type": "text/javascript"
 											}
@@ -22366,9 +22373,11 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\", \"deve corresponder ao padrão \\\"\\\\d\\\\d\\\\d\\\\d-\\\\d\\\\d-\\\\d\\\\d\\\"\");\r",
-													"});"
+													"// Validar a mensagem de erro\r",
+													"pm.test(\"Validar mensagem de erro\", () => {\r",
+													"    pm.expect(pm.response.json().error.message).to.eql(\"[ECMA 262 regex \\\"^(\\\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$\\\" does not match input string \\\"\\\", format attribute \\\"date\\\" not supported]\");\r",
+													"});\r",
+													""
 												],
 												"type": "text/javascript"
 											}
@@ -22379,7 +22388,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"persist\": {\n        \"nome\": \"José Lima da Silva\",\n        \"nomeImpresso\": \"JOSÉ L DA SILVA\",\n        \"numeroReceitaFederal\": \"80080784054\",\n        \"dataNascimento\": \"AAAAAAA\",\n        \"sexo\": \"M\",\n        \"numeroIdentidade\": \"9999999\",\n        \"orgaoExpedidorIdentidade\": \"SSPPB\",\n        \"unidadeFederativaIdentidade\": \"DF\",\n        \"dataEmissaoIdentidade\": \"2020-10-31\",\n        \"idEstadoCivil\": 1,\n        \"idNacionalidade\": 1,\n        \"idParentesco\": 1,\n        \"email\": \"jose@exemplo.com\",\n        \"flagDeficienteVisual\": true,\n        \"id\": 70000739,\n        \"telefones\": [\n            {\n                \"idTipoTelefone\": 1,\n                \"ddd\": \"999\",\n                \"telefone\": \"999999999\",\n                \"ramal\": \"9999\"\n            }\n        ]\n    }\n}",
+											"raw": "{\n    \"persist\": {\n        \"nome\": \"José Lima da Silva\",\n        \"nomeImpresso\": \"JOSÉ L DA SILVA\",\n        \"numeroReceitaFederal\": \"80080784054\",\n        \"dataNascimento\": \"\",\n        \"sexo\": \"M\",\n        \"numeroIdentidade\": \"9999999\",\n        \"orgaoExpedidorIdentidade\": \"SSPPB\",\n        \"unidadeFederativaIdentidade\": \"DF\",\n        \"dataEmissaoIdentidade\": \"2020-10-31\",\n        \"idEstadoCivil\": 1,\n        \"idNacionalidade\": 1,\n        \"idParentesco\": 1,\n        \"email\": \"jose@exemplo.com\",\n        \"flagDeficienteVisual\": true,\n        \"id\": 70000739,\n        \"telefones\": [\n            {\n                \"idTipoTelefone\": 1,\n                \"ddd\": \"999\",\n                \"telefone\": \"999999999\",\n                \"ramal\": \"9999\"\n            }\n        ]\n    }\n}",
 											"options": {
 												"raw": {
 													"language": "json"
