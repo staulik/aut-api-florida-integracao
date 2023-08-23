@@ -1,81 +1,76 @@
-name: Newman Tests by Postman.
+name: Allure Tests by Postman
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
   schedule:
-  - cron: '30 19 * * MON-FRI'
-  
+    - cron: '30 19 * * MON-FRI'
   workflow_dispatch:
+
 permissions: write-all
 
 jobs:
   automated-api-integracao:
     runs-on: windows-latest
     steps:
-        # 1 - Step - Install dependences.
-      - uses: actions/checkout@v3
+      - name: Step 1 - Install dependencies
+        uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm install -g newman | 
-             npm install -g allure-commandline --save-dev |
-             npm install -g newman-reporter-allure 
+      - run: |
+          npm install -g newman
+          npm install -g allure-commandline --save-dev
+          npm install -g newman-reporter-allure
 
-      # 2 -Step - Run the POSTMAN collection
       - name: Step 2 - Run POSTMAN collection
         if: always()
         continue-on-error: true
         run: |
-             newman run Florida_Release_Notes.postman_collection.json -e CI-test.postman_environment.json -r allure
-        
-      - name: mostra as pastas
-        run: dir
-      - name:  Step 3 - Collect Allure files and generate allure-report folder
+          newman run Florida_Release_Notes.postman_collection.json -e CI-test.postman_environment.json -r allure
+
+      - name: Step 3 - Generate Allure report
         run: |
           allure generate ./allure-results -o allure-report/
-      - name: 🎁 Step 4 - Publishing Allure artifact to GitHub Actions
+          
+      - name: Step 4 - Add custom executor information to results
+        run: |
+          allure executors add "Automated API Integration Tests" "Postman"
+          allure executors set "Automated API Integration Tests" "Postman" -c 1
+
+      - name: Step 5 - Publish Allure artifact
         uses: actions/upload-artifact@v3
         with:
           name: allure-report
           path: allure-report
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages  # default: gh-pages
+          publish_branch: gh-pages
           publish_dir: allure-report
           destination_dir: allure-report
+
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
         with:
-         connection_url: ${{secrets.MAIL_CONNECTION}}
-        # Required mail server address if not connection_url:
-         server_address: smtp.gmail.com
-        # Server port, default 25:
-         server_port: 465
-        # Optional whether this connection use TLS (default is true if server_port is 465)
-         secure: true
-        # Optional (recommended) mail server username:
-         username: ${{secrets.MAIL_USERNAME}}
-        # Optional (recommended) mail server password:
-         password: ${{secrets.MAIL_PASSWORD}}
-        # Required mail subject:
-         subject: Github Actions test job result
-        # Required recipients' addresses:
-         to: sauliktest@gmail.com,silvio.aulik@gmail.com,staulik10@gmail.com,jefferson.barbieri@outtech.com.br,paulo.lima_ext@pernambucanas.com.br
-        # Required sender full name (address can be skipped):
-         from: staulik10@gmail.com
-        # Optional plain body:
-         html_body: <p>Build de Teste Realizado ;) Projeto https://github.com/${{github.repository}} </p><br>
-              <p>Link do Reporte do Projeto <a href="https://staulik.github.io/aut-api-florida-integracao/allure-report/#">Link Report</a></p>
-         reply_to: silvio.aulik@gmail.com
-        # Optional unsigned/invalid certificates allowance:
-         ignore_cert: true
-        # Optional converting Markdown to HTML (set content_type to text/html too):
-         convert_markdown: true
-        # Optional priority: 'high', 'normal' (default) or 'low'
-         priority: normal
+          connection_url: ${{ secrets.MAIL_CONNECTION }}
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: Github Actions test job result
+          to: sauliktest@gmail.com, silvio.aulik@gmail.com, staulik10@gmail.com, jefferson.barbieri@outtech.com.br, paulo.lima_ext@pernambucanas.com.br
+          from: staulik10@gmail.com
+          html_body: |
+            <p>Build de Teste Realizado ;) Projeto <a href="https://github.com/${{ github.repository }}">Link Projeto</a></p><br>
+            <p>Link do Relatório do Projeto <a href="https://staulik.github.io/aut-api-florida-integracao/allure-report/">Link Report</a></p>
+          reply_to: silvio.aulik@gmail.com
+          ignore_cert: true
+          convert_markdown: true
+          priority: normal
+
