@@ -1,2 +1,0 @@
-level: log, messages: O idTelefone 19973 pertence ao idPessoa 70005772
-level: log, messages: Request generated at: 2023-08-23T21:47:32.868Z
