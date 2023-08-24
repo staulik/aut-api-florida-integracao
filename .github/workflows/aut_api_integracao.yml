@@ -1,3 +1,4 @@
+name: Allure Test API by Postman
 on:
   push:
     branches: [ main ]
