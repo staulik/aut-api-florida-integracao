@@ -1,2 +1,0 @@
-level: log, messages: O idTelefone 20087 pertence ao idPessoa 70005816
-level: log, messages: Request generated at: 2023-08-24T14:31:53.843Z
