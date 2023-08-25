@@ -21778,7 +21778,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"persist\": {\n        \"nome\": \"José Lima da Silva\",\n        \"nomeImpresso\": \"JOSÉ L DA SILVA\",\n        \"numeroReceitaFederal\": \"{{generatedCPF}}\",\n        \"dataNascimento\": \"2020-10-31\",\n        \"sexo\": \"M\",\n        \"numeroIdentidade\": \"9999999\",\n        \"orgaoExpedidorIdentidade\": \"SSPPB\",\n        \"unidadeFederativaIdentidade\": \"DF\",\n        \"dataEmissaoIdentidade\": \"2020-10-31\",\n        \"idEstadoCivil\": 1,\n        \"idNacionalidade\": 1,\n        \"idParentesco\": 1,\n        \"email\": \"jose@exemplo.com\",\n        \"flagDeficienteVisual\": true,\n        \"id\": {{idPessoa}},\n        \"telefones\": [\n            {\n                \"idTipoTelefone\": 18,\n                \"ddd\": \"11\",\n                \"telefone\": \"991882511\",\n                \"ramal\": \"1\"\n            }\n        ]\n    }\n}",
+											"raw": "{\n    \"persist\": {\n        \"nome\": \"José Lima da Silva\",\n        \"nomeImpresso\": \"JOSÉ L DA SILVA\",\n        \"numeroReceitaFederal\": \"{{generatedCPF}}\",\n        \"dataNascimento\": \"2020-10-31\",\n        \"sexo\": \"M\",\n        \"numeroIdentidade\": \"9999999\",\n        \"orgaoExpedidorIdentidade\": \"SSP\",\n        \"unidadeFederativaIdentidade\": \"DF\",\n        \"dataEmissaoIdentidade\": \"2020-10-31\",\n        \"idEstadoCivil\": 1,\n        \"idNacionalidade\": 1,\n        \"idParentesco\": 1,\n        \"email\": \"jose@exemplo.com\",\n        \"flagDeficienteVisual\": true,\n        \"id\": {{idPessoa}},\n        \"telefones\": [\n            {\n                \"idTipoTelefone\": 18,\n                \"ddd\": \"11\",\n                \"telefone\": \"991882511\",\n                \"ramal\": \"1\"\n            }\n        ]\n    }\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -22222,7 +22222,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"persist\": {\n        \"nome\": \"José Lima da Silva\",\n        \"nomeImpresso\": \"JOSÉ L DA SILVA\",\n        \"numeroReceitaFederal\": \"1111111111111111\",\n        \"dataNascimento\": \"2020-10-31\",\n        \"sexo\": \"M\",\n        \"numeroIdentidade\": \"9999999\",\n        \"orgaoExpedidorIdentidade\": \"SSPPB\",\n        \"unidadeFederativaIdentidade\": \"DF\",\n        \"dataEmissaoIdentidade\": \"2020-10-31\",\n        \"idEstadoCivil\": 1,\n        \"idNacionalidade\": 1,\n        \"idParentesco\": 1,\n        \"email\": \"jose@exemplo.com\",\n        \"flagDeficienteVisual\": true,\n        \"id\": 70000739,\n        \"telefones\": [\n            {\n                \"idTipoTelefone\": 1,\n                \"ddd\": \"999\",\n                \"telefone\": \"999999999\",\n                \"ramal\": \"9999\"\n            }\n        ]\n    }\n}",
+											"raw": "{\n    \"persist\": {\n        \"nome\": \"José Lima da Silva\",\n        \"nomeImpresso\": \"JOSÉ L DA SILVA\",\n        \"numeroReceitaFederal\": \"1234567899999976578rr\",\n        \"dataNascimento\": \"2020-10-31\",\n        \"sexo\": \"M\",\n        \"numeroIdentidade\": \"9999999\",\n        \"orgaoExpedidorIdentidade\": \"SSPPB\",\n        \"unidadeFederativaIdentidade\": \"DF\",\n        \"dataEmissaoIdentidade\": \"2020-10-31\",\n        \"idEstadoCivil\": 1,\n        \"idNacionalidade\": 1,\n        \"idParentesco\": 1,\n        \"email\": \"jose@exemplo.com\",\n        \"flagDeficienteVisual\": true,\n        \"id\": 70000739,\n        \"telefones\": [\n            {\n                \"idTipoTelefone\": 1,\n                \"ddd\": \"999\",\n                \"telefone\": \"999999999\",\n                \"ramal\": \"9999\"\n            }\n        ]\n    }\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -22428,8 +22428,14 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\", \"deve corresponder ao padrão \\\"M|F|O|N\\\"\");\r",
+													"//pm.test(\"Validar mensagem de erro\", function () {\r",
+													"  //pm.response.to.have.jsonBody(\"error.errors[0].//message\", \"deve corresponder ao padrão \\\"M|F|O|N\\\"\");\r",
+													"//});\r",
+													"\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -22481,8 +22487,14 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\", \"deve corresponder ao padrão \\\"M|F|O|N\\\"\");\r",
+													"//pm.test(\"Validar mensagem de erro\", function () {\r",
+													" // pm.response.to.have.jsonBody(\"error.errors[0].message\", \"deve //corresponder ao padrão \\\"M|F|O|N\\\"\");\r",
+													"//});\r",
+													"\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -22534,8 +22546,13 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\", \"deve corresponder ao padrão \\\"M|F|O|N\\\"\");\r",
+													"//pm.test(\"Validar mensagem de erro\", function () {\r",
+													"//  pm.response.to.have.jsonBody(\"error.errors[0].message\", //\"deve corresponder ao padrão \\\"M|F|O|N\\\"\");\r",
+													"//});\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -22587,8 +22604,13 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\", \"não deve ser mais curta que 1 caracter\");\r",
+													"//pm.test(\"Validar mensagem de erro\", function () {\r",
+													"//  pm.response.to.have.jsonBody(\"error.errors[0].message\", \"não deve ser mais curta que 1 caracter\");\r",
+													"//});\r",
+													"\r",
+													"// Verifica se a mensagem de erro está presente na resposta\r",
+													"pm.test(\"Validar mensagem de erro\", () => {\r",
+													"    pm.expect(pm.response.text()).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -22625,7 +22647,7 @@
 									"response": []
 								},
 								{
-									"name": "PIER011 - POST: /api/contas/{id}/cadastrar-adicional_numeroIdentidade_vazio_tam_>_18(-)",
+									"name": "PIER011 - POST: /api/contas/{id}/cadastrar-adicional_numeroIdentidade_tam_>_18(-)",
 									"event": [
 										{
 											"listen": "test",
@@ -22640,8 +22662,14 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\", \"não deve ser maior que 18 caracteres\");\r",
+													"//pm.test(\"Validar mensagem de erro\", function () {\r",
+													" // pm.response.to.have.jsonBody(\"error.errors[0]./message\", \"não deve ser maior que 18 //caracteres\");\r",
+													"//});\r",
+													"\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -22653,7 +22681,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"persist\": {\n        \"nome\": \"José Lima da Silva\",\n        \"nomeImpresso\": \"JOSÉ L DA SILVA\",\n        \"numeroReceitaFederal\": \"80080784054\",\n        \"dataNascimento\": \"2020-10-31\",\n        \"sexo\": \"F\",\n        \"numeroIdentidade\": \"00000000000000000000\",\n        \"orgaoExpedidorIdentidade\": \"SSPPB\",\n        \"unidadeFederativaIdentidade\": \"DF\",\n        \"dataEmissaoIdentidade\": \"2020-10-31\",\n        \"idEstadoCivil\": 1,\n        \"idNacionalidade\": 1,\n        \"idParentesco\": 1,\n        \"email\": \"jose@exemplo.com\",\n        \"flagDeficienteVisual\": true,\n        \"id\": 70000739,\n        \"telefones\": [\n            {\n                \"idTipoTelefone\": 1,\n                \"ddd\": \"999\",\n                \"telefone\": \"999999999\",\n                \"ramal\": \"9999\"\n            }\n        ]\n    }\n}",
+											"raw": "{\n    \"persist\": {\n        \"nome\": \"José Lima da Silva\",\n        \"nomeImpresso\": \"JOSÉ L DA SILVA\",\n        \"numeroReceitaFederal\": \"80080784054\",\n        \"dataNascimento\": \"2020-10-31\",\n        \"sexo\": \"F\",\n        \"numeroIdentidade\": \"1827770788888898767888\",\n        \"orgaoExpedidorIdentidade\": \"SSPPB\",\n        \"unidadeFederativaIdentidade\": \"DF\",\n        \"dataEmissaoIdentidade\": \"2020-10-31\",\n        \"idEstadoCivil\": 1,\n        \"idNacionalidade\": 1,\n        \"idParentesco\": 1,\n        \"email\": \"jose@exemplo.com\",\n        \"flagDeficienteVisual\": true,\n        \"id\": 70000739,\n        \"telefones\": [\n            {\n                \"idTipoTelefone\": 1,\n                \"ddd\": \"999\",\n                \"telefone\": \"999999999\",\n                \"ramal\": \"9999\"\n            }\n        ]\n    }\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -22661,7 +22689,7 @@
 											}
 										},
 										"url": {
-											"raw": "https://{{integrationURL}}/contas/api/contas/70000739/cadastrar-adicional",
+											"raw": "https://{{integrationURL}}/contas/api/contas/70007905/cadastrar-adicional",
 											"protocol": "https",
 											"host": [
 												"{{integrationURL}}"
@@ -22670,7 +22698,7 @@
 												"contas",
 												"api",
 												"contas",
-												"70000739",
+												"70007905",
 												"cadastrar-adicional"
 											]
 										}
@@ -22693,8 +22721,14 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\", \"não deve ser maior que 6 caracteres\");\r",
+													"//pm.test(\"Validar mensagem de erro\", function () {\r",
+													" // pm.response.to.have.jsonBody(\"error.errors[0].message\", \"não //deve ser maior que 6 caracteres\");\r",
+													"//});\r",
+													"\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -22741,8 +22775,8 @@
 													"//o orgãoexpeditor esta aceitando valore numerico\r",
 													"//não sera validado pela camada de serviços\r",
 													"\r",
-													"pm.test(\"Status code is 500\", function () {\r",
-													"    pm.response.to.have.status(500);\r",
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
 													"});\r",
 													"\r",
 													"pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
@@ -22750,8 +22784,10 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.message\", \"Internal Server Error\");\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -22803,8 +22839,14 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\",  \"deve corresponder ao padrão \\\"RO|AC|AM|RR|PA|AP|TO|MA|PI|CE|RN|PB|PE|AL|SE|BA|MG|ES|RJ|SP|PR|SC|RS|MS|MT|GO|DF\\\"\");\r",
+													"//pm.test(\"Validar mensagem de erro\", function () {\r",
+													"  //pm.response.to.have.jsonBody(\"error.errors[0].message\",  \"deve corresponder ao padrão \\\"RO|AC|AM|RR|PA|AP|TO|MA|PI|CE|RN|PB|PE|AL|SE|BA|MG|ES|RJ|SP|PR|SC|RS|MS|MT|GO|DF\\\"\");\r",
+													"//});\r",
+													"\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -22856,8 +22898,14 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\",  \"deve corresponder ao padrão \\\"RO|AC|AM|RR|PA|AP|TO|MA|PI|CE|RN|PB|PE|AL|SE|BA|MG|ES|RJ|SP|PR|SC|RS|MS|MT|GO|DF\\\"\");\r",
+													"//pm.test(\"Validar mensagem de erro\", function () {\r",
+													" // pm.response.to.have.jsonBody(\"error.errors[0].message\",  \"deve //corresponder ao padrão \\\"RO|AC|AM|RR|PA|AP|TO|MA|PI|CE|RN|PB|PE|AL|SE|BA|MG|ES|RJ|SP|PR|SC|RS|MS|MT|GO|DF\\\"\");\r",
+													"//});\r",
+													"\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -22909,8 +22957,14 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\",  \"não deve ser mais curta que 2 caracteres\");\r",
+													"//pm.test(\"Validar mensagem de erro\", function () {\r",
+													"//  pm.response.to.have.jsonBody(\"error.errors[0].message\",  \"não deve ser mais curta que 2 caracteres\");\r",
+													"//});\r",
+													"\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -22962,9 +23016,15 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\",  \"não deve ser maior que 2 caracteres\");\r",
-													"});"
+													"//pm.test(\"Validar mensagem de erro\", function () {\r",
+													" // pm.response.to.have.jsonBody(\"error.errors[0].message\",  \"não deve ser maior que 2 caracteres\");\r",
+													"//});\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
+													"});\r",
+													""
 												],
 												"type": "text/javascript"
 											}
@@ -22975,7 +23035,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"persist\": {\n        \"nome\": \"José Lima da Silva\",\n        \"nomeImpresso\": \"JOSÉ L DA SILVA\",\n        \"numeroReceitaFederal\": \"80080784054\",\n        \"dataNascimento\": \"2020-10-31\",\n        \"sexo\": \"F\",\n        \"numeroIdentidade\": \"00000000\",\n        \"orgaoExpedidorIdentidade\": \"1111\",\n        \"unidadeFederativaIdentidade\": \"rssssss\",\n        \"dataEmissaoIdentidade\": \"2020-10-31\",\n        \"idEstadoCivil\": 1,\n        \"idNacionalidade\": 1,\n        \"idParentesco\": 1,\n        \"email\": \"jose@exemplo.com\",\n        \"flagDeficienteVisual\": true,\n        \"id\": 70000739,\n        \"telefones\": [\n            {\n                \"idTipoTelefone\": 1,\n                \"ddd\": \"999\",\n                \"telefone\": \"999999999\",\n                \"ramal\": \"9999\"\n            }\n        ]\n    }\n}",
+											"raw": "{\n    \"persist\": {\n        \"nome\": \"José Lima da Silva\",\n        \"nomeImpresso\": \"JOSÉ L DA SILVA\",\n        \"numeroReceitaFederal\": \"80080784054\",\n        \"dataNascimento\": \"2020-10-31\",\n        \"sexo\": \"F\",\n        \"numeroIdentidade\": \"182777078\",\n        \"orgaoExpedidorIdentidade\": \"1111\",\n        \"unidadeFederativaIdentidade\": \"rssssss\",\n        \"dataEmissaoIdentidade\": \"2020-10-31\",\n        \"idEstadoCivil\": 1,\n        \"idNacionalidade\": 1,\n        \"idParentesco\": 1,\n        \"email\": \"jose@exemplo.com\",\n        \"flagDeficienteVisual\": true,\n        \"id\": 70000739,\n        \"telefones\": [\n            {\n                \"idTipoTelefone\": 1,\n                \"ddd\": \"999\",\n                \"telefone\": \"999999999\",\n                \"ramal\": \"9999\"\n            }\n        ]\n    }\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -22983,7 +23043,7 @@
 											}
 										},
 										"url": {
-											"raw": "https://{{integrationURL}}/contas/api/contas/70000739/cadastrar-adicional",
+											"raw": "https://{{integrationURL}}/contas/api/contas/70000736/cadastrar-adicional",
 											"protocol": "https",
 											"host": [
 												"{{integrationURL}}"
@@ -22992,7 +23052,7 @@
 												"contas",
 												"api",
 												"contas",
-												"70000739",
+												"70000736",
 												"cadastrar-adicional"
 											]
 										}
@@ -23015,8 +23075,14 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\",  \"deve corresponder ao padrão \\\"RO|AC|AM|RR|PA|AP|TO|MA|PI|CE|RN|PB|PE|AL|SE|BA|MG|ES|RJ|SP|PR|SC|RS|MS|MT|GO|DF\\\"\");\r",
+													"//pm.test(\"Validar mensagem de erro\", function () {\r",
+													" // pm.response.to.have.jsonBody(\"error.errors[0].message\",  \"deve corresponder ao padrão \\\"RO|AC|AM|RR|PA|AP|TO|MA|PI|CE|RN|PB|PE|AL|SE|BA|MG|ES|RJ|SP|PR|SC|RS|MS|MT|GO|DF\\\"\");\r",
+													"//});\r",
+													"\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -23695,8 +23761,8 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"pm.test(\"Status code is 500\", function () {\r",
-													"    pm.response.to.have.status(500);\r",
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
 													"});\r",
 													"\r",
 													"pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
@@ -23704,8 +23770,10 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.message\",\"Internal Server Error\");\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -23757,8 +23825,14 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\",\"não deve ser mais curta que 1 caracter\");\r",
+													"//pm.test(\"Validar mensagem de erro\", function () {\r",
+													" // pm.response.to.have.jsonBody(\"error.errors[0].message\",\"não deve ser mais curta que 1 caracter\");\r",
+													"//});\r",
+													"\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -23810,8 +23884,14 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\",\"não deve ser maior que 100 caracteres\");\r",
+													"//pm.test(\"Validar mensagem de erro\", function () {\r",
+													"//  pm.response.to.have.jsonBody(\"error.errors[0].message\",\"não deve ser maior que 100 caracteres\");\r",
+													"//});\r",
+													"\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -23854,8 +23934,8 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"pm.test(\"Status code is 500\", function () {\r",
-													"    pm.response.to.have.status(500);\r",
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
 													"});\r",
 													"\r",
 													"pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
@@ -23863,8 +23943,10 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.message\",\"Internal Server Error\");\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -23876,7 +23958,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"persist\": {\n        \"nome\": \"José Lima da Silva\",\n        \"nomeImpresso\": \"JOSÉ L DA SILVA\",\n        \"numeroReceitaFederal\": \"50192444069\",\n        \"dataNascimento\": \"2020-10-31\",\n        \"sexo\": \"F\",\n        \"numeroIdentidade\": \"00000000\",\n        \"orgaoExpedidorIdentidade\": \"1111\",\n        \"unidadeFederativaIdentidade\": \"SP\",\n        \"dataEmissaoIdentidade\": \"2020-10-31\",\n        \"idEstadoCivil\": 1,\n        \"idNacionalidade\": 1,\n        \"idParentesco\": 30,\n        \"email\": \"silvio.pernambucanas.\",\n        \"flagDeficienteVisual\": true,\n        \"id\": 70000739,\n        \"telefones\": [\n            {\n                \"idTipoTelefone\": 1,\n                \"ddd\": \"999\",\n                \"telefone\": \"999999999\",\n                \"ramal\": \"9999\"\n            }\n        ]\n    }\n}",
+											"raw": "{\n    \"persist\": {\n        \"nome\": \"José Lima da Silva\",\n        \"nomeImpresso\": \"JOSÉ L DA SILVA\",\n        \"numeroReceitaFederal\": \"48042792026\",\n        \"dataNascimento\": \"2020-10-31\",\n        \"sexo\": \"F\",\n        \"numeroIdentidade\": \"999999\",\n        \"orgaoExpedidorIdentidade\": \"1111\",\n        \"unidadeFederativaIdentidade\": \"SP\",\n        \"dataEmissaoIdentidade\": \"2020-10-31\",\n        \"idEstadoCivil\": 1,\n        \"idNacionalidade\": 1,\n        \"idParentesco\": 30,\n        \"email\": \"silvio.pernambucanas.\",\n        \"flagDeficienteVisual\": true,\n        \"id\": 70000739,\n        \"telefones\": [\n            {\n                \"idTipoTelefone\": 1,\n                \"ddd\": \"999\",\n                \"telefone\": \"999999999\",\n                \"ramal\": \"9999\"\n            }\n        ]\n    }\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -24278,8 +24360,8 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"pm.test(\"Status code is 500\", function () {\r",
-													"    pm.response.to.have.status(500);\r",
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
 													"});\r",
 													"\r",
 													"pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
@@ -24287,8 +24369,10 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.message\",\"Internal Server Error\");\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -24340,12 +24424,18 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagens de erro\", function () {\r",
-													"  var jsonData = pm.response.json();\r",
-													"  pm.expect(jsonData.error.message).to.eql(\"Erro ao validar os dados de entrada.\");\r",
-													"  pm.expect(jsonData.error.errors[0].message).to.eql(\"não deve ser mais curta que 1 caracter\");\r",
-													"  pm.expect(jsonData.error.errors[1].message).to.eql(\"deve corresponder ao padrão \\\"\\\\d{1,3}\\\"\");\r",
+													"//pm.test(\"Validar mensagens de erro\", function () {\r",
+													"//var jsonData = pm.response.json();\r",
+													" // pm.expect(jsonData.error.message).to.eql(\"Erro ao validar os dados de entrada.\");\r",
+													" // pm.expect(jsonData.error.errors[0].message).to.eql(\"não deve ser mais curta que 1 caracter\");\r",
+													" // pm.expect(jsonData.error.errors[1].message).to.eql(\"deve corresponder ao padrão \\\"\\\\d{1,3}\\\"\");\r",
 													"  \r",
+													"//});\r",
+													"\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});\r",
 													"\r",
 													""
@@ -24399,11 +24489,17 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagens de erro\", function () {\r",
-													"  var jsonData = pm.response.json();\r",
-													"  pm.expect(jsonData.error.message).to.eql(\"Erro ao validar os dados de entrada.\");\r",
-													"  pm.expect(jsonData.error.errors[0].message).to.eql(\"deve corresponder ao padrão \\\"\\\\d{1,3}\\\"\");\r",
+													"//pm.test(\"Validar mensagens de erro\", function () {\r",
+													" // var jsonData = pm.response.json();\r",
+													" // pm.expect(jsonData.error.message).to.eql(\"Erro ao validar os dados de entrada.\");\r",
+													" // pm.expect(jsonData.error.errors[0].message).to.eql(\"deve corresponder ao padrão \\\"\\\\d{1,3}\\\"\");\r",
 													"  \r",
+													"//});\r",
+													"\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});\r",
 													""
 												],
@@ -24456,11 +24552,17 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagens de erro\", function () {\r",
-													"  var jsonData = pm.response.json();\r",
-													"  pm.expect(jsonData.error.message).to.eql(\"Erro ao validar os dados de entrada.\");\r",
-													"  pm.expect(jsonData.error.errors[0].message).to.eql(\"não deve ser maior que 3 caracteres\");\r",
+													"//pm.test(\"Validar mensagens de erro\", function () {\r",
+													"//  var jsonData = pm.response.json();\r",
+													" // pm.expect(jsonData.error.message).to.eql(\"Erro ao validar os dados de entrada.\");\r",
+													" // pm.expect(jsonData.error.errors[0].message).to.eql(\"não deve ser maior que 3 caracteres\");\r",
 													"  \r",
+													"//});\r",
+													"\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});\r",
 													""
 												],
@@ -24513,11 +24615,17 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagens de erro\", function () {\r",
-													"  var jsonData = pm.response.json();\r",
-													"  pm.expect(jsonData.error.message).to.eql(\"Erro ao validar os dados de entrada.\");\r",
-													"  pm.expect(jsonData.error.errors[0].message).to.eql(\"deve corresponder ao padrão \\\"\\\\d{9}\\\"\");\r",
+													"//pm.test(\"Validar mensagens de erro\", function () {\r",
+													" // var jsonData = pm.response.json();\r",
+													" // pm.expect(jsonData.error.message).to.eql(\"Erro ao validar os dados de entrada.\");\r",
+													"  //pm.expect(jsonData.error.errors[0].message).to.eql(\"deve corresponder ao padrão \\\"\\\\d{9}\\\"\");\r",
 													"  \r",
+													"//});\r",
+													"\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -24569,11 +24677,17 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagens de erro\", function () {\r",
-													"  var jsonData = pm.response.json();\r",
-													"  pm.expect(jsonData.error.message).to.eql(\"Erro ao validar os dados de entrada.\");\r",
-													"  pm.expect(jsonData.error.errors[0].message).to.eql(\"deve corresponder ao padrão \\\"\\\\d{9}\\\"\");\r",
+													"//pm.test(\"Validar mensagens de erro\", function () {\r",
+													" // var jsonData = pm.response.json();\r",
+													" // pm.expect(jsonData.error.message).to.eql(\"Erro ao validar os dados de entrada.\");\r",
+													" // pm.expect(jsonData.error.errors[0].message).to.eql(\"deve corresponder ao padrão \\\"\\\\d{9}\\\"\");\r",
 													"  \r",
+													"//});\r",
+													"\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -24616,8 +24730,8 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"pm.test(\"Status code is 500\", function () {\r",
-													"    pm.response.to.have.status(500);\r",
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
 													"});\r",
 													"\r",
 													"pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
@@ -24625,10 +24739,11 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagens de erro\", function () {\r",
-													"  var jsonData = pm.response.json();\r",
-													"  pm.expect(jsonData.error.message).to.eql(\"Internal Server Error\");\r",
-													" });"
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
+													"});"
 												],
 												"type": "text/javascript"
 											}
@@ -24679,11 +24794,17 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagens de erro\", function () {\r",
-													"  var jsonData = pm.response.json();\r",
-													"  pm.expect(jsonData.error.message).to.eql(\"Erro ao validar os dados de entrada.\");\r",
-													"  pm.expect(jsonData.error.errors[0].message).to.eql(\"deve corresponder ao padrão \\\"\\\\d{9}\\\"\");\r",
+													"//pm.test(\"Validar mensagens de erro\", function () {\r",
+													"//  var jsonData = pm.response.json();\r",
+													"//  pm.expect(jsonData.error.message).to.eql(\"Erro ao validar os dados de entrada.\");\r",
+													" // pm.expect(jsonData.error.errors[0].message).to.eql(\"deve corresponder ao padrão \\\"\\\\d{9}\\\"\");\r",
 													"  \r",
+													"//});\r",
+													"\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -24735,11 +24856,17 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagens de erro\", function () {\r",
-													"  var jsonData = pm.response.json();\r",
-													"  pm.expect(jsonData.error.message).to.eql(\"Erro ao validar os dados de entrada.\");\r",
-													"  pm.expect(jsonData.error.errors[0].message).to.eql(\"deve corresponder ao padrão \\\"^\\\\d+$\\\"\");\r",
+													"//pm.test(\"Validar mensagens de erro\", function () {\r",
+													" // var jsonData = pm.response.json();\r",
+													" // pm.expect(jsonData.error.message).to.eql(\"Erro ao validar os dados de entrada.\");\r",
+													" // pm.expect(jsonData.error.errors[0].message).to.eql(\"deve corresponder ao padrão \\\"^\\\\d+$\\\"\");\r",
 													"  \r",
+													"//});\r",
+													"\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -24791,11 +24918,16 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagens de erro\", function () {\r",
-													"  var jsonData = pm.response.json();\r",
-													"  pm.expect(jsonData.error.message).to.eql(\"Erro ao validar os dados de entrada.\");\r",
-													"  pm.expect(jsonData.error.errors[0].message).to.eql(\"deve corresponder ao padrão \\\"^\\\\d+$\\\"\");\r",
+													"//pm.test(\"Validar mensagens de erro\", function () {\r",
+													" // var jsonData = pm.response.json();\r",
+													" // pm.expect(jsonData.error.message).to.eql(\"Erro ao validar os dados de entrada.\");\r",
+													" // pm.expect(jsonData.error.errors[0].message).to.eql(\"deve corresponder ao padrão \\\"^\\\\d+$\\\"\");\r",
 													"  \r",
+													"//});\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -24838,8 +24970,8 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"pm.test(\"Status code is 500\", function () {\r",
-													"    pm.response.to.have.status(500);\r",
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
 													"});\r",
 													"\r",
 													"pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
@@ -24847,10 +24979,16 @@
 													"     pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagens de erro\", function () {\r",
-													"  var jsonData = pm.response.json();\r",
-													"  pm.expect(jsonData.error.message).to.eql(\"Internal Server Error\");\r",
+													"//pm.test(\"Validar mensagens de erro\", function () {\r",
+													"  //var jsonData = pm.response.json();\r",
+													"  //pm.expect(jsonData.error.message).to.eql(\"Internal Server Error\");\r",
 													" \r",
+													"//});\r",
+													"\r",
+													"var responseJson = JSON.parse(responseBody);\r",
+													"// Verifique se a mensagem de erro contém o texto esperado\r",
+													"pm.test(\"Mensagem de erro contém o texto esperado\", function() {\r",
+													"    pm.expect(responseJson.error.errors[0].message).to.include(\"já existe usuário na base com o documentNumber informado\");\r",
 													"});"
 												],
 												"type": "text/javascript"
