@@ -1,0 +1,1 @@
+level: log, messages: Valor da variável idEndereco:,9439
