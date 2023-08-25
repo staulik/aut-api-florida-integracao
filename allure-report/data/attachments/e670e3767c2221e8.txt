@@ -1,2 +1,0 @@
-level: log, messages: O idTelefone 20618 pertence ao idPessoa 70006012
-level: log, messages: Request generated at: 2023-08-25T19:50:48.955Z
