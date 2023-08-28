@@ -1,0 +1,6 @@
+level: log, messages: As informações do cartão
+  ID Cartão: 70003227
+  relacionado ao idPessoa: 70006202
+  IdConta: 70008692
+  foram gravadas com o status: 1.
+  O cartão esta preparado para ser transacionado.
