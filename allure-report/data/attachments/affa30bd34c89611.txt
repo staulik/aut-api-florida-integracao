@@ -1,0 +1,1 @@
+{"code":400,"error":{"errorCode":"0000","message":"A requisição contém valores inválidos. Se o problema persistir, favor entrar em contato com o suporte.","errors":[{"code":"1","message":"Campo maxLimit não informado ou inválido"}]}}

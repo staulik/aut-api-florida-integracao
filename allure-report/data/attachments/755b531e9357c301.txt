@@ -1,2 +1,0 @@
-level: log, messages: O idTelefone 21477 pertence ao idPessoa 70006315
-level: log, messages: Request generated at: 2023-08-29T16:04:30.775Z
