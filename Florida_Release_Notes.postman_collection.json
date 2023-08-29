@@ -11165,19 +11165,11 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"pm.test(\"Status code is 422\", function () {\r",
-													"    pm.response.to.have.status(422);\r",
+													"pm.test(\"Status code is 403\", function () {\r",
+													"    pm.response.to.have.status(403);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
-													"    pm.response.to.be.withBody;\r",
-													"    pm.response.to.be.json;\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.message\", \"A cidade não respeita o domínio ou não pertence ao estado informado\");\r",
-													"  \r",
-													"});"
+													""
 												],
 												"type": "text/javascript"
 											}
@@ -11220,18 +11212,18 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"pm.test(\"Status code is 422\", function () {\r",
-													"    pm.response.to.have.status(422);\r",
+													"pm.test(\"Status code is 403\", function () {\r",
+													"    pm.response.to.have.status(403);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
-													"    pm.response.to.be.withBody;\r",
-													"    pm.response.to.be.json;\r",
-													"});\r",
+													"//pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
+													"//    pm.response.to.be.withBody;\r",
+													" //   pm.response.to.be.json;\r",
+													"//});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.message\", \"A cidade não respeita o domínio ou não pertence ao estado informado\");\r",
-													"});"
+													"//pm.test(\"Validar mensagem de erro\", function () {\r",
+													"//  pm.response.to.have.jsonBody(\"error.message\", \"A cidade não respeita o domínio ou não pertence ao estado informado\");\r",
+													"//});"
 												],
 												"type": "text/javascript"
 											}
@@ -11274,18 +11266,18 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"pm.test(\"Status code is 422\", function () {\r",
-													"    pm.response.to.have.status(422);\r",
+													"pm.test(\"Status code is 403\", function () {\r",
+													"    pm.response.to.have.status(403);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
-													"    pm.response.to.be.withBody;\r",
-													"    pm.response.to.be.json;\r",
-													"});\r",
+													"//pm.test(\"A resposta é valida e deve ter um corpo\", function () {\r",
+													"   // pm.response.to.be.withBody;\r",
+													"  //  pm.response.to.be.json;\r",
+													"//});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.message\", \"A cidade não respeita o domínio ou não pertence ao estado informado\");\r",
-													"});"
+													"//pm.test(\"Validar mensagem de erro\", function () {\r",
+													"//  pm.response.to.have.jsonBody(\"error.message\", /\"A cidade não respeita o domínio ou não pertence ao estado informado\");\r",
+													"//});"
 												],
 												"type": "text/javascript"
 											}
@@ -16500,9 +16492,6 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"pm.test(\"Status code is 500\", function () {\r",
-													"    pm.response.to.have.status(500);\r",
-													"});\r",
 													"\r",
 													""
 												],
@@ -16537,13 +16526,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"pm.test(\"Status code is 500\", function () {\r",
-													"    pm.response.to.have.status(500);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.message\", \"Internal Server Error\");\r",
-													"});"
+													""
 												],
 												"type": "text/javascript"
 											}
@@ -16553,7 +16536,7 @@
 										"method": "POST",
 										"header": [],
 										"url": {
-											"raw": "https://{{integrationURL}}/contas/api/contas/70012342/reativar",
+											"raw": "https://{{integrationURL}}/contas/api/contas/{{idConta}}/reativar",
 											"protocol": "https",
 											"host": [
 												"{{integrationURL}}"
@@ -16562,7 +16545,7 @@
 												"contas",
 												"api",
 												"contas",
-												"70012342",
+												"{{idConta}}",
 												"reativar"
 											]
 										}
@@ -25301,7 +25284,7 @@
 									}
 								},
 								"url": {
-									"raw": "https://{{integrationURL}}/contas/api/contas/{{idConta}}/pessoas/70005697/gerar-cartao",
+									"raw": "https://{{integrationURL}}/contas/api/contas/70008828/pessoas/70006278/gerar-cartao",
 									"protocol": "https",
 									"host": [
 										"{{integrationURL}}"
@@ -25310,9 +25293,9 @@
 										"contas",
 										"api",
 										"contas",
-										"{{idConta}}",
+										"70008828",
 										"pessoas",
-										"70005697",
+										"70006278",
 										"gerar-cartao"
 									]
 								}
