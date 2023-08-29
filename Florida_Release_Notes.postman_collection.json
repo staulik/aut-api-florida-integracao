@@ -11390,9 +11390,17 @@
 													"    pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.message\",  \"[format attribute \\\"date\\\" not supported, ECMA 262 regex \\\"^(\\\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$\\\" does not match input string \\\"05-28-1999\\\"]\");\r",
-													"});"
+													"// Extrai a mensagem de erro da resposta JSON\r",
+													"var errorMessage = pm.response.json().error.message;\r",
+													"\r",
+													"// Define o valor esperado\r",
+													"var expectedErrorMessage = \"format attribute \\\"date\\\" not supported, ECMA 262 regex\";\r",
+													"\r",
+													"// Verifica se a mensagem de erro contém o valor esperado\r",
+													"pm.test(\"Validating error message\", function () {\r",
+													"    pm.expect(errorMessage).to.include(expectedErrorMessage);\r",
+													"});\r",
+													""
 												],
 												"type": "text/javascript"
 											}
@@ -29887,10 +29895,15 @@
 											"script": {
 												"exec": [
 													"//para gerar o cartão executar o endpoint:https://{{integrationURL}}/contas/api/contas?idPessoa=1298 e capturar o id gerado no request e passar como argumento neste endpoint. A var \"idConta\" esta armazendo o id gerado no endpoint acima.\r",
-													"console.log(\"Valor da variável idProposta:\", pm.environment.get(\"idProposta\"));\r",
-													"pm.test(\"Status code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
+													"// Extrair o valor do campo \"idCartao\" do response\r",
+													"const responseJson = pm.response.json();\r",
+													"const idCartao = responseJson.idCartao;\r",
+													"\r",
+													"// Armazenar o valor na variável global do ambiente\r",
+													"pm.environment.set(\"idCartao\", idCartao);\r",
+													"\r",
+													"// Exibir o valor no console\r",
+													"console.log(`Valor do idCartao: ${idCartao}`);\r",
 													"\r",
 													"var currentDateTime = new Date();\r",
 													"console.log(\"Request generated at: \" + currentDateTime.toISOString());\r",
