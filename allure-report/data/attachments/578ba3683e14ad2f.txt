@@ -1,0 +1,2 @@
+level: log, messages: O idTelefone 21744 pertence ao idPessoa 70006395
+level: log, messages: Request generated at: 2023-08-29T21:01:34.081Z

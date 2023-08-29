@@ -1,0 +1,1 @@
+{"error":{"errorCode":"0004","message":"Erro ao carregar as informações. Se o problema persistir entre em contato com o suporte.","errors":[{"message":"invalid input syntax for type bigint: \"null\""}]}}

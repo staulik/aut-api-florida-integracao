@@ -1,0 +1,7 @@
+level: log, messages: As informações do cartão
+  ID Cartão: 70003373
+  relacionado ao idPessoa: 70006397
+  IdConta: 70009011
+  foram gravadas com o status: 1.
+  Executar o script: https://{{1fpayURL}}/cards/v1/cards/idCartao/activate para mudar o status para 2
+  a fim de que o cartão seja transacionado.
