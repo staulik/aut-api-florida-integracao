@@ -25064,7 +25064,23 @@
 												"exec": [
 													"pm.test(\"Status code is 200\", function () {\r",
 													"    pm.response.to.have.status(200);\r",
-													"});"
+													"});\r",
+													"\r",
+													"// Analisar a resposta JSON\r",
+													"var responseJson = pm.response.json();\r",
+													"\r",
+													"// Verificar a presença dos campos na resposta\r",
+													"if (!responseJson.content || responseJson.content.length === 0) {\r",
+													"    console.log(\"Nenhum item na resposta.\");\r",
+													"} else {\r",
+													"    var item = responseJson.content[0];\r",
+													"\r",
+													"    // Exibir os valores dos campos, se presentes\r",
+													"    console.log(\"idConta:\", item.idConta);\r",
+													"    console.log(\"idPessoa:\", item.idPessoa);\r",
+													"    console.log(\"nome:\", item.nome);\r",
+													"}\r",
+													""
 												],
 												"type": "text/javascript"
 											}
@@ -25085,7 +25101,7 @@
 											}
 										],
 										"url": {
-											"raw": "https://{{integrationURL}}/contas-adicionais/api/contas/123/adicionais",
+											"raw": "https://{{integrationURL}}/contas-adicionais/api/contas/70008190/adicionais",
 											"protocol": "https",
 											"host": [
 												"{{integrationURL}}"
@@ -25094,7 +25110,7 @@
 												"contas-adicionais",
 												"api",
 												"contas",
-												"123",
+												"70008190",
 												"adicionais"
 											]
 										}
