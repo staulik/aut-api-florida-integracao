@@ -1,2 +1,0 @@
-level: log, messages: idConta gerado: 70008928 está associado ao idPessoa: 70006344
-level: log, messages: Request generated at: 2023-08-29T17:48:46.188Z
