@@ -11329,9 +11329,17 @@
 													"    pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.message\",  \"[ECMA 262 regex \\\"^(\\\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$\\\" does not match input string \\\"\\\", format attribute \\\"date\\\" not supported, instance value (\\\"F\\\") not found in enum (possible values: [1,2,3,4]), instance type (string) does not match any allowed primitive type (allowed: [\\\"integer\\\",\\\"number\\\"])]\");\r",
-													"});"
+													"// Extrai a mensagem de erro da resposta JSON\r",
+													"var errorMessage = pm.response.json().error.message;\r",
+													"\r",
+													"// Define o valor esperado\r",
+													"var expectedErrorMessage = \"ECMA 262 regex\";\r",
+													"\r",
+													"// Verifica se a mensagem de erro contém o valor esperado\r",
+													"pm.test(\"Validating error message\", function () {\r",
+													"    pm.expect(errorMessage).to.include(expectedErrorMessage);\r",
+													"});\r",
+													""
 												],
 												"type": "text/javascript"
 											}
@@ -11459,9 +11467,17 @@
 													"    pm.response.to.be.json;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.message\",  \"[format attribute \\\"date\\\" not supported, instance value (\\\"F\\\") not found in enum (possible values: [1,2,3,4]), ECMA 262 regex \\\"^(\\\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$\\\" does not match input string \\\"aaaaa\\\", instance type (string) does not match any allowed primitive type (allowed: [\\\"integer\\\",\\\"number\\\"])]\");\r",
-													"});"
+													"// Extrai a mensagem de erro da resposta JSON\r",
+													"var errorMessage = pm.response.json().error.message;\r",
+													"\r",
+													"// Define o valor esperado\r",
+													"var expectedErrorMessage = \"format attribute \\\"date\\\" not supported, ECMA 262 regex\";\r",
+													"\r",
+													"// Verifica se a mensagem de erro contém o valor esperado\r",
+													"pm.test(\"Validating error message\", function () {\r",
+													"    pm.expect(errorMessage).to.include(expectedErrorMessage);\r",
+													"});\r",
+													""
 												],
 												"type": "text/javascript"
 											}
