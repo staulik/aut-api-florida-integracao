@@ -26193,6 +26193,80 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "https://1fpay-front-402813542107.auth.sa-east-1.amazoncognito.com/oauth2/token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"// Obtém o valor da variável \"token\" da resposta JSON\r",
+											"var jsonData = pm.response.json();\r",
+											"var token = jsonData.access_token;\r",
+											"\r",
+											"// Define a variável \"token\" como global\r",
+											"pm.globals.set(\"token\", token);\r",
+											"\r",
+											"// Imprime o valor da variável \"token\" no console\r",
+											"console.log(\"Valor da variável global token: \" + token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "client_id",
+											"value": "5dphbtuqb74su6cc2s1tsvs58m",
+											"type": "text"
+										},
+										{
+											"key": "client_secret",
+											"value": "1ke8hp8ieoo589gjkb372efjrj1qbufbnov52qt9du5u1rialb34",
+											"type": "text"
+										},
+										{
+											"key": "grant_type",
+											"value": "client_credentials",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://1fpay-front-402813542107.auth.sa-east-1.amazoncognito.com/oauth2/token",
+									"protocol": "https",
+									"host": [
+										"1fpay-front-402813542107",
+										"auth",
+										"sa-east-1",
+										"amazoncognito",
+										"com"
+									],
+									"path": [
+										"oauth2",
+										"token"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -28126,6 +28200,80 @@
 							"name": "RFN02-Cartao sem adicional transacional(+)",
 							"item": [
 								{
+									"name": "https://1fpay-front-402813542107.auth.sa-east-1.amazoncognito.com/oauth2/token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"// Obtém o valor da variável \"token\" da resposta JSON\r",
+													"var jsonData = pm.response.json();\r",
+													"var token = jsonData.access_token;\r",
+													"\r",
+													"// Define a variável \"token\" como global\r",
+													"pm.globals.set(\"token\", token);\r",
+													"\r",
+													"// Imprime o valor da variável \"token\" no console\r",
+													"console.log(\"Valor da variável global token: \" + token);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "client_id",
+													"value": "5dphbtuqb74su6cc2s1tsvs58m",
+													"type": "text"
+												},
+												{
+													"key": "client_secret",
+													"value": "1ke8hp8ieoo589gjkb372efjrj1qbufbnov52qt9du5u1rialb34",
+													"type": "text"
+												},
+												{
+													"key": "grant_type",
+													"value": "client_credentials",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "https://1fpay-front-402813542107.auth.sa-east-1.amazoncognito.com/oauth2/token",
+											"protocol": "https",
+											"host": [
+												"1fpay-front-402813542107",
+												"auth",
+												"sa-east-1",
+												"amazoncognito",
+												"com"
+											],
+											"path": [
+												"oauth2",
+												"token"
+											]
+										}
+									},
+									"response": []
+								},
+								{
 									"name": "HEIM143 - POST: /propostas/incluir_proposta(+)",
 									"event": [
 										{
@@ -29973,7 +30121,51 @@
 								},
 								{
 									"name": "cards/v1/cards/activate",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"// Obtém o valor da variável global \"token\"\r",
+													"//var token = pm.globals.get(\"token\");\r",
+													"\r",
+													"// Verifica se a variável \"token\" tem um valor\r",
+													"//if (token) {\r",
+													"    // Configura o cabeçalho de autenticação \"Bearer Token\"\r",
+													"  //  pm.request.headers.add({\r",
+													"       // key: 'Authorization',\r",
+													"  //      value: 'Bearer ' + token\r",
+													"//    });\r",
+													"//} else {\r",
+													"   // console.error(\"A variável global 'token' não está definida.\");\r",
+													"//}"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(202);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token}}",
+													"type": "string"
+												}
+											]
+										},
 										"method": "PUT",
 										"header": [
 											{
@@ -32089,6 +32281,80 @@
 							"name": "RFN04-Gerar cartao com adicional transacional(+)",
 							"item": [
 								{
+									"name": "https://1fpay-front-402813542107.auth.sa-east-1.amazoncognito.com/oauth2/token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"// Obtém o valor da variável \"token\" da resposta JSON\r",
+													"var jsonData = pm.response.json();\r",
+													"var token = jsonData.access_token;\r",
+													"\r",
+													"// Define a variável \"token\" como global\r",
+													"pm.globals.set(\"token\", token);\r",
+													"\r",
+													"// Imprime o valor da variável \"token\" no console\r",
+													"console.log(\"Valor da variável global token: \" + token);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "client_id",
+													"value": "5dphbtuqb74su6cc2s1tsvs58m",
+													"type": "text"
+												},
+												{
+													"key": "client_secret",
+													"value": "1ke8hp8ieoo589gjkb372efjrj1qbufbnov52qt9du5u1rialb34",
+													"type": "text"
+												},
+												{
+													"key": "grant_type",
+													"value": "client_credentials",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "https://1fpay-front-402813542107.auth.sa-east-1.amazoncognito.com/oauth2/token",
+											"protocol": "https",
+											"host": [
+												"1fpay-front-402813542107",
+												"auth",
+												"sa-east-1",
+												"amazoncognito",
+												"com"
+											],
+											"path": [
+												"oauth2",
+												"token"
+											]
+										}
+									},
+									"response": []
+								},
+								{
 									"name": "HEIM143 - POST: /propostas/incluir_proposta(+)",
 									"event": [
 										{
@@ -34037,7 +34303,30 @@
 								},
 								{
 									"name": "cards/v1/cards/activate",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(202);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token}}",
+													"type": "string"
+												}
+											]
+										},
 										"method": "PUT",
 										"header": [
 											{
