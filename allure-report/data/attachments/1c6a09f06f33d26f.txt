@@ -1,2 +1,0 @@
-level: log, messages: Capturado idPessoa:,70006772
-level: log, messages: Request generated at: 2023-09-04T20:26:59.608Z
