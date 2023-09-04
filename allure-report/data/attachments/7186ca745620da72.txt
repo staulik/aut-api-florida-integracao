@@ -1,0 +1,10 @@
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+ });
+
+ var response = pm.response.json();
+    pm.globals.set("authorizationCartao", response.access_token);
+ 
+
+// Imprime o valor da variável "token" no console
+console.log("Valor do token: " + response.access_token);
