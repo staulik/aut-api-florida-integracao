@@ -17838,7 +17838,7 @@
 													"});\r",
 													"\r",
 													"pm.test(\"Validar mensagem de erro\", function () {\r",
-													"  pm.response.to.have.jsonBody(\"error.errors[0].message\", \"phone, areaCode ou countryCode informado não estão de acordo com o padrão\");\r",
+													"  pm.response.to.have.jsonBody(\"error.errors[0].message\", \"não deve ser mais curta que 8 caracteres\");\r",
 													"});\r",
 													""
 												],
@@ -17853,7 +17853,7 @@
 										"method": "POST",
 										"header": [],
 										"url": {
-											"raw": "https://{{integrationURL}}/telefones/api/telefones?idTipoTelefone=1&idPessoa=1323&ddd=11&telefone=99188258&ramal=1",
+											"raw": "https://{{integrationURL}}/telefones/api/telefones?idTipoTelefone=2&idPessoa=1323&ddd=11&telefone=9918825&ramal=1",
 											"protocol": "https",
 											"host": [
 												"{{integrationURL}}"
@@ -17866,7 +17866,7 @@
 											"query": [
 												{
 													"key": "idTipoTelefone",
-													"value": "1"
+													"value": "2"
 												},
 												{
 													"key": "idPessoa",
@@ -17878,7 +17878,7 @@
 												},
 												{
 													"key": "telefone",
-													"value": "99188258"
+													"value": "9918825"
 												},
 												{
 													"key": "ramal",
@@ -25832,7 +25832,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://{{integrationURL}}/contas/api/contas/22/gerar-cartao-virtual?dataValidade=2020-10-31T01:30:00.000-05:00&idPessoaFisica=1",
+									"raw": "https://{{integrationURL}}/contas/api/contas/{{idConta}}/gerar-cartao-virtual?dataValidade=2020-10-31T01:30:00.000-05:00&idPessoaFisica=1",
 									"protocol": "https",
 									"host": [
 										"{{integrationURL}}"
@@ -25841,7 +25841,7 @@
 										"contas",
 										"api",
 										"contas",
-										"22",
+										"{{idConta}}",
 										"gerar-cartao-virtual"
 									],
 									"query": [
@@ -28208,17 +28208,14 @@
 												"exec": [
 													"pm.test(\"Status code is 200\", function () {\r",
 													"    pm.response.to.have.status(200);\r",
-													"});\r",
+													" });\r",
 													"\r",
-													"// Obtém o valor da variável \"token\" da resposta JSON\r",
-													"var jsonData = pm.response.json();\r",
-													"var token = jsonData.access_token;\r",
-													"\r",
-													"// Define a variável \"token\" como global\r",
-													"pm.globals.set(\"token\", token);\r",
+													" var response = pm.response.json();\r",
+													"    pm.globals.set(\"authorizationCartao\", response.access_token);\r",
+													" \r",
 													"\r",
 													"// Imprime o valor da variável \"token\" no console\r",
-													"console.log(\"Valor da variável global token: \" + token);"
+													"console.log(\"Valor do token: \" + response.access_token);"
 												],
 												"type": "text/javascript"
 											}
@@ -30147,7 +30144,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"pm.test(\"Status code is 200\", function () {\r",
+													"pm.test(\"Status code is 202\", function () {\r",
 													"    pm.response.to.have.status(202);\r",
 													"});"
 												],
@@ -30161,7 +30158,7 @@
 											"bearer": [
 												{
 													"key": "token",
-													"value": "{{token}}",
+													"value": "{{authorizationCartao}}",
 													"type": "string"
 												}
 											]
@@ -34308,7 +34305,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"pm.test(\"Status code is 200\", function () {\r",
+													"pm.test(\"Status code is 202\", function () {\r",
 													"    pm.response.to.have.status(202);\r",
 													"});"
 												],
