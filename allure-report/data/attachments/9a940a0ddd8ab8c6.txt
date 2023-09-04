@@ -1,0 +1,1 @@
+{"error":{"errorCode":"INT-VAL003","message":"Erro ao validar os dados de entrada.","errors":[{"schemaPath":"#/required","params":{"missingProperty":"idPessoa"},"message":"deve ter a propriedade obrigatória idPessoa"},{"schemaPath":"#/properties/numeroCartao/minLength","params":{"limit":16},"message":"não deve ser mais curta que 16 caracteres"}]}}

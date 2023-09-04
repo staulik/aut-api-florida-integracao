@@ -1,0 +1,1 @@
+{"id":70009589,"idProduto":16,"idOrigemComercial":19,"idPessoa":70006750,"idStatusConta":50,"diaVencimento":25,"funcaoAtiva":"CREDITO","dataStatusConta":"2023-09-04T19:39:51.579+00:00","dataCadastro":"2023-09-04T19:39:51.579+00:00","dataUltimaAlteracaoVencimento":"2023-09-04T19:39:51.579+00:00","valorRenda":1000,"possuiOverLimit":true,"behaviorScore":0}
