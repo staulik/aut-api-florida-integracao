@@ -1,2 +1,0 @@
-level: log, messages: O idTelefone 22971 pertence ao idPessoa 70006811
-level: log, messages: Request generated at: 2023-09-05T00:51:13.912Z
