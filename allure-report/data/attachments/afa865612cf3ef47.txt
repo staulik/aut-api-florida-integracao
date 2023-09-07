@@ -1,1 +1,0 @@
-{"error":{"errorCode":"1000","message":"Cliente não encontrado","errors":[{"errorCode":"1","message":"documentNumber informado não encontrado"}]}}
