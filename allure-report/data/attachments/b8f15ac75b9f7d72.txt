@@ -1,0 +1,13 @@
+pm.test("Status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+// Verifica se a mensagem de erro está presente na resposta
+pm.test("Verificar mensagem de erro", () => {
+    pm.expect(pm.response.text()).to.include("documentNumber inválido");
+});

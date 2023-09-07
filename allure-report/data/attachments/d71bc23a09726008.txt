@@ -1,0 +1,21 @@
+pm.test("Status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("A resposta é valida e deve ter um corpo", function () {
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
+
+//pm.test("Validar mensagens de erro", function () {
+ // var jsonData = pm.response.json();
+ // pm.expect(jsonData.error.message).to.eql("Erro ao validar os dados de entrada.");
+ // pm.expect(jsonData.error.errors[0].message).to.eql("deve corresponder ao padrão \"\\d{1,3}\"");
+  
+//});
+
+var responseJson = JSON.parse(responseBody);
+// Verifique se a mensagem de erro contém o texto esperado
+pm.test("Mensagem de erro contém o texto esperado", function() {
+    pm.expect(responseJson.error.errors[0].message).to.include("já existe usuário na base com o documentNumber informado");
+});
