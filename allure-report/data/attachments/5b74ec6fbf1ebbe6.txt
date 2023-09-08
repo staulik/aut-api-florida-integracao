@@ -1,2 +1,0 @@
-level: log, messages: O idTelefone 23766 pertence ao idPessoa 70007138
-level: log, messages: Request generated at: 2023-09-07T19:50:39.010Z
