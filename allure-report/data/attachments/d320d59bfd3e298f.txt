@@ -1,2 +1,0 @@
-level: log, messages: Valor da variável idEndereco:,10987
-level: log, messages: Request generated at: 2023-09-11T19:50:37.568Z
