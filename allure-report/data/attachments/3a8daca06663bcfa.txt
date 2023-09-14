@@ -1,0 +1,6 @@
+level: log, messages: As informações do cartão
+  ID Cartão: undefined
+  relacionado ao idPessoa: undefined
+  IdConta: undefined
+  foram gravadas com o status: undefined.
+  O cartão esta preparado para ser transacionado.

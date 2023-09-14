@@ -1,1 +1,0 @@
-{"error":{"errorCode":"1040","message":"Documento inválido","errors":[{"errorCode":"1","message":"documentNumber inválido"}]}}

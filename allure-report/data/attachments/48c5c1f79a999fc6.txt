@@ -1,1 +1,0 @@
-{"error":{"errorCode":"INT-VAL003","message":"Erro ao validar os dados de entrada.","errors":[{"schemaPath":"#/properties/sort/type","params":{"type":"array"},"message":"deve ser array"}]}}
