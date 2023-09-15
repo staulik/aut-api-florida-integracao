@@ -1,1 +1,0 @@
-level: log, messages: já existe usuário na base com o documentNumber 70012026 informado

@@ -1,2 +1,0 @@
-level: log, messages: Valor do idCartao: 70004572
-level: log, messages: Request generated at: 2023-09-15T19:28:21.266Z
