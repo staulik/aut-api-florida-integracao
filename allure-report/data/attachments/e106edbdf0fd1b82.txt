@@ -1,0 +1,1 @@
+{"error":{"errorCode":"INT-BUS006","message":"CPF ou cartão não encontrado."}}

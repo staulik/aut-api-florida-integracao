@@ -1,0 +1,1 @@
+{"error":{"errorCode":"1042","message":"Participante já é existente","errors":[{"errorCode":"1","message":"já existe usuário na base com o documentNumber informado"}]}}

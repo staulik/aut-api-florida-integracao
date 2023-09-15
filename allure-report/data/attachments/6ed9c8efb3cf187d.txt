@@ -1,0 +1,3 @@
+level: log, messages: idConta:,70008190
+level: log, messages: idPessoa:,70005932
+level: log, messages: nome:,José Lima da Silva
