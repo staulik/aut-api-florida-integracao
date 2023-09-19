@@ -1,0 +1,2 @@
+level: log, messages: O idTelefone 70001437 pertence ao idPessoa 70008573
+level: log, messages: Request generated at: 2023-09-19T19:49:15.138Z
