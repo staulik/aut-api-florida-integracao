@@ -1,0 +1,1 @@
+{"errorCode":"INT-VAL003","errors":[{"schemaPath":"#/properties/dataNascimento/format","params":{"format":"date"},"message":"deve corresponder ao formato \"date\""},{"schemaPath":"#/properties/dataNascimento/formatMaximum","params":{"comparison":"<=","limit":"2023-09-20"},"message":"deve ser <= 2023-09-20"}],"name":"ValidationError","httpStatusCode":400}
