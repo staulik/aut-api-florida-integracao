@@ -1,0 +1,1 @@
+{"id":70002019,"idTipoTelefone":18,"idPessoa":70008816,"ddd":"11","telefone":"991882511","ramal":"1","status":1}
