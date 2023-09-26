@@ -1,0 +1,1 @@
+{"error":{"errorCode":"400","message":"Já foi registrado o pagamento ao sabado para esta conta"}}

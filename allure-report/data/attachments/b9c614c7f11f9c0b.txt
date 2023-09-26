@@ -1,0 +1,1 @@
+level: log, messages: já existe usuário na base com o documentNumber undefined informado

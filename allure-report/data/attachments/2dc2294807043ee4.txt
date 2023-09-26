@@ -1,1 +1,0 @@
-{"errorCode":"INT-VAL003","errors":[{"schemaPath":"#/properties/conta/properties/diaVencimento/maximum","params":{"comparison":"<=","limit":31},"message":"deve ser <= 31"}],"name":"ValidationError","httpStatusCode":400}
