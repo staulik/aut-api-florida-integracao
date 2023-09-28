@@ -1,1 +1,0 @@
-{"error":{"errorCode":"INT-BUS001","message":"ID do tipo de telefone inválido."}}

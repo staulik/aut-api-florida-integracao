@@ -1,1 +1,0 @@
-{"error":{"errorCode":"6003","message":"A transação informada é inválida.","errors":[{"code":"3","message":"O transactionId informado não é valido."}]}}

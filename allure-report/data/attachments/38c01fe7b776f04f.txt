@@ -1,0 +1,1 @@
+{"error":{"errorCode":"6035","message":"Não foi possível consultar a transação.","errors":[]}}
