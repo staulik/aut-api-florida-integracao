@@ -1,0 +1,1 @@
+{"erro":{"errorCode":"3104","message":"O cartão já possui o status informado"},"code":400}
