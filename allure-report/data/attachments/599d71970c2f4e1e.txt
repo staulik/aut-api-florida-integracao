@@ -1,0 +1,1 @@
+{"error":{"errorCode":"0037","message":"Nenhum cartão físico múltiplo para essa conta."}}
