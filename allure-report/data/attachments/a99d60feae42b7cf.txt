@@ -1,1 +1,0 @@
-{"error":{"errorCode":"400","message":"[format attribute \"date\" not supported, instance value (9) not found in enum (possible values: [1,2,3,4,5])]"}}
