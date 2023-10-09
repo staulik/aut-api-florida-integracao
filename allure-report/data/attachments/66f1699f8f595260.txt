@@ -1,1 +1,0 @@
-{"id":null,"idCartao":70001026,"dataExpiracao":null,"dataGeracao":"2023-10-06T20:06:54.971Z","cvv2":"hQ3av8ZEeE2b21IKoD5DLnY4yye/dVyrs2gBOA14ijdcByjwYYo0H/qWe0zLncTQbwfS/2/G0v+Dv+i1e1+My6nducjWByX9PTeE4asTIQh6w1PQhVK0Fhmu0Nv9b5KZvbTSWHol/UNri6UUs9Oo0J+4X6dbpu3spmu642qL3N8="}
