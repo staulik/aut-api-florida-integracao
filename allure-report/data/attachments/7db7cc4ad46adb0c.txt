@@ -1,1 +1,0 @@
-{"timestamp":"2023-10-09T19:45:33297+0000","code":404,"exception":"BadRequestPIER","message":"idTipoAjuste não encontrado no mapeamento.","error":"Rejected field value.","path":"/api/ajustes-financeiros"}
