@@ -1,2 +1,0 @@
-level: log, messages: Valor do idCartao: undefined
-level: log, messages: Request generated at: 2023-10-11T19:46:48.024Z
