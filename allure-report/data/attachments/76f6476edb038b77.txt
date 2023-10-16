@@ -1,1 +1,0 @@
-{"error":{"errorCode":"0007","message":"Estágio do cartão não permite desbloqueio: Cartão não impresso"}}
