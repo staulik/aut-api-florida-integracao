@@ -1,1 +1,0 @@
-{"error":{"errorCode":"400","message":"[instance type (integer) does not match any allowed primitive type (allowed: [\"string\"])]"}}

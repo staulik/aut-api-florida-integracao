@@ -1,0 +1,1 @@
+{"error":{"errorCode":"INT0001","message":"Não há de/para para o valor undefined no domínio nationalityAlphaCountryCode","errors":[{"code":"INT0001","message":"Não há de/para para o valor undefined no domínio nationalityAlphaCountryCode"}]}}

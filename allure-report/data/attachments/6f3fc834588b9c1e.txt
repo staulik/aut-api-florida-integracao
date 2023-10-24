@@ -1,0 +1,1 @@
+{"error":{"errorCode":"400","message":"[format attribute \"float\" not supported, string \"SPRR\" is too long (length: 4, maximum allowed: 2)]"}}
