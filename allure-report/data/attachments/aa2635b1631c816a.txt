@@ -1,1 +1,0 @@
-{"error":{"errorCode":"INT-VAL003","message":"Erro ao validar os dados de entrada.","errors":[{"schemaPath":"#/properties/telefone/minLength","params":{"limit":8},"message":"não deve ser mais curta que 8 caracteres"}]}}

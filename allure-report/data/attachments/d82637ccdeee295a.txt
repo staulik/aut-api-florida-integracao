@@ -1,1 +1,0 @@
-{"idConta":70001125,"dataVencimentoFatura":"2023-12-01","dataVencimentoReal":"2023-12-01","dataFechamento":"2023-11-23","valorTotal":0,"saldoAnterior":0}
