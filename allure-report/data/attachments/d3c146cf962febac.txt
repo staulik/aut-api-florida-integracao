@@ -1,0 +1,1 @@
+level: log, messages: CPF gerado: 39221202100
