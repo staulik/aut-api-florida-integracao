@@ -1,2 +1,0 @@
-level: log, messages: CPF gerado: 89261719066
-level: log, messages: Request generated at: 2023-11-16T19:42:26.134Z
