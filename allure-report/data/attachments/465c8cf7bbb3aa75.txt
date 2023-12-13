@@ -1,0 +1,9 @@
+{
+  "idPessoa": 12,
+  "nomeImpresso": "JOSE L SILVA",
+  "idEstadoCivil": 1,
+  "idProfissao": 1,
+  "idNacionalidade": 1,
+  "idParentesco": 1,
+  "email": "pessoa@example.com"
+}

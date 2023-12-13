@@ -1,0 +1,7 @@
+{
+    "idCartao": 1497,
+    "chaveHst": 0,
+    "estagio": "12",
+    "mensagem": 12
+    
+  }

@@ -1,0 +1,27 @@
+{
+    "persist": {
+        "nome": "",
+        "nomeImpresso": "JOSÉ L DA SILVA",
+        "numeroReceitaFederal": "80080784058",
+        "dataNascimento": "2020-10-31",
+        "sexo": "M",
+        "numeroIdentidade": "1194785359",
+        "orgaoExpedidorIdentidade": "SSPPB",
+        "unidadeFederativaIdentidade": "DF",
+        "dataEmissaoIdentidade": "2020-10-31",
+        "idEstadoCivil": 1,
+        "idNacionalidade": 1,
+        "idParentesco": 1,
+        "email": "jose@exemplo.com",
+        "flagDeficienteVisual": true,
+        "id": 23456789999999999,
+        "telefones": [
+            {
+                "idTipoTelefone": 1,
+                "ddd": "999",
+                "telefone": "999999999",
+                "ramal": "9999"
+            }
+        ]
+    }
+}

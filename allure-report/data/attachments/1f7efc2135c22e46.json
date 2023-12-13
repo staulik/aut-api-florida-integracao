@@ -1,0 +1,12 @@
+{
+    "Content-Type": "application/x-www-form-urlencoded",
+    "User-Agent": "PostmanRuntime/7.33.0",
+    "Accept": "*/*",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "eb37a920-a7f7-4b47-aab0-acf01fdb1dbe",
+    "Host": "1fpay-front-402813542107.auth.sa-east-1.amazoncognito.com",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive",
+    "Content-Length": "133",
+    "Cookie": "XSRF-TOKEN=3a4572e1-4db0-476d-8d06-7c45ceb7a05b"
+}

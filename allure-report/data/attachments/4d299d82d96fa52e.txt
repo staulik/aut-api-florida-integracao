@@ -1,0 +1,27 @@
+{
+    "persist": {
+        "nome": "José Lima da Silva",
+        "nomeImpresso": "JOSÉ L DA SILVA",
+        "numeroReceitaFederal": "65060823059",
+        "dataNascimento": "2020-10-31",
+        "sexo": "F",
+        "numeroIdentidade": "00000000",
+        "orgaoExpedidorIdentidade": "1111",
+        "unidadeFederativaIdentidade": "SP",
+        "dataEmissaoIdentidade": "PERNAMBUCANA",
+        "idEstadoCivil": 1,
+        "idNacionalidade": ,
+        "idParentesco": 1,
+        "email": "jose@exemplo.com",
+        "flagDeficienteVisual": true,
+        "id": 70000739,
+        "telefones": [
+            {
+                "idTipoTelefone": 1,
+                "ddd": "999",
+                "telefone": "999999999",
+                "ramal": "9999"
+            }
+        ]
+    }
+}

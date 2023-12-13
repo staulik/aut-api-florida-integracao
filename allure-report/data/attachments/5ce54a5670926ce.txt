@@ -1,0 +1,27 @@
+{
+    "persist": {
+        "nome": "Fred Jason Krugger Fred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason KruggerFred Jason Krugger",
+        "nomeImpresso": "JOSÉ L DA SILVA",
+        "numeroReceitaFederal": "06514795846",
+        "dataNascimento": "2020-10-31",
+        "sexo": "M",
+        "numeroIdentidade": "9999999",
+        "orgaoExpedidorIdentidade": "SSPPB",
+        "unidadeFederativaIdentidade": "DF",
+        "dataEmissaoIdentidade": "2020-10-31",
+        "idEstadoCivil": 1,
+        "idNacionalidade": 1,
+        "idParentesco": 1,
+        "email": "jose@exemplo.com",
+        "flagDeficienteVisual": true,
+        "id": 70000739,
+        "telefones": [
+            {
+                "idTipoTelefone": 1,
+                "ddd": "999",
+                "telefone": "999999999",
+                "ramal": "9999"
+            }
+        ]
+    }
+}

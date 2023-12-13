@@ -1,0 +1,13 @@
+{
+"idConta": 10,
+"Num_Conta": "String",
+"Colaborador": "String",
+"CodigoOperadora":"String",
+"Data": "String",
+"DDD": "String",
+"Fone":"String",
+"Id_OrigemComercial":"String",
+"ID_Produto":"String",
+"ID_TipoDebitoRecorrente":"String",
+"AssinaturaCliente":"String"
+}

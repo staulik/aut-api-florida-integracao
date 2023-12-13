@@ -1,0 +1,5 @@
+{
+  "idMifare": 0,
+  "matriculaMifare": "string",
+  "idProduto" : 1
+}

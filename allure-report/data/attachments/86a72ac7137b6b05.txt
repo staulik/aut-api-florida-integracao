@@ -1,0 +1,8 @@
+{
+  "Id_TipoManutencaoCadastral": 174,
+  "tipoManutencaoCadastral": "175",
+  "id_PessoaFisica": 10,
+  "dataAlteracao": "Descrição Vania",
+  "canal": "Detalhes Vania",
+  "usuario":"teste"
+}

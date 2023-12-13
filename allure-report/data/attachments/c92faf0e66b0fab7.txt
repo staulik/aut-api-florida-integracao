@@ -1,0 +1,14 @@
+{
+"dataAjuste":string,
+"idConta":integer,
+"idTipoAjuste":integer,
+"valorAjuste":number,
+"descricaoEstabelecimentoExterno":string,
+"flagAtendimento":boolean,
+"idEstabelecimento":integer,
+"idTransacaoOriginal":integer,
+"identificadorExterno":string,
+"mensagemAtendimento":string,
+"login":string
+
+ }

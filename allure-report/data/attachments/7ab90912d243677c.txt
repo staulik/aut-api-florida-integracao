@@ -1,0 +1,19 @@
+{
+"naturalidadeCidade": "São Paulo",
+"naturalidadeEstado": "SP",
+"rendaMensal": 1000,
+"patrimonio": 1000,
+"nomePai": "O Papai",
+"nomeConjuge": "String",
+"idProfissao": "2112",
+"empresa": "Acc",
+"flagPessoaExpostaPublicamente": false,
+"idEstadoCivil": 2,
+"cepEnderecoComercial": "01010101",
+"logradouroEnderecoComercial": "Street example",
+"numeroEnderecoComercial": 100,
+"complementoEnderecoComercial": "AP 21",
+"bairroEnderecoComercial": "Some place",
+"cidadeEnderecoComercial": "São Paulo",
+"ufEnderecoComercial": "SP"
+}

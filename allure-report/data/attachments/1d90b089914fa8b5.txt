@@ -1,0 +1,6 @@
+{
+  "idConta": 174,
+  "flagAdesaoInvestimento": true,
+  "flag Adesão Compra Programada": true
+  
+}

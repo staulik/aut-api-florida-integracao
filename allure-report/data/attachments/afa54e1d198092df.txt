@@ -1,0 +1,6 @@
+{
+"idCartao":10,
+"chaveHST": "Campo composto por: CPF + idCartao",
+"idLoja":10,
+"idPromoto":10
+}
