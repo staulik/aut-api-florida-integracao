@@ -1,0 +1,16 @@
+{
+    "Date": "Fri, 15 Dec 2023 19:39:37 GMT",
+    "Content-Length": "0",
+    "Connection": "keep-alive",
+    "Server": "nginx/1.25.2",
+    "x-amz-apigw-id": "d203224a8a9f30bc53cca82b2e82334c",
+    "Set-Cookie": "incap_ses_1404_2842573=vmGVaoIMmVLusmdTYQN8E3irfGUAAAAAgODnLxxepbR4o2RW/9XOrg==; path=/; Domain=.pef-int-nprd.payments.onefinancial.com.br; Secure; SameSite=None",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+    "X-CDN": "Imperva",
+    "X-Iinfo": "14-55307884-55307885 NNNN CT(125 202 0) RT(1702669176083 14) q(0 1 4 -1) r(5 5) U6",
+    "vary": "Origin",
+    "Access-Control-Allow-Origin": "*",
+    "X-Kong-Upstream-Latency": "500",
+    "X-Kong-Proxy-Latency": "1",
+    "Via": "kong/2.1.4"
+}
