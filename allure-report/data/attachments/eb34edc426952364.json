@@ -1,0 +1,11 @@
+{
+    "apikey": "TGoGobRgn3lHBpYeLdL66EXiDjFM82EZ",
+    "": "",
+    "User-Agent": "PostmanRuntime/7.33.0",
+    "Accept": "*/*",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "2734dbd7-b27c-4f17-ac6a-aa0321010d53",
+    "Host": "kong-psd-hml-gke.pernambucanas.com.br",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive"
+}

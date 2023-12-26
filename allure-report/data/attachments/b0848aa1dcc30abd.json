@@ -1,0 +1,11 @@
+{
+    "x-trace-id": "70bf9eb7-1153-41a1-83a4-353ea878dc06",
+    "x-correlation-id": "9c6cea8d-0e5e-46ac-adfd-56c6cc848c71",
+    "User-Agent": "PostmanRuntime/7.33.0",
+    "Accept": "*/*",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "01e036ca-16e5-4d4d-9aa9-7a6d2e5ecfa7",
+    "Host": "kong-psd-hml-gke.pernambucanas.com.br",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive"
+}
