@@ -1,0 +1,10 @@
+{
+    "accept": "application/json",
+    "User-Agent": "PostmanRuntime/7.36.1",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "ab082fb6-286e-42b9-a5d4-8fd0c1d814b2",
+    "Host": "kong-psd-hml-gke.pernambucanas.com.br",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive",
+    "Content-Length": "0"
+}
