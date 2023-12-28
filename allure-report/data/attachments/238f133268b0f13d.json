@@ -1,0 +1,22 @@
+{
+    "Date": "Thu, 28 Dec 2023 19:44:21 GMT",
+    "Content-Type": "application/json",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Server": "nginx/1.25.2",
+    "x-amzn-RequestId": "62834b4e-6b3a-4a21-a057-bf4200de063c",
+    "x-amz-apigw-id": "Qq1zWG2imjQFSdw=",
+    "x-trace-id": "1df05785-1647-4bf6-90c8-86b32d45c39b",
+    "X-Amzn-Trace-Id": "Root=1-658dd015-46d4e73175b0e2d67822244d",
+    "x-correlation-id": "9d3a06d1-9b7d-47a4-b847-67c52cbad921",
+    "Set-Cookie": "incap_ses_1404_2842573=CAjXUakORTkO4RqjYwN8ExTQjWUAAAAAPVfeBPV+woUW1N2SNvi+qA==; path=/; Domain=.pef-int-nprd.payments.onefinancial.com.br; Secure; SameSite=None",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+    "X-CDN": "Imperva",
+    "Content-Encoding": "gzip",
+    "X-Iinfo": "14-77826615-77826618 NNYN CT(129 129 0) RT(1703792660529 14) q(0 0 3 -1) r(4 4) U11",
+    "vary": "Origin",
+    "Access-Control-Allow-Origin": "*",
+    "X-Kong-Upstream-Latency": "488",
+    "X-Kong-Proxy-Latency": "1",
+    "Via": "kong/2.1.4"
+}
