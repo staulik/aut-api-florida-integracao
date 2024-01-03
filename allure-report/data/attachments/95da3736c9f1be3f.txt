@@ -1,0 +1,2 @@
+level: log, messages: Valor da variável idProposta:,
+level: log, messages: Request generated at: 2024-01-03T19:44:44.471Z
