@@ -1,1 +1,0 @@
-{"timestamp":1704742873735,"code":500,"message":"Error to prepare response."}
