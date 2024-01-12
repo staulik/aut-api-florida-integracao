@@ -1,0 +1,10 @@
+{
+    "Cookie": "incap_ses_1452_2842573=FPKTS1iSm0KyeFH9yYomFLRjdmQAAAAACZMRbSjHLOYO+J+R3mmwbA==; incap_ses_1616_2842573=MRQMezu/Z2iAnai+sy9tFt6tdGQAAAAATkMF9at8TQUYByMimH4qJQ==; nlbi_2842573=/1UuY+ikyxatXQMFxcIi6gAAAAC+4+LESALKv+LQHug7irT4; visid_incap_2842573=OJnrMLxXSuu4WJzezUt89GIVUWQAAAAAQUIPAAAAAABAmXfPPG8q86a0RGPVtHnX",
+    "User-Agent": "PostmanRuntime/7.36.1",
+    "Accept": "*/*",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "e64aade1-efa4-45bf-8388-2772e544f197",
+    "Host": "kong-psd-hml-gke.pernambucanas.com.br",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive"
+}
