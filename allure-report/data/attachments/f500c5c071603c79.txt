@@ -1,0 +1,89 @@
+{
+    "cpf": "37936631089",
+    "nome": "Julia Teste",
+    "nomeMae": "Josefa Josefina",
+    "nomePai": "João Souza",
+    "dataNascimento": "1995-03-03",
+    "sexo": "F",
+    "idNacionalidade":1,
+    "numeroIdentidade": "97549788",
+    "dataEmissaoIdentidade": "1995-03-03",
+    "dataEmissaoCnh": "1995-03-03",
+    "orgaoExpedidorIdentidade": "SSP",
+    "numeroCNH": "32134354343",
+    "unidadeFederativaIdentidade": "SP",
+    "naturalidadeCidade": "São Paulo",
+    "naturalidadeEstado": "SP", 
+    "codigoRamoAtividade": 0,
+    "valorRenda":1000,
+    "patrimonioTotal": 0,
+    "email": "email@email.com",
+    "idEstabelecimento": 0,
+    "idEstadoCivil": 1,
+    "matricula": 0,
+    "idPromotorVenda": 55,
+    "tokenIndicacaoAmigo": "t1",
+    "valorPontuacao": 0,
+    "encaminharCartaoEndereco": true,
+    "pessoaPoliticamenteExposta": true,
+    "canalEntrada": "Canal_TESTE",
+    "deficienteVisual": true,
+    "telefones": [
+        {
+        "idTipoTelefone": 3,
+        "ddd":11,
+        "telefone": "944444444",
+        "ramal": "00"
+        }
+    ],
+    "enderecos": [
+        {
+        "idTipoEndereco": 1,
+        "logradouro": "Paulista",
+        "complemento": "22A",
+        "bairro": "Centro",
+        "numero": "226",
+        "cep": "22222222",
+        "pontoReferencia": "Prox Parque",
+        "cidade": "São Paulo",
+        "uf": "SP",
+        "pais": "Brazil",
+        "enderecoCorrespondencia": true
+        }
+    ],
+    "conta": {
+        "idProduto": 12,
+        "idOrigemComercial": 1,
+        "diaVencimento": 32,
+        "limiteGlobal": 777,
+        "limiteMaximo": 1234,
+        "limiteParcelas": 1234,
+        "limiteConsignado": 1234,
+        "faturaPorEmail": true,
+        "pacoteTarifa": 1,
+        "flagCreditoAtivo": true,
+        "flagDebitoAtivo": true,
+        "flagPLDiferenciado": true,
+        "flagOverLimit": true,
+        "flagCarteiraDigital": true,
+        "bonusCelular": {
+        "codigoOperadora": 1,
+        "ddd": 11,
+        "celular": "998556322"
+        },
+        "adicionais": [
+        
+			]
+    },
+    "assinaturaCliente": "string",
+    "neurotech": {
+        "imagesProcessId": "string",
+        "fotoBiometriaContingencia": true,
+        "fotoBiometriaRepositorio": true,
+        "fotoDocumentoContingencia": true,
+        "fotoDocumentoRepositorio": true,
+        "tokenAppStatus": "string",
+        "tokenAppReenvio": "string",
+        "tokenAppInvalido": "string"
+    }
+}
