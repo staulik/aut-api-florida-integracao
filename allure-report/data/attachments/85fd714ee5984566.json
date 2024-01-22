@@ -1,0 +1,11 @@
+{
+    "Date": "Mon, 22 Jan 2024 19:45:26 GMT",
+    "Content-Type": "application/json",
+    "Content-Length": "1031",
+    "Connection": "keep-alive",
+    "vary": "Origin",
+    "Access-Control-Allow-Origin": "*",
+    "X-Kong-Upstream-Latency": "4918",
+    "X-Kong-Proxy-Latency": "1",
+    "Via": "kong/2.1.4"
+}
