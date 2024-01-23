@@ -1,0 +1,17 @@
+{
+    "Date": "Tue, 23 Jan 2024 19:42:02 GMT",
+    "Content-Type": "application/json;charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Content-Security-Policy-Report-Only": "script-src https://dgay0d1ozp68.cloudfront.net https://1fpay-front-402813542107.auth.sa-east-1.amazoncognito.com; style-src https://dgay0d1ozp68.cloudfront.net https://1fpay-front-402813542107.auth.sa-east-1.amazoncognito.com; img-src https://dgay0d1ozp68.cloudfront.net https://1fpay-front-402813542107.auth.sa-east-1.amazoncognito.com; report-uri https://1fpay-front-402813542107.auth.sa-east-1.amazoncognito.com/cspreport",
+    "Set-Cookie": "XSRF-TOKEN=4e2739fd-5f4c-4ea9-98f4-4ff3e57905fc; Path=/; Secure; HttpOnly; SameSite=Lax",
+    "x-amz-cognito-request-id": "8ca66808-d84a-4b98-890b-13e311c5a67f",
+    "X-Content-Type-Options": "nosniff",
+    "X-XSS-Protection": "1; mode=block",
+    "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+    "Pragma": "no-cache",
+    "Expires": "0",
+    "Strict-Transport-Security": "max-age=31536000 ; includeSubDomains",
+    "X-Frame-Options": "DENY",
+    "Server": "Server"
+}
