@@ -1,0 +1,11 @@
+{
+    "Date": "Wed, 24 Jan 2024 19:46:23 GMT",
+    "Content-Type": "application/json",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "vary": "Origin",
+    "Access-Control-Allow-Origin": "*",
+    "X-Kong-Upstream-Latency": "33269",
+    "X-Kong-Proxy-Latency": "0",
+    "Via": "kong/2.1.4"
+}
