@@ -1,0 +1,3 @@
+level: log, messages: CPF gerado: 00010341544
+level: log, messages: Request generated at: 2024-01-29T19:45:48.791Z
+level: log, messages: O cpf gerado: undefined está associado ao idPessoa: undefined e a conta: undefined
