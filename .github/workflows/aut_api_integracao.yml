@@ -69,7 +69,7 @@ jobs:
         # Required sender full name (address can be skipped):
          from: staulik10@gmail.com
         # Optional plain body:
-         html_body: <p>Build de Teste Realizado ;) Projeto https://github.com/${{github.repository}} </p><br>
+         html_body: <p>Build de Testes Realizados ;) Projeto https://github.com/${{github.repository}} </p><br>
               <p>Link do Reporte do Projeto <a href="https://staulik.github.io/aut-api-florida-integracao/allure-report/#">Link Report</a></p>
          reply_to: silvio.aulik@gmail.com
         # Optional unsigned/invalid certificates allowance:
